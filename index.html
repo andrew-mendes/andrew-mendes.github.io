@@ -1,7 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <h1>Andru's in construction website</h1>
+    <ul>
+        <li><a href="">Music</a></li>
+        <li><a href="">Luthiery</a></li>
+        <li><a href="">Programming</a></li>
+        <li>
+            <button type="button" class="collapsible">Visual Arts</button>
+            <ul class="artContent">
+                <li><a href="">3D</a></li>
+                <li><a href="">Digital</a></li>
+                <li><a href="">Tattoo</a></li>
+                <li><a href="">Traditional</a></li>
+            </ul>
+        </li>
+    </ul>
+    <p>It's in construction as you see</p>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("mouseover", function() {
+                this.classList.add("active");
+                var artContent = this.nextElementSibling;
+                if (artContent) {
+                    artContent.style.maxHeight = artContent.scrollHeight + "px";
+                }
+            });
+            coll[i].addEventListener("mouseleave", function() {
+                this.classList.toggle("active");
+                var artContent = this.nextElementSibling;
+                if (artContent) {
+                    artContent.style.maxHeight = "0";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
