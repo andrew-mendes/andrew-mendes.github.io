@@ -3,40 +3,50 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body class="h-100 overflow-hidden">
-    <h1 class="bg-dark text-white text-center p-2"><strong>Andru's stuff</strong></h1>
-    <h5 class="text-center">Filter by one or more tags:</h5>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm flex-column justify-content-center bg-none">
-        <div class="container-fluid">
-            <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav d-flex flex-row flex-wrap gap-2">
-                    <li class="nav-item"><button class="btn btn-outline-danger">3D</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger text-nowrap">Digital Art</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">GameDev</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Logo</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Luthiery</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Music</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Painting</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Programming</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger">Tattoo</button></li>
-                    <li class="nav-item"><button class="btn btn-outline-danger text-nowrap">Traditional Art</button></li>
-                </ul>
+<body>
+    <div class="container-fluid mt-2">
+        <div class="bg-dark text-white d-flex justify-content-between">
+            <div class="container text-nowrap">
+                <h2 class="robotto-light">Andru's stuff</h2>
+            </div>
+            <div class="container text-nowrap text-end">
+                <span class=" text-white"><i class="bi bi-github"></i></span>
             </div>
         </div>
-    </nav>
-    <!-- CONTENT -->
-    <div class="h-auto">
-        <img src="./img/1.png">
-    </div>
-    <!-- FOOTER -->
-    <div class="footer navbar bg-dark fixed-bottom text-center">
-    <span class="mx-auto">Contact information and social media links</span>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-sm flex-column justify-content-center bg-none">
+            <div class="container-fluid">
+                <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav d-flex flex-row flex-wrap gap-2">
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">3D</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">Coding</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger text-nowrap">Digital Art</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">Experiments</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">GameDev</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">Music</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">Painting</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger">Tattoo</button></li>
+                        <li class="nav-item"><button class="btn btn-sm btn-outline-danger text-nowrap">Traditional Art</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- CONTENT -->
+        <div class="d-flex justify-content-center">
+            <img src="./img/1.png" class="w-auto">
+        </div>
+        <!-- FOOTER -->
+        <div class="footer py-0 navbar bg-dark fixed-bottom text-center">
+        <span class="mx-auto">Contact information and social media links</span>
+        </div>
     </div>
     <!-- BS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
