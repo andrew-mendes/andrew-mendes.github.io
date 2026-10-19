@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew Mendes - Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              plum: '#381631',
+              magenta: '#e21c61',
+              coral: '#e26159',
+              orange: '#fea85f',
+              sage: '#d8dcb4',
+              mint: '#5eb6ad',
+              teal: '#1b958d',
+              blue: '#105390'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #381631;
+      color: #d8dcb4;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #381631;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1b958d;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #fea85f;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#e21c61] selection:text-white relative overflow-x-hidden">
+
+  <!-- Ambient Background Lighting -->
+  <div class="fixed inset-0 pointer-events-none opacity-25">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#e21c61] rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-[#1b958d] rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-10 -left-20 w-80 h-80 bg-[#105390] rounded-full blur-[130px]"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-2xl mx-auto px-4 py-6 sm:py-10 flex-grow flex flex-col">
+
+    <!-- Header Bar: Language Switcher -->
+    <header class="flex justify-end items-center mb-6">
+      <div class="flex items-center gap-1.5 bg-[#381631]/80 backdrop-blur-md p-1.5 rounded-full border border-[#1b958d]/40 shadow-sm">
+        <!-- Brazilian Flag Button -->
+        <button id="btn-pt" onclick="setLanguage('pt')" title="Português" aria-label="Português" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200">
+          <svg class="w-full h-full object-cover" viewBox="0 0 720 504" xmlns="http://www.w3.org/2000/svg">
+            <rect width="720" height="504" fill="#009c3b"/>
+            <polygon points="360,37.8 682.2,252 360,466.2 37.8,252" fill="#ffdf00"/>
+            <circle cx="360" cy="252" r="126" fill="#002776"/>
+            <path d="M234,252 a126,126 0 0,0 248,32 a126,126 0 0,1 -248,-32" fill="#fff"/>
+          </svg>
+        </button>
+        <!-- UK Flag Button -->
+        <button id="btn-en" onclick="setLanguage('en')" title="English" aria-label="English" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200 opacity-60">
+          <svg class="w-full h-full object-cover" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+            <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+            <g clip-path="url(#s)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Bio / Profile Header -->
+    <section class="flex flex-col items-center text-center mb-8">
+      <div class="relative w-28 h-28 mb-4">
+        <div class="w-full h-full rounded-full bg-gradient-to-tr from-[#e21c61] via-[#fea85f] to-[#5eb6ad] p-[3px] shadow-lg">
+          <div class="w-full h-full rounded-full bg-[#381631] overflow-hidden flex items-center justify-center">
+            <!-- Profile Picture Placeholder -->
+            <img src="GoblygonFront.jpg" alt="Andrew Mendes" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="w-full h-full hidden items-center justify-center text-3xl font-bold text-[#d8dcb4] bg-[#381631]">AM</span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#d8dcb4] mb-2">Andrew Mendes</h1>
+      
+      <p id="bioSubtitle" class="text-xs sm:text-sm font-normal text-[#d8dcb4]/80 max-w-md leading-relaxed px-2 mb-4">
+        Lápis, pixels, tintas, código, pele, polígonos, uma impressora 3D e um violão. Não necessariamente nessa ordem.
+      </p>
+
+      <!-- Social Media Bar -->
+      <div class="flex items-center justify-center gap-3 mt-1">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5522997868711" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp" 
+           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.541 1.776.82 2.791.82 3.181 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.806-5.767-5.806zm0 10.428c-.887 0-1.593-.243-2.316-.672l-.166-.098-1.579.414.421-1.54-.108-.172c-.496-.787-.758-1.467-.758-2.364 0-2.457 1.999-4.456 4.458-4.456 2.458 0 4.456 1.999 4.456 4.456-.001 2.458-1.999 4.472-4.408 4.472zm2.443-3.328c-.134-.067-.793-.391-.916-.436-.123-.045-.213-.067-.302.067-.09.134-.347.436-.425.525-.079.09-.157.101-.291.034s-.566-.209-1.078-.665c-.399-.355-.668-.794-.746-.928-.078-.134-.008-.206.059-.273.06-.06.134-.157.202-.235.067-.078.09-.134.134-.224.045-.09.022-.168-.011-.235-.034-.067-.302-.728-.414-.997-.109-.262-.22-.227-.302-.231l-.258-.004c-.09 0-.235.034-.358.168s-.47 0.459-.47 1.12c0 .661.482 1.299.549 1.389.067.09.949 1.45 2.299 2.032.321.139.572.222.767.284.322.102.616.088.848.053.259-.039.793-.324.905-.638.112-.314.112-.583.078-.638-.034-.055-.123-.089-.257-.156z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.527 3.659 1.438 5.169L2 22l4.981-1.398A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.059c-1.635 0-3.155-.472-4.439-1.285l-.318-.202-2.964.831.846-2.893-.223-.332A8.026 8.026 0 014 12c0-4.411 3.589-8.059 8-8.059 4.411 0 8 3.648 8 8.059 0 4.412-3.589 8.059-8 8.059z"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:andrewmendes@gmail.com" title="E-mail" aria-label="E-mail"
+           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/mendesandrew/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"
+           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/andrew-mendes" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"
+           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="mb-8">
+      <h2 id="projectsHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-3">Projetos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+        
+        <!-- Goblygon (Light Green / Mint) -->
+        <a href="https://www.artstation.com/goblygon" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#5eb6ad]/60 hover:border-[#5eb6ad] hover:bg-[#5eb6ad]/10 text-[#d8dcb4] hover:text-[#5eb6ad] transition-all duration-200 shadow-sm text-center group">
+          <img src="GoblygonFront.jpg" alt="Goblygon" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="w-6 h-6 rounded-full bg-[#5eb6ad]/30 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">G</span>
+          <span class="text-xs font-medium leading-tight">Goblygon</span>
+        </a>
+
+        <!-- Inkalibur (Blue) -->
+        <a href="https://www.instagram.com/inkalibur/" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#105390] hover:border-[#5eb6ad] hover:bg-[#105390]/25 text-[#d8dcb4] hover:text-[#5eb6ad] transition-all duration-200 shadow-sm text-center group">
+          <img src="inkalibur.jpg" alt="Inkalibur" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="w-6 h-6 rounded-full bg-[#105390] text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">I</span>
+          <span class="text-xs font-medium leading-tight">Inkalibur</span>
+        </a>
+
+        <!-- CS50 (Red / Magenta) -->
+        <a href="https://github.com/andrew-mendes?tab=repositories&q=&type=public&language=&sort=stargazers" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#e21c61]/70 hover:border-[#e21c61] hover:bg-[#e21c61]/15 text-[#d8dcb4] hover:text-[#e26159] transition-all duration-200 shadow-sm text-center group">
+          <img src="questicon.jpg" alt="CS50" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="w-6 h-6 rounded-full bg-[#e21c61]/40 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">C</span>
+          <span class="text-xs font-medium leading-tight">CS50</span>
+        </a>
+
+        <!-- Games Ever Made (Warm Apricot / Orange) -->
+        <a href="https://games-ever-made.itch.io" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#fea85f]/70 hover:border-[#fea85f] hover:bg-[#fea85f]/15 text-[#d8dcb4] hover:text-[#fea85f] transition-all duration-200 shadow-sm text-center group">
+          <img src="GEMLogo_ColorAndWhite_BlackBG_512.png" alt="GEM" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="w-6 h-6 rounded-full bg-[#fea85f]/30 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">M</span>
+          <span class="text-xs font-medium leading-tight">Games Ever Made</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Tag Filters Section -->
+    <section class="mb-6">
+      <h2 id="filterHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-2.5">Filtre por tags:</h2>
+      <div id="tagContainer" class="flex flex-wrap gap-2">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Mixed Media Gallery Section -->
+    <section class="mb-8">
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Minimal Footer -->
+  <footer class="relative z-10 w-full border-t border-[#1b958d]/20 py-4 text-center text-[11px] text-[#d8dcb4]/50">
+    <p>© Andrew Mendes</p>
+  </footer>
+
+  <!-- Lightbox Modal Viewer -->
+  <div id="mediaModal" class="fixed inset-0 z-50 bg-[#381631]/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6" onclick="handleBackdropClick(event)">
+    <div class="relative w-full max-w-2xl bg-[#381631] border border-[#1b958d]/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header with Title & Close -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-[#1b958d]/30 bg-[#381631]/80">
+        <h3 id="modalTitle" class="text-sm font-semibold text-[#d8dcb4] truncate pr-2"></h3>
+        <button onclick="closeModal()" aria-label="Fechar" class="w-8 h-8 rounded-full bg-[#381631] border border-[#1b958d]/40 text-[#d8dcb4] hover:text-[#fea85f] hover:border-[#fea85f] flex items-center justify-center transition-colors shrink-0">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modalBody" class="p-3 sm:p-5 overflow-y-auto flex items-center justify-center custom-scrollbar">
+        <!-- Injected dynamically -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Data & Logic -->
+  <script>
+    // Bilingual dictionary for dynamic swapping
+    const i18n = {
+      pt: {
+        projectsTitle: "Projetos",
+        filterHeading: "Filtre por tags:",
+        bioSubtitle: "Lápis, pixels, tintas, código, pele, polígonos, uma impressora 3D e um violão. Não necessariamente nessa ordem.",
+        all: "Todos",
+        tags: {
+          Tradicional: "Tradicional",
+          Digital: "Digital",
+          "2D": "2D",
+          "3D": "3D",
+          Escultura: "Escultura",
+          Tattoo: "Tattoo",
+          "Código": "Código",
+          "Música": "Música"
+        }
+      },
+      en: {
+        projectsTitle: "Projects",
+        filterHeading: "Filter by tags:",
+        bioSubtitle: "Pencil, pixels, paint, code, skin, polygons, a 3D printer and a guitar. Not necessarily in that order.",
+        all: "All",
+        tags: {
+          Tradicional: "Traditional",
+          Digital: "Digital",
+          "2D": "2D",
+          "3D": "3D",
+          Escultura: "Sculpture",
+          Tattoo: "Tattoo",
+          "Código": "Code",
+          "Música": "Music"
+        }
+      }
+    };
+
+    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Tattoo", "Código", "Música"];
+
+    // Gallery entries with tags, titles, and media handlers
+    const galleryItems = [
+      {
+        id: 1,
+        type: "image",
+        tags: ["3D", "Digital", "Escultura"],
+        title: { pt: "Busto Orc Escultura 3D", en: "Orc Bust 3D Sculpture" },
+        src: "GoblygonFront.jpg"
+      },
+      {
+        id: 2,
+        type: "image",
+        tags: ["Tattoo", "Tradicional", "2D"],
+        title: { pt: "Inkalibur Flash Tattoo", en: "Inkalibur Flash Tattoo" },
+        src: "inkalibur.jpg"
+      },
+      {
+        id: 3,
+        type: "audio",
+        tags: ["Música"],
+        title: { pt: "Composição Acústica Violão", en: "Acoustic Guitar Track" },
+        coverUrl: "questicon.jpg",
+        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      },
+      {
+        id: 4,
+        type: "image",
+        tags: ["2D", "Digital"],
+        title: { pt: "Games Ever Made Brand", en: "Games Ever Made Brand" },
+        src: "GEMLogo_ColorAndWhite_BlackBG_512.png"
+      },
+      {
+        id: 5,
+        type: "video",
+        tags: ["3D", "Digital"],
+        title: { pt: "Timelapse de Modelagem", en: "Sculpting Timelapse" },
+        src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        poster: "GoblygonFront.jpg"
+      },
+      {
+        id: 6,
+        type: "code",
+        tags: ["Código"],
+        title: { pt: "CS50 Algoritmo C / Python", en: "CS50 C / Python Algorithm" },
+        codeSnippet: `// Frets Spacing Calculator\n#include <stdio.h>\n#include <math.h>\n\nvoid calculate_frets(double scale, int num_frets) {\n    double d = 0;\n    for (int i = 1; i <= num_frets; i++) {\n        d = scale - (scale / pow(2.0, (double)i / 12.0));\n        printf("Fret %2d: %6.2f mm\\n", i, d);\n    }\n}`
+      }
+    ];
+
+    let currentLang = "pt";
+    let activeTag = "all";
+    let activeModalItem = null;
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Update UI button highlights
+      const btnPt = document.getElementById("btn-pt");
+      const btnEn = document.getElementById("btn-en");
+      if (lang === "pt") {
+        btnPt.classList.remove("opacity-60");
+        btnPt.classList.add("border-[#fea85f]");
+        btnEn.classList.add("opacity-60");
+        btnEn.classList.remove("border-[#fea85f]");
+      } else {
+        btnEn.classList.remove("opacity-60");
+        btnEn.classList.add("border-[#fea85f]");
+        btnPt.classList.add("opacity-60");
+        btnPt.classList.remove("border-[#fea85f]");
+      }
+
+      // Update text strings
+      document.getElementById("projectsHeading").textContent = i18n[lang].projectsTitle;
+      document.getElementById("filterHeading").textContent = i18n[lang].filterHeading;
+      document.getElementById("bioSubtitle").textContent = i18n[lang].bioSubtitle;
+
+      // Re-render tags and gallery
+      renderTags();
+      renderGallery();
+
+      // Update modal title if open
+      if (activeModalItem) {
+        document.getElementById("modalTitle").textContent = activeModalItem.title[currentLang];
+      }
+    }
+
+    function renderTags() {
+      const container = document.getElementById("tagContainer");
+      container.innerHTML = "";
+
+      // 'All' button
+      const allBtn = document.createElement("button");
+      allBtn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
+        activeTag === "all"
+          ? "bg-[#fea85f] text-[#381631] border-[#fea85f] font-semibold"
+          : "bg-[#381631] text-[#d8dcb4] border-[#1b958d]/40 hover:border-[#fea85f]"
+      }`;
+      allBtn.textContent = i18n[currentLang].all;
+      allBtn.onclick = () => { activeTag = "all"; renderTags(); renderGallery(); };
+      container.appendChild(allBtn);
+
+      // Specific tag buttons
+      tagKeys.forEach(tagKey => {
+        const btn = document.createElement("button");
+        const isActive = activeTag === tagKey;
+        btn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
+          isActive
+            ? "bg-[#5eb6ad] text-[#381631] border-[#5eb6ad] font-semibold"
+            : "bg-[#381631] text-[#d8dcb4] border-[#1b958d]/40 hover:border-[#5eb6ad]"
+        }`;
+        btn.textContent = i18n[currentLang].tags[tagKey];
+        btn.onclick = () => { activeTag = tagKey; renderTags(); renderGallery(); };
+        container.appendChild(btn);
+      });
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+
+      const filtered = activeTag === "all"
+        ? galleryItems
+        : galleryItems.filter(item => item.tags.includes(activeTag));
+
+      filtered.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "group relative aspect-square rounded-xl overflow-hidden bg-[#381631] border border-[#1b958d]/30 hover:border-[#fea85f] transition-all duration-200 cursor-pointer shadow-sm";
+        card.onclick = () => openModal(item);
+
+        let innerContent = "";
+        const titleText = item.title[currentLang];
+
+        if (item.type === "image") {
+          innerContent = `
+            <img src="${item.src}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
+          `;
+        } else if (item.type === "video") {
+          innerContent = `
+            <div class="relative w-full h-full bg-[#105390]/40 flex items-center justify-center">
+              <img src="${item.poster || 'GoblygonFront.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="w-10 h-10 rounded-full bg-[#e21c61]/80 group-hover:bg-[#e21c61] text-white flex items-center justify-center pl-0.5 shadow-md transition-colors">▶</span>
+              </div>
+            </div>
+          `;
+        } else if (item.type === "audio") {
+          innerContent = `
+            <div class="relative w-full h-full bg-[#381631] overflow-hidden">
+              <img src="${item.coverUrl || 'questicon.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#381631] via-[#381631]/40 to-transparent flex flex-col justify-between p-3">
+                <span class="self-end w-7 h-7 rounded-full bg-[#fea85f] text-[#381631] flex items-center justify-center text-xs font-bold shadow">♪</span>
+                <div class="flex items-center gap-2">
+                  <span class="w-8 h-8 rounded-full bg-[#1b958d] text-white flex items-center justify-center text-xs shadow">▶</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (item.type === "code") {
+          innerContent = `
+            <div class="w-full h-full p-3.5 bg-[#381631] flex flex-col justify-between font-mono text-[10px] text-[#5eb6ad] overflow-hidden">
+              <div class="text-[9px] uppercase tracking-widest text-[#e21c61] font-bold">SOURCE CODE</div>
+              <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
+              <div class="text-[9px] text-[#fea85f]">&lt;/&gt; View Code</div>
+            </div>
+          `;
+        }
+
+        // Overlay with Title Banner
+        card.innerHTML = `
+          ${innerContent}
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/80 to-transparent p-2.5 pt-6 pointer-events-none">
+            <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] truncate transition-colors">${titleText}</p>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function openModal(item) {
+      activeModalItem = item;
+      const modal = document.getElementById("mediaModal");
+      const titleElem = document.getElementById("modalTitle");
+      const bodyElem = document.getElementById("modalBody");
+
+      titleElem.textContent = item.title[currentLang];
+      bodyElem.innerHTML = "";
+
+      if (item.type === "image") {
+        bodyElem.innerHTML = `
+          <img src="${item.src}" alt="${item.title[currentLang]}" class="max-h-[75vh] w-auto max-w-full rounded-lg object-contain" onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Image';">
+        `;
+      } else if (item.type === "video") {
+        bodyElem.innerHTML = `
+          <video controls autoplay class="w-full max-h-[75vh] rounded-lg bg-black">
+            <source src="${item.src}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        `;
+      } else if (item.type === "audio") {
+        bodyElem.innerHTML = `
+          <div class="flex flex-col items-center gap-4 w-full max-w-md py-4">
+            <img src="${item.coverUrl || 'questicon.jpg'}" alt="Cover" class="w-48 h-48 rounded-xl object-cover shadow-lg border border-[#1b958d]/40" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Track';">
+            <audio controls autoplay class="w-full mt-2">
+              <source src="${item.src}" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        `;
+      } else if (item.type === "code") {
+        bodyElem.innerHTML = `
+          <div class="w-full">
+            <pre class="bg-[#381631] p-4 rounded-xl text-xs font-mono text-[#5eb6ad] border border-[#1b958d]/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+          </div>
+        `;
+      }
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("mediaModal");
+      const bodyElem = document.getElementById("modalBody");
+      
+      // Stop media playback
+      const media = bodyElem.querySelector("video, audio");
+      if (media) media.pause();
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      bodyElem.innerHTML = "";
+      activeModalItem = null;
+    }
+
+    function handleBackdropClick(event) {
+      if (event.target.id === "mediaModal") closeModal();
+    }
+
+    // Dismiss on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Initialize page
+    setLanguage("pt");
+  </script>
+</body>
+</html>
