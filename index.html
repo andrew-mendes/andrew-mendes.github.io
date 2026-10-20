@@ -64,7 +64,7 @@
       <div class="flex items-center gap-1.5 bg-[#381631]/80 backdrop-blur-md p-1.5 rounded-full border border-[#1b958d]/40 shadow-sm">
         <!-- Brazilian Flag Button -->
         <button id="btn-pt" onclick="setLanguage('pt')" title="Português" aria-label="Português" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200">
-          <svg class="w-full h-full object-cover" viewBox="0 0 720 504" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-full h-full" viewBox="0 0 720 504" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <rect width="720" height="504" fill="#009c3b"/>
             <polygon points="360,37.8 682.2,252 360,466.2 37.8,252" fill="#ffdf00"/>
             <circle cx="360" cy="252" r="126" fill="#002776"/>
@@ -73,7 +73,7 @@
         </button>
         <!-- UK Flag Button -->
         <button id="btn-en" onclick="setLanguage('en')" title="English" aria-label="English" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200 opacity-60">
-          <svg class="w-full h-full object-cover" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-full h-full" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
             <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
             <g clip-path="url(#s)">
@@ -174,7 +174,7 @@
         <!-- Games Ever Made (Warm Apricot / Orange) -->
         <a href="https://games-ever-made.itch.io" target="_blank" rel="noopener noreferrer"
            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#fea85f]/70 hover:border-[#fea85f] hover:bg-[#fea85f]/15 text-[#d8dcb4] hover:text-[#fea85f] transition-all duration-200 shadow-sm text-center group">
-          <img src="GEM.jpg" alt="GEM" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="assets/GEM.jpg" alt="GEM" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span class="w-6 h-6 rounded-full bg-[#fea85f]/30 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">M</span>
           <span class="text-xs font-medium leading-tight">Games Ever Made</span>
         </a>
@@ -218,7 +218,7 @@
 
           <!-- Ferramentas & Software -->
           <div>
-            <h4 id="toolsSubtitle" class="text-[11px] uppercase tracking-wider font-semibold text-[#fea85f] mb-2">
+            <h4 id="toolsSubtitle" class="text-[11px] uppercase tracking-wider font-semibold text-[#5eb6ad] mb-2">
               Ferramentas & Software
             </h4>
             <div class="flex flex-wrap gap-1.5 text-xs text-[#d8dcb4]">
@@ -301,6 +301,7 @@
           "2D": "2D",
           "3D": "3D",
           Escultura: "Escultura",
+          Pintura: "Pintura",
           Tattoo: "Tattoo",
           "Código": "Código",
           "Música": "Música",
@@ -321,6 +322,7 @@
           "2D": "2D",
           "3D": "3D",
           Escultura: "Sculpture",
+          Pintura: "Painting",
           Tattoo: "Tattoo",
           "Código": "Code",
           "Música": "Music",
@@ -343,55 +345,63 @@
       }
     }
 
-    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Tattoo", "Código", "Música", "Luthieria"];
+    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Pintura", "Tattoo", "Código", "Música", "Luthieria"];
 
     // Gallery entries with tags, titles, and media handlers
-    // Para itens com múltiplas fotos, basta colocar o array 'images'
     const galleryItems = [
       {
         id: 1,
         type: "image",
         tags: ["3D", "Digital", "Escultura"],
-        title: { pt: "Busto Ronaldinho 'O Bruxo'", en: "Ronaldinho 'The Wizard' Bust" },
+        title: { pt: "Busto de Ronaldinho 'O Bruxo'", en: "Ronaldinho 'The Wizard' Bust" },
         src: "assets/RonaldinhoCover.jpg",
         images: ["assets/Ronaldinho.jpg", "assets/Ronaldinho1.jpg", "assets/Ronaldinho2.jpg", "assets/Ronaldinho3.jpg"]
       },
       {
         id: 2,
         type: "image",
-        tags: ["Tattoo", "Tradicional", "2D"],
-        title: { pt: "Inkalibur Flash Tattoo", en: "Inkalibur Flash Tattoo" },
-        src: "inkalibur.jpg"
+        tags: ["Tattoo", "Tradicional"],
+        title: { pt: "Tattoo Fine Line de Beija-Flor", en: "Hummingbird Fine Line Tattoo" },
+        src: "assets/TattooBeijaFlor.jpg"
       },
       {
         id: 3,
-        type: "audio",
-        tags: ["Música"],
-        title: { pt: "Composição Acústica Violão", en: "Acoustic Guitar Track" },
-        coverUrl: "CS50.jpg",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        type: "image",
+        tags: ["Tradicional"],
+        title: { pt: "Retrato de Rafael Bittencourt", en: "Rafael Bittencourt Portrait" },
+        src: "assets/DesenhoRafael.jpg"
       },
       {
         id: 4,
-        type: "image",
-        tags: ["2D", "Digital"],
-        title: { pt: "Games Ever Made Brand", en: "Games Ever Made Brand" },
-        src: "GEM.jpg"
+        type: "audio",
+        tags: ["Música"],
+        title: { pt: "Pé na Estrada", en: "Pé na Estrada <i>(Hit the Road)</i>" },
+        coverUrl: "assets/ChillinQuest.jpg",
+        src: "assets/Pe_Na_Estrada.mp3",
+        description: {
+          pt: "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
+          en: "Home recording of Chillin' Quest's original soundtrack, final project for Harvard's CS50."
+        }
       },
       {
         id: 5,
-        type: "video",
-        tags: ["3D", "Digital"],
-        title: { pt: "Timelapse de Modelagem", en: "Sculpting Timelapse" },
-        src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        poster: "GoblygonFront.jpg"
+        type: "image",
+        tags: ["3D", "Tradicional", "Escultura", "Pintura"],
+        title: { pt: "Estátua de Oxossi", en: "Oxossi Sculpture" },
+        src: "assets/OxossiEstatua.jpg",
+        images: ["assets/OxossiEstatua.jpg", "assets/OxossiEstatua1.jpg", "assets/OxossiEstatua2.jpg", "assets/OxossiEstatua3.jpg", "assets/OxossiEstatua4.jpg"],
       },
       {
         id: 6,
-        type: "code",
-        tags: ["Código", "Luthieria"],
-        title: { pt: "CS50 Algoritmo C / Python", en: "CS50 C / Python Algorithm" },
-        codeSnippet: `// Frets Spacing Calculator\n#include <stdio.h>\n#include <math.h>\n\nvoid calculate_frets(double scale, int num_frets) {\n    double d = 0;\n    for (int i = 1; i <= num_frets; i++) {\n        d = scale - (scale / pow(2.0, (double)i / 12.0));\n        printf("Fret %2d: %6.2f mm\\n", i, d);\n    }\n}`
+        type: "image",
+        tags: ["Luthieria","Pintura"],
+        title: { pt: "Restauração e Conversão de violão", en: "Restoration and Conversion of Guitar" },
+        src: "assets/7cordasCover.jpg",
+        images: ["assets/7cordas.jpg", "assets/7cordas1.jpg", "assets/7cordas2.jpg", "assets/7cordas3.jpg", "assets/7cordas4.jpg"],
+        description: {
+          pt: "Restauração de um violão de 12 cordas (aço), convertido pra 7 cordas (nylon) com decoração customizada em marchetaria.",
+          en: "Restoration of a steel 12-strings guitar, converted to nylon 7-strings and custom decoration in marquetry."
+        }
       }
     ];
 
@@ -402,7 +412,6 @@
     function setLanguage(lang) {
       currentLang = lang;
       
-      // Update UI button highlights
       const btnPt = document.getElementById("btn-pt");
       const btnEn = document.getElementById("btn-en");
       if (lang === "pt") {
@@ -417,7 +426,6 @@
         btnPt.classList.remove("border-[#fea85f]");
       }
 
-      // Update text strings
       document.getElementById("projectsHeading").textContent = i18n[lang].projectsTitle;
       document.getElementById("filterHeading").textContent = i18n[lang].filterHeading;
       document.getElementById("bioSubtitle").textContent = i18n[lang].bioSubtitle;
@@ -425,13 +433,15 @@
       document.getElementById("craftsSubtitle").textContent = i18n[lang].craftsSubtitle;
       document.getElementById("toolsSubtitle").textContent = i18n[lang].toolsSubtitle;
 
-      // Re-render tags and gallery
       renderTags();
       renderGallery();
 
-      // Update modal title if open
       if (activeModalItem) {
-        document.getElementById("modalTitle").textContent = activeModalItem.title[currentLang];
+        document.getElementById("modalTitle").innerHTML = activeModalItem.title[currentLang];
+        const descElem = document.getElementById("modalDescriptionText");
+        if (descElem && activeModalItem.description && activeModalItem.description[currentLang]) {
+          descElem.innerHTML = activeModalItem.description[currentLang];
+        }
       }
     }
 
@@ -439,7 +449,6 @@
       const container = document.getElementById("tagContainer");
       container.innerHTML = "";
 
-      // 'All' button
       const allBtn = document.createElement("button");
       allBtn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
         activeTag === "all"
@@ -450,7 +459,6 @@
       allBtn.onclick = () => { activeTag = "all"; renderTags(); renderGallery(); };
       container.appendChild(allBtn);
 
-      // Specific tag buttons
       tagKeys.forEach(tagKey => {
         const btn = document.createElement("button");
         const isActive = activeTag === tagKey;
@@ -459,7 +467,7 @@
             ? "bg-[#5eb6ad] text-[#381631] border-[#5eb6ad] font-semibold"
             : "bg-[#381631] text-[#d8dcb4] border-[#1b958d]/40 hover:border-[#5eb6ad]"
         }`;
-        btn.textContent = i18n[currentLang].tags[tagKey];
+        btn.textContent = (i18n[currentLang].tags && i18n[currentLang].tags[tagKey]) || tagKey;
         btn.onclick = () => { activeTag = tagKey; renderTags(); renderGallery(); };
         container.appendChild(btn);
       });
@@ -497,7 +505,7 @@
         } else if (item.type === "video") {
           innerContent = `
             <div class="relative w-full h-full bg-[#105390]/40 flex items-center justify-center">
-              <img src="${item.poster || 'GoblygonFront.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
+              <img src="${item.poster || 'assets/Goblygon.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
               <div class="absolute inset-0 flex items-center justify-center">
                 <span class="w-10 h-10 rounded-full bg-[#e21c61]/80 group-hover:bg-[#e21c61] text-white flex items-center justify-center pl-0.5 shadow-md transition-colors">▶</span>
               </div>
@@ -506,7 +514,7 @@
         } else if (item.type === "audio") {
           innerContent = `
             <div class="relative w-full h-full bg-[#381631] overflow-hidden">
-              <img src="${item.coverUrl || 'CS50.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
               <div class="absolute inset-0 bg-gradient-to-t from-[#381631] via-[#381631]/40 to-transparent flex flex-col justify-between p-3">
                 <span class="self-end w-7 h-7 rounded-full bg-[#fea85f] text-[#381631] flex items-center justify-center text-xs font-bold shadow">♪</span>
                 <div class="flex items-center gap-2">
@@ -525,7 +533,6 @@
           `;
         }
 
-        // Overlay with Title Banner
         card.innerHTML = `
           ${innerContent}
           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/80 to-transparent p-2.5 pt-6 pointer-events-none">
@@ -543,7 +550,6 @@
         mainImg.src = imgUrl;
       }
       
-      // Atualiza borda das miniaturas
       document.querySelectorAll(".thumb-btn").forEach(btn => {
         btn.classList.remove("border-[#fea85f]", "opacity-100");
         btn.classList.add("border-[#1b958d]/40", "opacity-50");
@@ -553,29 +559,58 @@
       clickedBtn.classList.add("border-[#fea85f]", "opacity-100");
     }
 
+    function toggleModalDescription() {
+      const panel = document.getElementById("modalDescriptionPanel");
+      if (!panel) return;
+
+      if (panel.style.display === "none" || panel.style.display === "") {
+        panel.style.display = "flex";
+      } else {
+        panel.style.display = "none";
+      }
+    }
+
     function openModal(item) {
       activeModalItem = item;
       const modal = document.getElementById("mediaModal");
       const titleElem = document.getElementById("modalTitle");
       const bodyElem = document.getElementById("modalBody");
 
-      titleElem.textContent = item.title[currentLang];
+      titleElem.innerHTML = item.title[currentLang];
       bodyElem.innerHTML = "";
 
       if (item.type === "image") {
         const imgList = item.images && item.images.length > 0 ? item.images : [item.src];
         const hasMultiple = imgList.length > 1;
+        const hasDesc = item.description && item.description[currentLang];
 
         bodyElem.innerHTML = `
           <div class="flex flex-col items-center w-full">
-            <!-- Imagem Principal -->
-            <div class="w-full flex items-center justify-center max-h-[58vh] sm:max-h-[66vh] mb-3">
+            <!-- Container da Imagem com elementos flutuantes -->
+            <div class="relative inline-block max-w-full max-h-[58vh] sm:max-h-[66vh] mb-3">
               <img id="activeModalImg" src="${imgList[0]}" alt="${item.title[currentLang]}" 
-                   class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full rounded-lg object-contain transition-all duration-200" 
+                   class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full block rounded-xl object-contain shadow-md" 
                    onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Image';">
+              
+              ${hasDesc ? `
+                <!-- Botão ℹ fixo no canto da imagem -->
+                <button type="button" onclick="event.stopPropagation(); toggleModalDescription();" title="Informações" aria-label="Informações"
+                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-[#381631]/85 hover:bg-[#381631] text-[#fea85f] border border-[#1b958d]/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
+                  ℹ
+                </button>
+
+                <!-- Descrição com fundo apenas no texto (sem caixa de borda a borda) -->
+                <div id="modalDescriptionPanel" style="display: none;" 
+                     class="absolute inset-x-0 bottom-3 px-3 sm:px-4 z-20 flex justify-center pointer-events-none">
+                  <p id="modalDescriptionText" 
+                     class="inline-block bg-[#381631]/85 backdrop-blur-md text-[#d8dcb4] border border-[#1b958d]/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
+                    ${item.description[currentLang]}
+                  </p>
+                </div>
+              ` : ''}
             </div>
 
-            <!-- Fita de Miniaturas (se houver mais de uma) -->
+            <!-- Miniaturas -->
             ${hasMultiple ? `
               <div class="flex items-center gap-2 overflow-x-auto max-w-full py-1.5 px-2 custom-scrollbar">
                 ${imgList.map((img, idx) => `
@@ -596,13 +631,31 @@
           </video>
         `;
       } else if (item.type === "audio") {
+        const hasDesc = item.description && item.description[currentLang];
+
         bodyElem.innerHTML = `
-          <div class="flex flex-col items-center gap-4 w-full max-w-md py-4">
-            <img src="${item.coverUrl || 'CS50.jpg'}" alt="Cover" class="w-48 h-48 rounded-xl object-cover shadow-lg border border-[#1b958d]/40" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Track';">
-            <audio controls autoplay class="w-full mt-2">
-              <source src="${item.src}" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
+          <div class="flex flex-col items-center w-full max-w-sm mx-auto py-2">
+            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-[#1b958d]/40 shadow-xl bg-[#381631]">
+              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${item.title[currentLang]}" 
+                  class="w-full h-full object-cover" 
+                  onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+              
+              ${hasDesc ? `
+                <div class="absolute inset-x-0 bottom-3 px-3 flex justify-center pointer-events-none">
+                  <p id="modalDescriptionText" class="inline-block bg-[#381631]/65 backdrop-blur-[2px] text-[#d8dcb4] text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-sm">
+                    ${item.description[currentLang]}
+                  </p>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Audio Player -->
+            <div class="w-full mt-4">
+              <audio controls autoplay class="w-full rounded-full shadow-md">
+                <source src="${item.src}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
           </div>
         `;
       } else if (item.type === "code") {
@@ -621,7 +674,6 @@
       const modal = document.getElementById("mediaModal");
       const bodyElem = document.getElementById("modalBody");
       
-      // Stop media playback
       const media = bodyElem.querySelector("video, audio");
       if (media) media.pause();
 
@@ -635,7 +687,6 @@
       if (event.target.id === "mediaModal") closeModal();
     }
 
-    // Dismiss on Escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeModal();
     });
