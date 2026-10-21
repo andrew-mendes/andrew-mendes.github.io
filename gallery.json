@@ -75,7 +75,7 @@
   "id": 10,
   "type": "video",
   "tags": ["Código", "Digital"],
-  "title": { "pt": "Chillin' Quest - CS50", "en": "Chillin' Quest - CS50" },
+  "title": { "pt": "Trailer de Chillin' Quest - Projeto Final do CS50", "en": "Chillin' Quest Trailer - CS50 Final Project" },
   "youtubeId": "in0qF2AU-YU",
   "poster": "assets/ChillinQuest.jpg"
 }, {
@@ -181,7 +181,7 @@
   "id": 24,
   "type": "video",
   "tags": ["Código", "Digital"],
-  "title": { "pt": "Brazil Fire Tracker - CS50", "en": "Brazil Fire Tracker - CS50" },
+  "title": { "pt": "Trailer de Brazil Fire Tracker - Projeto Final do CS50w", "en": "Brazil Fire Tracker Trailer- CS50w Final Project" },
   "youtubeId": "T-61iMFjbik",
   "poster": "assets/BrazilFireTracker.jpg"
 }, {
@@ -223,5 +223,30 @@
       "pt": "Trilha sonora em parceria com Felipe Gil e Alisson Lindote pro jogo SaaS, com a Games Ever Made",
       "en": "Soundtrack in partnership with Felipe Gil and Alisson Lindote for the game SaaS, with Games Ever Made"
     }
+}, {
+    "id": 30,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting", "GameDev"],
+    "title": { "pt": "Belzosbul - Personagem original de Summoning as a Service", "en": "Beelzosbub - Original Character from Summoning as a Service" },
+    "src": "assets/Belzosbul.jpg",
+    "images": ["assets/Belzosbul.jpg", "assets/Belzosbul1.jpg"],
+    "description": {
+      "pt": "Qualquer semelhança é mera coincidência. SaaS é um jogo feito com a Games Ever Made.",
+      "en": "Any resemblance is purely coincidental. SaaS is a game made with Games Ever Made."
+    }
+}, {
+    "id": 31,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting", "GameDev"],
+    "title": { "pt": "Sprites em pixel art pra protótipo de jogo sobre Cangaço", "en": "Sprites in Pixel Art for Game Prototype base on the Cangaço" },
+    "src": "assets/Caatinga.gif",
+    "images": ["assets/Caatinga.gif", "assets/Caatinga1.gif", "assets/Caatinga2.gif", "assets/Caatinga3.gif", "assets/Caatinga4.gif", "assets/Caatinga5.gif"]
+}, {
+    "id": 32,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting", "GameDev"],
+    "title": { "pt": "Arte Conceitual pra Jogo Sobre o Cangaço", "en": "Concept Art for Game on the Cangaço"},
+    "src": "assets/CaatingaConcept.jpg",
+    "images": ["assets/CaatingaConcept.jpg", "assets/CaatingaConcept1.jpg", "assets/CaatingaConcept2.jpg"]
 }
 ]
