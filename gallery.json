@@ -22,7 +22,7 @@
   "type": "audio",
   "tags": ["Música"],
   "title": { "pt": "Pé na Estrada", "en": "Pé na Estrada <i>(Hit the Road)</i>" },
-  "coverUrl": "assets/ChillinQuest.jpg",
+  "coverUrl": "assets/ChillinQuestSepia.jpg",
   "src": "assets/PeNaEstrada.mp3",
   "description": {
     "pt": "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
@@ -75,7 +75,7 @@
   "id": 10,
   "type": "video",
   "tags": ["Código", "Digital"],
-  "title": { "pt": "Trailer de Chillin' Quest - CS50", "en": "Chillin' Quest Trailer - CS50" },
+  "title": { "pt": "Chillin' Quest - CS50", "en": "Chillin' Quest - CS50" },
   "youtubeId": "in0qF2AU-YU",
   "poster": "assets/ChillinQuest.jpg"
 }, {
@@ -177,5 +177,12 @@
     "title": { "pt": "Escultura 3D de Oxossi", "en": "3D Sculpture of Oxossi" },
     "src": "assets/OxossiCover.jpg",
     "images": ["assets/Oxossi.jpg", "assets/Oxossi1.jpg", "assets/Oxossi2.jpg", "assets/OxossiCover.jpg"]
+}, {
+  "id": 24,
+  "type": "video",
+  "tags": ["Código", "Digital"],
+  "title": { "pt": "Brazil Fire Tracker - CS50", "en": "Brazil Fire Tracker - CS50" },
+  "youtubeId": "T-61iMFjbik",
+  "poster": "assets/BrazilFireTracker.jpg"
 }
 ]
