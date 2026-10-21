@@ -103,7 +103,7 @@
       <h1 class="text-2xl sm:text-3xl tracking-tight text-[#d8dcb4] mb-2">Andrew Mendes</h1>
       
       <p id="bioSubtitle" class="text-xs sm:text-sm font-normal text-[#d8dcb4]/80 max-w-md leading-relaxed px-2 mb-4">
-        Lápis, pixels, tintas, código, pele, polígonos, uma impressora 3D e um violão. Não necessariamente nessa ordem.
+        Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.
       </p>
 
       <!-- Social Media Bar -->
@@ -276,10 +276,9 @@
       </div>
 
       <!-- Modal Body -->
-      <div id="modalBody" class="p-3 sm:p-5 overflow-y-auto flex items-center justify-center custom-scrollbar">
+      <div id="modalBody" class="p-3 sm:p-5 pt-4 sm:pt-7 overflow-y-auto flex items-center justify-center custom-scrollbar">
         <!-- Injected dynamically -->
       </div>
-
     </div>
   </div>
 
@@ -293,7 +292,7 @@
         toolsSubtitle: "Ferramentas & Software",
         projectsTitle: "Projetos",
         filterHeading: "Filtre por tags:",
-        bioSubtitle: "Lápis, pixels, tintas, código, pele, polígonos, uma impressora 3D e um violão. Não necessariamente nessa ordem.",
+        bioSubtitle: "Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.",
         all: "Todos",
         tags: {
           Tradicional: "Tradicional",
@@ -314,7 +313,7 @@
         toolsSubtitle: "Tools & Software",
         projectsTitle: "Projects",
         filterHeading: "Filter by tags:",
-        bioSubtitle: "Pencil, pixels, paint, code, skin, polygons, a 3D printer and a guitar. Not necessarily in that order.",
+        bioSubtitle: "Pencil, pixels, paint, code, skin, polygons, a guitar and a 3D printer. Not necessarily in that order.",
         all: "All",
         tags: {
           Tradicional: "Traditional",
@@ -402,7 +401,57 @@
           pt: "Restauração de um violão de 12 cordas (aço), convertido pra 7 cordas (nylon) com decoração customizada em marchetaria.",
           en: "Restoration of a steel 12-strings guitar, converted to nylon 7-strings and custom decoration in marquetry."
         }
-      }
+      },
+      {
+        id: 7,
+        type: "image",
+        tags: ["Tattoo","Pintura", "Tradicional"],
+        title: { pt: "Tattoo do Super Mario", en: "Super Mario Tattoo" },
+        src: "assets/TattooMario.jpg",
+        images: ["assets/TattooMario.jpg"],
+      },
+      {
+        id: 8,
+        type: "audio",
+        tags: ["Música","Digital"],
+        title: { pt: "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>", en: "Shipping Shipping Ships" },
+        src: "assets/Shipping_Shipping_Ships.mp3",
+        coverUrl: "assets/SpaceLtd.jpg",
+        description: {
+          pt: "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
+          en: "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
+        }
+      },
+      {
+        id: 9,
+        type: "image",
+        tags: ["3D", "Digital", "Escultura"],
+        title: { pt: "Busto de Joel Miller", en: "Joel Miller Bust" },
+        src: "assets/JoelCover.jpg",
+        images: ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"],
+      },
+      {
+        id: 10,
+        type: "video",
+        tags: ["Código", "Digital"],
+        title: { pt: "Trailer de Chillin' Quest - CS50", en: "Chillin' Quest Trailer - CS50" },
+        youtubeId: "in0qF2AU-YU",
+        poster: "assets/ChillinQuest.jpg"
+      },
+      {
+        id: 11,
+        type: "image",
+        tags: ["2D", "Digital", "Tradicional","Pintura"],
+        title: { pt: "Academia Seguindo Saúde", en: "Seguindo Saúde Gym"},
+        src: "assets/SeguindoSaude.jpg",
+        images: ["assets/SeguindoSaude.jpg", "assets/SeguindoSaude1.jpg", "assets/SeguindoSaude2.jpg", "assets/SeguindoSaude3.jpg", "assets/SeguindoSaude4.jpg"],
+        description: {
+          pt: "Desenhados no Photoshop, recortados em compensado e pintados com tinta acrílica.",
+          en: "Drawn in Photoshop, cut in plywood and painted with acrylic paint."
+        }
+
+      },
+
     ];
 
     let currentLang = "pt";
@@ -496,51 +545,59 @@
           innerContent = `
             <img src="${item.src}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
             ${hasMultiple ? `
-              <div class="absolute top-2 right-2 bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 rounded-full px-2 py-0.5 text-[10px] text-[#fea85f] flex items-center gap-1 shadow-sm">
-                <span>📷</span>
-                <span>${imgList.length}</span>
+              <div class="absolute top-2.5 right-2.5 bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 rounded-full px-2 py-0.5 text-[10px] text-[#fea85f] flex items-center gap-1.5 shadow-sm">
+                <!-- Ícone vetorial minimalista monocromático -->
+                <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                  <path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                </svg>
+                <span class="font-medium">${imgList.length}</span>
               </div>
             ` : ''}
           `;
         } else if (item.type === "video") {
+          const thumbUrl = item.poster || (item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : 'assets/Goblygon.jpg');
+
           innerContent = `
-            <div class="relative w-full h-full bg-[#105390]/40 flex items-center justify-center">
-              <img src="${item.poster || 'assets/Goblygon.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="w-10 h-10 rounded-full bg-[#e21c61]/80 group-hover:bg-[#e21c61] text-white flex items-center justify-center pl-0.5 shadow-md transition-colors">▶</span>
+            <div class="relative w-full h-full bg-[#381631] overflow-hidden">
+              <!-- Imagem de Capa do Vídeo -->
+              <img src="${thumbUrl}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
+              
+              <!-- Badge de Vídeo discreto no canto superior direito -->
+              <div class="absolute inset-0 flex justify-end p-2.5 sm:p-3 pointer-events-none">
+                <span class="w-7 h-7 rounded-full bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 text-[#fea85f] flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
               </div>
             </div>
           `;
         } else if (item.type === "audio") {
-          innerContent = `
-            <div class="relative w-full h-full bg-[#381631] overflow-hidden">
-              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${titleText}" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#381631] via-[#381631]/40 to-transparent flex flex-col justify-between p-3">
-                <span class="self-end w-7 h-7 rounded-full bg-[#fea85f] text-[#381631] flex items-center justify-center text-xs font-bold shadow">♪</span>
-                <div class="flex items-center gap-2">
-                  <span class="w-8 h-8 rounded-full bg-[#1b958d] text-white flex items-center justify-center text-xs shadow">▶</span>
+            innerContent = `
+              <div class="relative w-full h-full bg-[#381631] overflow-hidden">
+                <!-- Imagem 100% visível (sem opacity-60) -->
+                <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+                
+                <!-- Overlay transparente apenas para posicionar os botões de nota e play -->
+                <div class="absolute inset-0 flex flex-col justify-between p-2.5 sm:p-3 pointer-events-none">
+                  <span class="self-end w-7 h-7 rounded-full bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 text-[#fea85f] flex items-center justify-center text-xs font-bold shadow-sm">♪</span>
                 </div>
               </div>
-            </div>
-          `;
+            `;
         } else if (item.type === "code") {
-          innerContent = `
-            <div class="w-full h-full p-3.5 bg-[#381631] flex flex-col justify-between font-mono text-[10px] text-[#5eb6ad] overflow-hidden">
-              <div class="text-[9px] uppercase tracking-widest text-[#e21c61] font-bold">SOURCE CODE</div>
-              <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
-              <div class="text-[9px] text-[#fea85f]">&lt;/&gt; View Code</div>
-            </div>
-          `;
-        }
-
-        card.innerHTML = `
-          ${innerContent}
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/80 to-transparent p-2.5 pt-6 pointer-events-none">
-            <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] truncate transition-colors">${titleText}</p>
+        innerContent = `
+          <div class="w-full h-full p-3.5 bg-[#381631] flex flex-col justify-between font-mono text-[10px] text-[#5eb6ad] overflow-hidden">
+            <div class="text-[9px] uppercase tracking-widest text-[#e21c61] font-bold">SOURCE CODE</div>
+            <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
+            <div class="text-[9px] text-[#fea85f]">&lt;/&gt; View Code</div>
           </div>
         `;
+      }
 
-        grid.appendChild(card);
+      card.innerHTML = `
+        ${innerContent}
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/80 to-transparent p-2.5 pt-6 pointer-events-none">
+          <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] truncate transition-colors">${titleText}</p>
+        </div>
+      `;
+
+      grid.appendChild(card);
       });
     }
 
@@ -570,6 +627,96 @@
       }
     }
 
+    function toggleAudioPlay(btn) {
+      const audio = document.getElementById("modalAudioElement");
+      const playIcon = document.getElementById("audioPlayIcon");
+      const pauseIcon = document.getElementById("audioPauseIcon");
+      if (!audio) return;
+
+      if (audio.paused) {
+        audio.play();
+        if (playIcon) playIcon.classList.add("hidden");
+        if (pauseIcon) pauseIcon.classList.remove("hidden");
+      } else {
+        audio.pause();
+        if (playIcon) playIcon.classList.remove("hidden");
+        if (pauseIcon) pauseIcon.classList.add("hidden");
+      }
+    }
+
+    function updateAudioProgress() {
+      const audio = document.getElementById("modalAudioElement");
+      const progressBar = document.getElementById("audioProgressBar");
+      const timeCurrent = document.getElementById("audioCurrentTime");
+      const timeDuration = document.getElementById("audioDurationTime");
+      if (!audio || !progressBar) return;
+
+      if (audio.duration) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + "%";
+
+        const format = (sec) => {
+          const m = Math.floor(sec / 60);
+          const s = Math.floor(sec % 60);
+          return `${m}:${s < 10 ? '0' : ''}${s}`;
+        };
+
+        if (timeCurrent) timeCurrent.textContent = format(audio.currentTime);
+        if (timeDuration && !isNaN(audio.duration)) timeDuration.textContent = format(audio.duration);
+      }
+    }
+
+    function seekAudio(event) {
+      const audio = document.getElementById("modalAudioElement");
+      const track = event.currentTarget;
+      if (!audio || !track || !audio.duration) return;
+
+      const rect = track.getBoundingClientRect();
+      const clickX = event.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      audio.currentTime = ratio * audio.duration;
+    }
+
+    let lastVolume = 0.5; // Default volume level
+
+    function changeAudioVolume(val) {
+      const audio = document.getElementById("modalAudioElement");
+      const volHigh = document.getElementById("audioVolHighIcon");
+      const volMuted = document.getElementById("audioVolMutedIcon");
+      if (!audio) return;
+
+      const volume = parseFloat(val);
+      audio.volume = volume;
+      audio.muted = volume === 0;
+
+      if (volume === 0) {
+        if (volHigh) volHigh.classList.add("hidden");
+        if (volMuted) volMuted.classList.remove("hidden");
+      } else {
+        lastVolume = volume;
+        if (volHigh) volHigh.classList.remove("hidden");
+        if (volMuted) volMuted.classList.add("hidden");
+      }
+    }
+
+    function toggleMute() {
+      const audio = document.getElementById("modalAudioElement");
+      const slider = document.getElementById("audioVolumeSlider");
+      if (!audio) return;
+
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        audio.volume = lastVolume > 0 ? lastVolume : 0.5;
+        if (slider) slider.value = audio.volume;
+        changeAudioVolume(audio.volume);
+      } else {
+        lastVolume = audio.volume;
+        audio.muted = true;
+        audio.volume = 0;
+        if (slider) slider.value = 0;
+        changeAudioVolume(0);
+      }
+    }
     function openModal(item) {
       activeModalItem = item;
       const modal = document.getElementById("mediaModal");
@@ -587,7 +734,7 @@
         bodyElem.innerHTML = `
           <div class="flex flex-col items-center w-full">
             <!-- Container da Imagem com elementos flutuantes -->
-            <div class="relative inline-block max-w-full max-h-[58vh] sm:max-h-[66vh] mb-3">
+            <div class="relative inline-block max-w-full max-h-[58vh] sm:max-h-[66vh] mt-1 sm:mt-3 mb-3">
               <img id="activeModalImg" src="${imgList[0]}" alt="${item.title[currentLang]}" 
                    class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full block rounded-xl object-contain shadow-md" 
                    onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Image';">
@@ -625,36 +772,92 @@
         `;
       } else if (item.type === "video") {
         bodyElem.innerHTML = `
-          <video controls autoplay class="w-full max-h-[75vh] rounded-lg bg-black">
-            <source src="${item.src}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <div class="w-full max-w-xl mx-auto flex flex-col items-center">
+            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-[#1b958d]/30">
+              <iframe 
+                class="w-full h-full block" 
+                src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?rel=0" 
+                title="${item.title[currentLang]}" 
+                frameborder="0" 
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            ${item.description && item.description[currentLang] ? `
+              <p class="mt-3 text-xs sm:text-sm text-[#d8dcb4]/80 text-center px-2">
+                ${item.description[currentLang]}
+              </p>
+            ` : ''}
+          </div>
         `;
       } else if (item.type === "audio") {
         const hasDesc = item.description && item.description[currentLang];
 
         bodyElem.innerHTML = `
-          <div class="flex flex-col items-center w-full max-w-sm mx-auto py-2">
-            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-[#1b958d]/40 shadow-xl bg-[#381631]">
-              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${item.title[currentLang]}" 
-                  class="w-full h-full object-cover" 
-                  onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+          <div class="flex flex-col items-center w-full max-w-sm mx-auto my-1 sm:my-2">
+            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-[#1b958d]/40 shadow-2xl bg-[#381631]">
               
+              <!-- Capa da Música -->
+              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${item.title[currentLang]}" 
+                  class="w-full h-full object-cover select-none" 
+                  onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+
+              <!-- Barra do Leitor Flutuante no Topo -->
+              <div class="absolute top-3 inset-x-3 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#381631]/85 backdrop-blur-md border border-[#1b958d]/50 shadow-lg text-[#d8dcb4]">
+                
+                <!-- Botão Play / Pause -->
+                <button type="button" onclick="toggleAudioPlay(this)" aria-label="Tocar / Pausar"
+                        class="w-7 h-7 rounded-full bg-[#1b958d] hover:bg-[#5eb6ad] text-[#381631] flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
+                  <svg id="audioPlayIcon" class="w-3.5 h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <svg id="audioPauseIcon" class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                </button>
+
+                <!-- Barra de Progresso + Timers -->
+                <div class="flex-grow flex flex-col justify-center gap-1 min-w-0">
+                  <div onclick="seekAudio(event)" class="w-full h-1.5 bg-[#381631]/90 rounded-full cursor-pointer relative overflow-hidden border border-[#1b958d]/40">
+                    <div id="audioProgressBar" class="h-full bg-gradient-to-r from-[#1b958d] via-[#5eb6ad] to-[#fea85f] rounded-full w-0 transition-all duration-100"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-mono text-[#d8dcb4]/80 leading-none">
+                    <span id="audioCurrentTime">0:00</span>
+                    <span id="audioDurationTime">0:00</span>
+                  </div>
+                </div>
+
+                <!-- Secção de Volume (Ícone Mudo/Som + Slider) -->
+                <div class="flex items-center gap-1.5 shrink-0 pl-1 border-l border-[#1b958d]/30">
+                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-5 h-5 flex items-center justify-center text-[#d8dcb4] hover:text-[#fea85f] transition-colors">
+                    <svg id="audioVolHighIcon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                    <svg id="audioVolMutedIcon" class="w-4 h-4 fill-current hidden text-[#e26159]" viewBox="0 0 24 24">
+                      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                    </svg>
+                  </button>
+                  <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1" 
+                        oninput="changeAudioVolume(this.value)" 
+                        class="w-12 sm:w-14 h-1 bg-[#381631] accent-[#fea85f] rounded-lg cursor-pointer">
+                </div>
+
+              </div>
+
+              <!-- Descrição Opcional no Rodapé da Capa -->
               ${hasDesc ? `
-                <div class="absolute inset-x-0 bottom-3 px-3 flex justify-center pointer-events-none">
-                  <p id="modalDescriptionText" class="inline-block bg-[#381631]/65 backdrop-blur-[2px] text-[#d8dcb4] text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-sm">
+                <div class="absolute inset-x-0 bottom-3 px-3 flex justify-center pointer-events-none z-20">
+                  <p id="modalDescriptionText" class="inline-block bg-[#381631]/85 backdrop-blur-md text-[#d8dcb4] border border-[#1b958d]/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
                     ${item.description[currentLang]}
                   </p>
                 </div>
               ` : ''}
-            </div>
 
-            <!-- Audio Player -->
-            <div class="w-full mt-4">
-              <audio controls autoplay class="w-full rounded-full shadow-md">
+              <!-- Elemento de Áudio Nativo em Background -->
+              <audio id="modalAudioElement" autoplay ontimeupdate="updateAudioProgress()" onended="const p=document.getElementById('audioPlayIcon'); const pa=document.getElementById('audioPauseIcon'); if(p&&pa){p.classList.remove('hidden'); pa.classList.add('hidden');}">
                 <source src="${item.src}" type="audio/mpeg">
-                Your browser does not support the audio element.
               </audio>
+
             </div>
           </div>
         `;
@@ -666,6 +869,19 @@
         `;
       }
 
+      // Reset audio volume and slider for audio items
+      if (item.type === "audio") {
+        const audioElement = document.getElementById("modalAudioElement");
+        const volumeSlider = document.getElementById("audioVolumeSlider");
+        if (audioElement) {
+          audioElement.volume = 0.5;
+        }
+        if (volumeSlider) {
+          volumeSlider.value = 0.5;
+        }
+        lastVolume = 0.5;
+      }
+
       modal.classList.remove("hidden");
       modal.classList.add("flex");
     }
@@ -674,15 +890,15 @@
       const modal = document.getElementById("mediaModal");
       const bodyElem = document.getElementById("modalBody");
       
+      // Pausa tags HTML5 se houver
       const media = bodyElem.querySelector("video, audio");
       if (media) media.pause();
 
       modal.classList.add("hidden");
       modal.classList.remove("flex");
-      bodyElem.innerHTML = "";
+      bodyElem.innerHTML = ""; // Destrói o iframe do YouTube imediatamente
       activeModalItem = null;
     }
-
     function handleBackdropClick(event) {
       if (event.target.id === "mediaModal") closeModal();
     }
