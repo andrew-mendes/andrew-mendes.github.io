@@ -323,7 +323,8 @@
           Escultura: "Sculpture",
           Pintura: "Painting",
           Tattoo: "Tattoo",
-          "Código": "Code",
+          Código: "Code",
+          GameDev: "Game Dev",
           "Música": "Music",
           Luthieria: "Luthiery"
         }
@@ -344,115 +345,59 @@
       }
     }
 
-    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Pintura", "Tattoo", "Código", "Música", "Luthieria"];
+    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Pintura", "Tattoo", "Código", "GameDev", "Música", "Luthieria"];
 
     // Gallery entries with tags, titles, and media handlers
-    const galleryItems = [
-      {
-        id: 1,
-        type: "image",
-        tags: ["3D", "Digital", "Escultura"],
-        title: { pt: "Busto de Ronaldinho 'O Bruxo'", en: "Ronaldinho 'The Wizard' Bust" },
-        src: "assets/RonaldinhoCover.jpg",
-        images: ["assets/Ronaldinho.jpg", "assets/Ronaldinho1.jpg", "assets/Ronaldinho2.jpg", "assets/Ronaldinho3.jpg"]
-      },
-      {
-        id: 2,
-        type: "image",
-        tags: ["Tattoo", "Tradicional"],
-        title: { pt: "Tattoo Fine Line de Beija-Flor", en: "Hummingbird Fine Line Tattoo" },
-        src: "assets/TattooBeijaFlor.jpg"
-      },
-      {
-        id: 3,
-        type: "image",
-        tags: ["Tradicional"],
-        title: { pt: "Retrato de Rafael Bittencourt", en: "Rafael Bittencourt Portrait" },
-        src: "assets/DesenhoRafael.jpg"
-      },
-      {
-        id: 4,
-        type: "audio",
-        tags: ["Música"],
-        title: { pt: "Pé na Estrada", en: "Pé na Estrada <i>(Hit the Road)</i>" },
-        coverUrl: "assets/ChillinQuest.jpg",
-        src: "assets/Pe_Na_Estrada.mp3",
-        description: {
-          pt: "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
-          en: "Home recording of Chillin' Quest's original soundtrack, final project for Harvard's CS50."
-        }
-      },
-      {
-        id: 5,
-        type: "image",
-        tags: ["3D", "Tradicional", "Escultura", "Pintura"],
-        title: { pt: "Estátua de Oxossi", en: "Oxossi Sculpture" },
-        src: "assets/OxossiEstatua.jpg",
-        images: ["assets/OxossiEstatua.jpg", "assets/OxossiEstatua1.jpg", "assets/OxossiEstatua2.jpg", "assets/OxossiEstatua3.jpg", "assets/OxossiEstatua4.jpg"],
-      },
-      {
-        id: 6,
-        type: "image",
-        tags: ["Luthieria","Pintura"],
-        title: { pt: "Restauração e Conversão de violão", en: "Restoration and Conversion of Guitar" },
-        src: "assets/7cordasCover.jpg",
-        images: ["assets/7cordas.jpg", "assets/7cordas1.jpg", "assets/7cordas2.jpg", "assets/7cordas3.jpg", "assets/7cordas4.jpg"],
-        description: {
-          pt: "Restauração de um violão de 12 cordas (aço), convertido pra 7 cordas (nylon) com decoração customizada em marchetaria.",
-          en: "Restoration of a steel 12-strings guitar, converted to nylon 7-strings and custom decoration in marquetry."
-        }
-      },
-      {
-        id: 7,
-        type: "image",
-        tags: ["Tattoo","Pintura", "Tradicional"],
-        title: { pt: "Tattoo do Super Mario", en: "Super Mario Tattoo" },
-        src: "assets/TattooMario.jpg",
-        images: ["assets/TattooMario.jpg"],
-      },
-      {
-        id: 8,
-        type: "audio",
-        tags: ["Música","Digital"],
-        title: { pt: "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>", en: "Shipping Shipping Ships" },
-        src: "assets/Shipping_Shipping_Ships.mp3",
-        coverUrl: "assets/SpaceLtd.jpg",
-        description: {
-          pt: "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
-          en: "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
-        }
-      },
-      {
-        id: 9,
-        type: "image",
-        tags: ["3D", "Digital", "Escultura"],
-        title: { pt: "Busto de Joel Miller", en: "Joel Miller Bust" },
-        src: "assets/JoelCover.jpg",
-        images: ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"],
-      },
-      {
-        id: 10,
-        type: "video",
-        tags: ["Código", "Digital"],
-        title: { pt: "Trailer de Chillin' Quest - CS50", en: "Chillin' Quest Trailer - CS50" },
-        youtubeId: "in0qF2AU-YU",
-        poster: "assets/ChillinQuest.jpg"
-      },
-      {
-        id: 11,
-        type: "image",
-        tags: ["2D", "Digital", "Tradicional","Pintura"],
-        title: { pt: "Academia Seguindo Saúde", en: "Seguindo Saúde Gym"},
-        src: "assets/SeguindoSaude.jpg",
-        images: ["assets/SeguindoSaude.jpg", "assets/SeguindoSaude1.jpg", "assets/SeguindoSaude2.jpg", "assets/SeguindoSaude3.jpg", "assets/SeguindoSaude4.jpg"],
-        description: {
-          pt: "Desenhados no Photoshop, recortados em compensado e pintados com tinta acrílica.",
-          en: "Drawn in Photoshop, cut in plywood and painted with acrylic paint."
-        }
+    let galleryItems = [];
 
-      },
+    async function loadGalleryData() {
+      try {
+        const response = await fetch('./gallery.json');
+        if (!response.ok) throw new Error('Erro ao carregar itens da galeria');
+        const data = await response.json();
+        
+        // Embaralha garantindo alternância de categorias adjacentes
+        galleryItems = shuffleAndDiversify(data);
+        
+        renderGallery();
+      } catch (error) {
+        console.error("Falha ao carregar galeria:", error);
+      }
+    }
 
-    ];
+    function shuffleAndDiversify(items) {
+      if (!items || items.length <= 2) return items;
+
+      // 1. Embaralha aleatoriamente primeiro
+      const pool = [...items];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+
+      // 2. Extrai a categoria principal de cada item para comparação
+      // Considera a primeira tag como a disciplina primária (ex: "3D", "Tattoo", "Música")
+      const getPrimaryTag = (item) => (item.tags && item.tags.length > 0 ? item.tags[0] : item.type);
+
+      const result = [pool.shift()];
+
+      // 3. Monta a lista alternando disciplinas adjacentes
+      while (pool.length > 0) {
+        const lastTag = getPrimaryTag(result[result.length - 1]);
+        
+        // Procura o primeiro item cujo tipo/tag principal seja diferente do anterior
+        let candidateIndex = pool.findIndex(item => getPrimaryTag(item) !== lastTag);
+
+        // Se encontrou um item de outra área, insere; se só restaram itens da mesma área, pega o primeiro
+        if (candidateIndex !== -1) {
+          result.push(pool.splice(candidateIndex, 1)[0]);
+        } else {
+          result.push(pool.shift());
+        }
+      }
+
+      return result;
+    }
 
     let currentLang = "pt";
     let activeTag = "all";
@@ -543,7 +488,7 @@
           const hasMultiple = imgList.length > 1;
 
           innerContent = `
-            <img src="${item.src}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
+            <img src="${item.src}" alt="${titleText}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
             ${hasMultiple ? `
               <div class="absolute top-2.5 right-2.5 bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 rounded-full px-2 py-0.5 text-[10px] text-[#fea85f] flex items-center gap-1.5 shadow-sm">
                 <!-- Ícone vetorial minimalista monocromático -->
@@ -907,8 +852,9 @@
       if (e.key === "Escape") closeModal();
     });
 
-    // Initialize page
+    // Inicializa a página e carrega o JSON
     setLanguage("pt");
+    loadGalleryData();
   </script>
 </body>
 </html>

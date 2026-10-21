@@ -1,0 +1,181 @@
+[{
+  "id": 1,
+  "type": "image",
+  "tags": ["3D", "Digital", "Escultura"],
+  "title": { "pt": "Busto de Ronaldinho 'O Bruxo'", "en": "Ronaldinho 'The Wizard' Bust" },
+  "src": "assets/RonaldinhoCover.jpg",
+  "images": ["assets/Ronaldinho.jpg", "assets/Ronaldinho1.jpg", "assets/Ronaldinho2.jpg", "assets/Ronaldinho3.jpg"]
+}, {
+  "id": 2,
+  "type": "image",
+  "tags": ["Tattoo", "Tradicional"],
+  "title": { "pt": "Tattoo Fine Line de Beija-Flor", "en": "Hummingbird Fine Line Tattoo" },
+  "src": "assets/TattooBeijaFlor.jpg"
+}, {
+  "id": 3,
+  "type": "image",
+  "tags": ["Tradicional"],
+  "title": { "pt": "Retrato de Rafael Bittencourt", "en": "Rafael Bittencourt Portrait" },
+  "src": "assets/DesenhoRafael.jpg"
+}, {
+  "id": 4,
+  "type": "audio",
+  "tags": ["Música"],
+  "title": { "pt": "Pé na Estrada", "en": "Pé na Estrada <i>(Hit the Road)</i>" },
+  "coverUrl": "assets/ChillinQuest.jpg",
+  "src": "assets/PeNaEstrada.mp3",
+  "description": {
+    "pt": "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
+    "en": "Home recording of Chillin' Quest's original soundtrack, final project for Harvard's CS50."
+  }
+}, {
+  "id": 5,
+  "type": "image",
+  "tags": ["3D", "Tradicional", "Escultura", "Pintura"],
+  "title": { "pt": "Estátua de Oxossi", "en": "Oxossi Sculpture" },
+  "src": "assets/OxossiEstatua.jpg",
+  "images": ["assets/OxossiEstatua.jpg", "assets/OxossiEstatua1.jpg", "assets/OxossiEstatua2.jpg", "assets/OxossiEstatua3.jpg", "assets/OxossiEstatua4.jpg"]
+}, {
+  "id": 6,
+  "type": "image",
+  "tags": ["Luthieria", "Pintura"],
+  "title": { "pt": "Restauração e Conversão de violão", "en": "Restoration and Conversion of Guitar" },
+  "src": "assets/7cordasCover.jpg",
+  "images": ["assets/7cordas.jpg", "assets/7cordas1.jpg", "assets/7cordas2.jpg", "assets/7cordas3.jpg", "assets/7cordas4.jpg"],
+  "description": {
+    "pt": "Restauração de um violão de 12 cordas (aço), convertido pra 7 cordas (nylon) com decoração customizada em marchetaria.",
+    "en": "Restoration of a steel 12-strings guitar, converted to nylon 7-strings and custom decoration in marquetry."
+  }
+}, {
+  "id": 7,
+  "type": "image",
+  "tags": ["Tattoo", "Pintura", "Tradicional"],
+  "title": { "pt": "Tattoo do Super Mario", "en": "Super Mario Tattoo" },
+  "src": "assets/TattooMario.jpg",
+  "images": ["assets/TattooMario.jpg"]
+}, {
+  "id": 8,
+  "type": "audio",
+  "tags": ["Música", "Digital"],
+  "title": { "pt": "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>", "en": "Shipping Shipping Ships" },
+  "src": "assets/ShippingShippingShips.mp3",
+  "coverUrl": "assets/SpaceLtd.jpg",
+  "description": {
+    "pt": "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
+    "en": "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
+  }
+}, {
+  "id": 9,
+  "type": "image",
+  "tags": ["3D", "Digital", "Escultura"],
+  "title": { "pt": "Busto de Joel Miller", "en": "Joel Miller Bust" },
+  "src": "assets/JoelCover.jpg",
+  "images": ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"]
+}, {
+  "id": 10,
+  "type": "video",
+  "tags": ["Código", "Digital"],
+  "title": { "pt": "Trailer de Chillin' Quest - CS50", "en": "Chillin' Quest Trailer - CS50" },
+  "youtubeId": "in0qF2AU-YU",
+  "poster": "assets/ChillinQuest.jpg"
+}, {
+  "id": 11,
+  "type": "image",
+  "tags": ["2D", "Digital", "Tradicional", "Pintura"],
+  "title": { "pt": "Academia Seguindo Saúde", "en": "Seguindo Saúde Gym" },
+  "src": "assets/SeguindoSaude.jpg",
+  "images": ["assets/SeguindoSaude.jpg", "assets/SeguindoSaude1.jpg", "assets/SeguindoSaude2.jpg", "assets/SeguindoSaude3.jpg", "assets/SeguindoSaude4.jpg"],
+  "description": {
+    "pt": "Desenhados no Photoshop, recortados em compensado e pintados com tinta acrílica.",
+    "en": "Drawn in Photoshop, cut in plywood and painted with acrylic paint."
+  }
+}, {
+  "id": 12,
+  "type": "audio",
+  "tags": ["Música", "Digital"],
+  "title": { "pt": "Bossa Supernova", "en": "Bossa Supernova" },
+  "src": "assets/BossaSupernova.mp3",
+  "coverUrl": "assets/SpaceLtd.jpg",
+  "description": {
+    "pt": "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
+    "en": "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
+  }
+}, {
+  "id": 13,
+  "type": "image",
+  "tags": ["Tattoo", "Tradicional"],
+  "title": { "pt": "Tattoo Realista de Tigre", "en": "Realistic Tiger Tattoo" },
+  "src": "assets/TattooTigre.jpg",
+  "images": ["assets/TattooTigre.jpg"]
+}, {
+    "id": 14,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo Foto Artística de Alice", "en": "Artistic Photo Tattoo of Alice" },
+    "src": "assets/TattooAlice.jpg",
+    "images": ["assets/TattooAlice.jpg"]
+}, {
+    "id": 15,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Bruxinha", "en": "Witch Tattoo" },
+    "src": "assets/TattooBruxinha.jpg",
+    "images": ["assets/TattooBruxinha.jpg"]
+}, {
+    "id": 16,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo Astrosurfista", "en": "Astro Surfer Tattoo" },
+    "src": "assets/TattooAstronauta.jpg",
+    "images": ["assets/TattooAstronauta.jpg"]
+}, {
+    "id": 17,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo Foto Sketch de Ronaldo", "en": "Sketch Photo Tattoo of Ronaldo" },
+    "src": "assets/TattooRonaldo.jpg",
+    "images": ["assets/TattooRonaldo.jpg"]
+}, {
+    "id": 18,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Doguinhos", "en": "Puppies Tattoo" },
+    "src": "assets/TattooCaes.jpg",
+    "images": ["assets/TattooCaes.jpg"]
+}, {
+    "id": 19,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Pug", "en": "Pug Tattoo" },
+    "src": "assets/TattooPug.jpg",
+    "images": ["assets/TattooPug.jpg"]
+}, {
+    "id": 20,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Gaara", "en": "Gaara Tattoo" },
+    "src": "assets/TattooGaara.jpg",
+    "images": ["assets/TattooGaara.jpg"]
+}, {
+    "id": 21,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Leão de Judá", "en": "Lion of Judah Tattoo" },
+    "src": "assets/TattooLeao.jpg",
+    "images": ["assets/TattooLeao.jpg"]
+}, {
+    "id": 22,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": { "pt": "Tattoo de Folhas", "en": "Leaves Tattoo" },
+    "src": "assets/TattooFolhas.jpg",
+    "images": ["assets/TattooFolhas.jpg"]
+}, {
+    "id": 23,
+    "type": "image",
+    "tags": ["3D", "Escultura", "Digital"],
+    "title": { "pt": "Escultura 3D de Oxossi", "en": "3D Sculpture of Oxossi" },
+    "src": "assets/OxossiCover.jpg",
+    "images": ["assets/Oxossi.jpg", "assets/Oxossi1.jpg", "assets/Oxossi2.jpg", "assets/OxossiCover.jpg"]
+}
+]
