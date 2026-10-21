@@ -537,10 +537,10 @@
 
       card.innerHTML = `
         ${innerContent}
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/80 to-transparent p-2.5 pt-6 pointer-events-none">
-          <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] truncate transition-colors">${titleText}</p>
-        </div>
-      `;
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/85 to-transparent p-2.5 pt-8 pointer-events-none">
+            <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] line-clamp-2 leading-tight transition-colors">${titleText}</p>
+          </div>
+        `;
 
       grid.appendChild(card);
       });

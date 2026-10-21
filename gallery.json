@@ -43,8 +43,8 @@
   "src": "assets/7cordasCover.jpg",
   "images": ["assets/7cordas.jpg", "assets/7cordas1.jpg", "assets/7cordas2.jpg", "assets/7cordas3.jpg", "assets/7cordas4.jpg"],
   "description": {
-    "pt": "Restauração de um violão de 12 cordas (aço), convertido pra 7 cordas (nylon) com decoração customizada em marchetaria.",
-    "en": "Restoration of a steel 12-strings guitar, converted to nylon 7-strings and custom decoration in marquetry."
+    "pt": "Restauração e conversão de um violão de 12 cordas (aço) pra 7 cordas (nylon) com decoração customizada em marchetaria.",
+    "en": "Restoration and conversion of a steel 12-strings guitar to nylon 7-strings with custom decoration in marquetry."
   }
 }, {
   "id": 7,
@@ -56,7 +56,7 @@
 }, {
   "id": 8,
   "type": "audio",
-  "tags": ["Música", "Digital"],
+  "tags": ["Música", "Digital", "GameDev"],
   "title": { "pt": "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>", "en": "Shipping Shipping Ships" },
   "src": "assets/ShippingShippingShips.mp3",
   "coverUrl": "assets/SpaceLtd.jpg",
@@ -92,7 +92,7 @@
 }, {
   "id": 12,
   "type": "audio",
-  "tags": ["Música", "Digital"],
+  "tags": ["Música", "Digital", "GameDev"],
   "title": { "pt": "Bossa Supernova", "en": "Bossa Supernova" },
   "src": "assets/BossaSupernova.mp3",
   "coverUrl": "assets/SpaceLtd.jpg",
@@ -173,7 +173,7 @@
 }, {
     "id": 23,
     "type": "image",
-    "tags": ["3D", "Escultura", "Digital"],
+    "tags": ["3D", "Digital", "Escultura"],
     "title": { "pt": "Escultura 3D de Oxossi", "en": "3D Sculpture of Oxossi" },
     "src": "assets/OxossiCover.jpg",
     "images": ["assets/Oxossi.jpg", "assets/Oxossi1.jpg", "assets/Oxossi2.jpg", "assets/OxossiCover.jpg"]
@@ -184,5 +184,44 @@
   "title": { "pt": "Brazil Fire Tracker - CS50", "en": "Brazil Fire Tracker - CS50" },
   "youtubeId": "T-61iMFjbik",
   "poster": "assets/BrazilFireTracker.jpg"
+}, {
+  "id": 25,
+  "type": "image",
+  "tags": ["3D", "Digital", "Escultura"],
+  "title": { "pt": "Goblygon - Personagem Original", "en": "Goblygon - Original Character" },
+  "src": "assets/Goblygon.jpg",
+  "images": ["assets/Goblygon.jpg", "assets/Goblygon1.jpg", "assets/Goblygon2.jpg", "assets/Goblygon3.jpg"]
+}, {
+  "id": 26,
+  "type": "image",
+  "tags": ["2D", "Digital", "Painting"],
+  "title": { "pt": "Sybil de Pseudoregalia", "en": "Sybil from Pseudoregalia" },
+  "src": "assets/Sybil.jpg",
+  "images": ["assets/Sybil.jpg"]
+}, {
+  "id": 27,
+  "type": "image",
+  "tags": ["2D", "Digital", "Painting"],
+  "title": { "pt": "Ref. Sheet Furry de HolySparks", "en": "Furry Ref. Sheet of HolySparks" },
+  "src": "assets/HolySparks.jpg",
+  "images": ["assets/HolySparks.jpg"]
+}, {
+  "id": 28,
+  "type": "image",
+  "tags": ["2D", "Digital", "Painting"],
+  "title": { "pt": "Ref. Sheet Furry de Taj", "en": "Furry Ref. Sheet of Taj" },
+  "src": "assets/Taj.jpg",
+  "images": ["assets/Taj.jpg"]
+},{
+    "id": 29,
+    "type": "audio",
+    "tags": ["Música", "Digital", "GameDev"],
+    "title": { "pt": "Expediente dos Infernos", "en": "Hell of a Shift" },
+    "src": "assets/HellOfAShift.mp3",
+    "coverUrl": "assets/SaaSCover.jpg",
+    "description": {
+      "pt": "Trilha sonora em parceria com Felipe Gil e Alisson Lindote pro jogo SaaS, com a Games Ever Made",
+      "en": "Soundtrack in partnership with Felipe Gil and Alisson Lindote for the game SaaS, with Games Ever Made"
+    }
 }
 ]
