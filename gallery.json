@@ -61,14 +61,14 @@
   "src": "assets/ShippingShippingShips.mp3",
   "coverUrl": "assets/SpaceLtd.jpg",
   "description": {
-    "pt": "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
-    "en": "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
+    "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
+    "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
   }
 }, {
   "id": 9,
   "type": "image",
   "tags": ["3D", "Digital", "Escultura"],
-  "title": { "pt": "Busto de Joel Miller", "en": "Joel Miller Bust" },
+  "title": { "pt": "Busto de Joel Miller - The Last of Us", "en": "Joel Miller Bust - The Last of Us" },
   "src": "assets/JoelCover.jpg",
   "images": ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"]
 }, {
@@ -97,8 +97,8 @@
   "src": "assets/BossaSupernova.mp3",
   "coverUrl": "assets/SpaceLtd.jpg",
   "description": {
-    "pt": "Trilha sonora sintetizada feita pro jogo Space Ltd., com a Games Ever Made",
-    "en": "Synthesized soundtrack made for the game Space Ltd., with Games Ever Made"
+    "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
+    "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
   }
 }, {
   "id": 13,
@@ -220,8 +220,8 @@
     "src": "assets/HellOfAShift.mp3",
     "coverUrl": "assets/SaasCover.jpg",
     "description": {
-      "pt": "Trilha sonora em parceria com Felipe Gil e Alisson Lindote pro jogo SaaS, com a Games Ever Made",
-      "en": "Soundtrack in partnership with Felipe Gil and Alisson Lindote for the game SaaS, with Games Ever Made"
+      "pt": "Trilha sonora feita com @fgil90 e @lindotex. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
+      "en": "Soundtrack made with @fgil90 and @lindotex. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
     }
 }, {
     "id": 30,
@@ -231,8 +231,8 @@
     "src": "assets/Belzosbul.jpg",
     "images": ["assets/Belzosbul.jpg", "assets/Belzosbul1.jpg"],
     "description": {
-      "pt": "Qualquer semelhança é mera coincidência. SaaS é um jogo feito com a Games Ever Made.",
-      "en": "Any resemblance is purely coincidental. SaaS is a game made with Games Ever Made."
+      "pt": "Qualquer semelhança é mera coincidência. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
+      "en": "Any resemblance is purely coincidental. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
     }
 }, {
     "id": 31,
@@ -248,5 +248,25 @@
     "title": { "pt": "Arte Conceitual pra Jogo Sobre o Cangaço", "en": "Concept Art for Game on the Cangaço"},
     "src": "assets/CaatingaConcept.jpg",
     "images": ["assets/CaatingaConcept.jpg", "assets/CaatingaConcept1.jpg", "assets/CaatingaConcept2.jpg"]
+}, {
+    "id": 33,
+    "type": "audio",
+    "tags": ["Música", "Digital", "GameDev"],
+    "title": { "pt": "Metal", "en": "Metal" },
+    "src": "assets/Metal.m4a",
+    "coverUrl": "assets/BSODCover.jpg",
+    "description": {
+      "pt": "Trilha sonora feita com @fgil90 pro jogo BSOD na GDevelop Big Game Jam #7 com a Games Ever Made.",
+      "en": "Soundtrack made with @fgil90 for the game BSOD at GDevelop Big Game Jam #7 with Games Ever Made."
+    }
+}, {
+    "id": 34,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {"pt": "Escultura 3D de Ka'iana - Chefe de Guerra",
+              "en": "3D Sculpture of Ka'iana - Chief of War"
+    },
+    "src": "assets/Kaiana5.jpg",
+    "images": ["assets/Kaiana.jpg", "assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg"]
 }
 ]
