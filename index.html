@@ -244,7 +244,7 @@
     
     <!-- Tag Filters Section -->
     <section class="mb-6">
-      <h2 id="filterHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-2.5">Filtre por tags:</h2>
+      <h2 id="filterHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-2.5">Filtre por categoria:</h2>
       <div id="tagContainer" class="flex flex-wrap gap-2">
         <!-- Rendered via JavaScript -->
       </div>
@@ -292,7 +292,7 @@
         craftsSubtitle: "Disciplinas & Artes",
         toolsSubtitle: "Ferramentas & Software",
         projectsTitle: "Projetos",
-        filterHeading: "Filtre por tags:",
+        filterHeading: "Filtre por categoria:",
         bioSubtitle: "Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.",
         all: "Todos",
         tags: {
@@ -313,7 +313,7 @@
         craftsSubtitle: "Crafts & Disciplines",
         toolsSubtitle: "Tools & Software",
         projectsTitle: "Projects",
-        filterHeading: "Filter by tags:",
+        filterHeading: "Filter by Category:",
         bioSubtitle: "Pencil, pixels, paint, code, skin, polygons, a guitar and a 3D printer. Not necessarily in that order.",
         all: "All",
         tags: {
@@ -501,14 +501,11 @@
             ` : ''}
           `;
         } else if (item.type === "video") {
-          const thumbUrl = item.poster || (item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : 'assets/Goblygon.jpg');
+          const thumbUrl = item.poster || (item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : (item.src || 'assets/Goblygon.jpg'));
 
           innerContent = `
             <div class="relative w-full h-full bg-[#381631] overflow-hidden">
-              <!-- Imagem de Capa do Vídeo -->
-              <img src="${thumbUrl}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
-              
-              <!-- Badge de Vídeo discreto no canto superior direito -->
+              <img src="${thumbUrl}" alt="${titleText}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
               <div class="absolute inset-0 flex justify-end p-2.5 sm:p-3 pointer-events-none">
                 <span class="w-7 h-7 rounded-full bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 text-[#fea85f] flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
               </div>
@@ -717,20 +714,48 @@
           </div>
         `;
       } else if (item.type === "video") {
-        bodyElem.innerHTML = `
-          <div class="w-full max-w-xl mx-auto flex flex-col items-center">
+        const hasDesc = item.description && item.description[currentLang];
+
+        let videoMarkup = "";
+        if (item.youtubeId) {
+          // Embed do YouTube permanece em 16:9 widescreen tradicional
+          videoMarkup = `
             <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-[#1b958d]/30">
               <iframe 
                 class="w-full h-full block" 
-                src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?rel=0" 
-                title="${item.title[currentLang]}" 
+                src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?loop=1&playlist=${item.youtubeId}&rel=0"                title="${item.title[currentLang]}" 
                 frameborder="0" 
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
               </iframe>
             </div>
-            ${item.description && item.description[currentLang] ? `
-              <p class="mt-3 text-xs sm:text-sm text-[#d8dcb4]/80 text-center px-2">
+          `;
+        } else {
+          // Vídeo Local: autoplay + muted + playsinline e sem forçar widescreen
+          videoMarkup = `
+            <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-[#1b958d]/30">
+              <video 
+                id="modalVideoElement" 
+                controls 
+                autoplay 
+                muted
+                loop 
+                playsinline 
+                preload="auto" 
+                poster="${item.poster || ''}" 
+                class="block max-h-[62vh] sm:max-h-[70vh] w-auto max-w-full rounded-xl object-contain">
+                <source src="${item.src}" type="video/mp4">
+                Seu navegador não suporta vídeos.
+              </video>
+            </div>
+          `;
+        }
+
+        bodyElem.innerHTML = `
+          <div class="flex flex-col items-center w-full my-1 sm:my-2">
+            ${videoMarkup}
+            ${hasDesc ? `
+              <p class="mt-3 text-xs sm:text-sm text-[#d8dcb4]/80 text-center max-w-md px-2">
                 ${item.description[currentLang]}
               </p>
             ` : ''}

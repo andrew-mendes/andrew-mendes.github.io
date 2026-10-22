@@ -247,7 +247,7 @@
     "tags": ["2D", "Digital", "Painting", "GameDev"],
     "title": { "pt": "Arte Conceitual pra Jogo Sobre o Cangaço", "en": "Concept Art for Game on the Cangaço"},
     "src": "assets/CaatingaConcept.jpg",
-    "images": ["assets/CaatingaConcept.jpg", "assets/CaatingaConcept1.jpg", "assets/CaatingaConcept2.jpg"]
+    "images": ["assets/CaatingaConcept.jpg", "assets/CaatingaConcept1.jpg", "assets/CaatingaConcept2.jpg", "assets/CaatingaConcept3.jpg"]
 }, {
     "id": 33,
     "type": "audio",
@@ -268,5 +268,14 @@
     },
     "src": "assets/Kaiana5.jpg",
     "images": ["assets/Kaiana.jpg", "assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg"]
+}, {
+    "id": 35,
+    "type": "video",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {"pt": "360° de Esboço 3D do Goleiro Vozinha",
+              "en": "360° of 3D Sketch of the Goalkeeper Vozinha"
+    },
+    "src": "assets/Vozinha.mp4",
+    "poster": "assets/VozinhaCover.jpg"
 }
 ]
