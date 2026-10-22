@@ -68,7 +68,7 @@
   "id": 9,
   "type": "image",
   "tags": ["3D", "Digital", "Escultura"],
-  "title": { "pt": "Busto de Joel Miller - The Last of Us", "en": "Joel Miller Bust - The Last of Us" },
+  "title": { "pt": "Busto de Joel Miller (Pedro Pascal) - The Last of Us", "en": "Bust of Joel Miller (Pedro Pascal) - The Last of Us" },
   "src": "assets/JoelCover.jpg",
   "images": ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"]
 }, {
@@ -153,7 +153,7 @@
     "id": 20,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
-    "title": { "pt": "Tattoo de Gaara", "en": "Gaara Tattoo" },
+    "title": { "pt": "Tattoo de Gaara - Naruto", "en": "Tattoo of Gaara - Naruto" },
     "src": "assets/TattooGaara.jpg",
     "images": ["assets/TattooGaara.jpg"]
 }, {
@@ -263,8 +263,8 @@
     "id": 34,
     "type": "image",
     "tags": ["3D", "Digital", "Escultura"],
-    "title": {"pt": "Escultura 3D de Ka'iana - Chefe de Guerra",
-              "en": "3D Sculpture of Ka'iana - Chief of War"
+    "title": {"pt": "Escultura 3D de Ka'iana (Jason Momoa) - Chefe de Guerra",
+              "en": "3D Sculpture of Ka'iana (Jason Momoa)- Chief of War"
     },
     "src": "assets/Kaiana5.jpg",
     "images": ["assets/Kaiana.jpg", "assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg"]
