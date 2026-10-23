@@ -266,8 +266,8 @@
     "title": {"pt": "Escultura 3D de Ka'iana (Jason Momoa) - Chefe de Guerra",
               "en": "3D Sculpture of Ka'iana (Jason Momoa)- Chief of War"
     },
-    "src": "assets/Kaiana5.jpg",
-    "images": ["assets/Kaiana.jpg", "assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg"]
+    "src": "assets/Kaiana.jpg",
+    "images": ["assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg", "assets/Kaiana.jpg"]
 }, {
     "id": 35,
     "type": "video",
@@ -277,5 +277,18 @@
     },
     "src": "assets/Vozinha.mp4",
     "poster": "assets/VozinhaCover.jpg"
+}, {
+    "id": 36 ,
+    "type": "video",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {"pt": "360° de Busto 3D de um Alien",
+              "en": "360° of an Alien's Bust"
+    },
+    "src": "assets/Alien.mp4",
+    "poster": "assets/AlienCover.jpg",
+    "description": {
+      "pt": "Pro curso de ZBrush da Rafa Souza Academy.",
+      "en": "For Rafa Souza Academy's ZBrush course."
+    }
 }
 ]
