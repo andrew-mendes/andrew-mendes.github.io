@@ -620,7 +620,76 @@
         </div>
       </div>
     </div>
+    <!-- Fullscreen Image Zoom Overlay -->
+    <div
+      id="imageZoomOverlay"
+      class="fixed inset-0 z-[60] bg-brand-plum/95 backdrop-blur-md hidden items-center justify-center p-2 sm:p-6 overflow-auto custom-scrollbar"
+      onclick="handleZoomOverlayClick(event)"
+    >
+      <!-- Top controls: Toggle mode hint & Close button -->
+      <div
+        class="fixed top-4 right-4 z-20 flex items-center gap-2 pointer-events-auto"
+      >
+        <span
+          id="zoomModeBadge"
+          class="text-[11px] font-mono uppercase tracking-wider text-brand-orange bg-brand-plum/90 border border-brand-teal/40 px-2.5 py-1 rounded-full shadow-md select-none hidden sm:inline-block"
+        >
+          Ajustado
+        </span>
+        <button
+          type="button"
+          onclick="closeImageZoom()"
+          aria-label="Fechar zoom"
+          class="w-9 h-9 rounded-full bg-brand-plum/90 border border-brand-teal/50 text-brand-sage hover:text-brand-orange hover:border-brand-orange flex items-center justify-center transition-colors shadow-lg cursor-pointer"
+        >
+          ✕
+        </button>
+      </div>
 
+      <!-- Zoomable Image Element -->
+      <img
+        id="zoomedFullImg"
+        src=""
+        alt=""
+        onclick="toggleZoomScale(event)"
+        class="transition-all duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-in"
+      />
+    </div>
+    <!-- Fullscreen Image Zoom Overlay -->
+    <div
+      id="imageZoomOverlay"
+      class="fixed inset-0 z-[60] bg-brand-plum/95 backdrop-blur-md hidden items-center justify-center p-2 sm:p-6 overflow-auto custom-scrollbar"
+      onclick="handleZoomOverlayClick(event)"
+    >
+      <!-- Top controls: Toggle mode hint & Close button -->
+      <div
+        class="fixed top-4 right-4 z-20 flex items-center gap-2 pointer-events-auto"
+      >
+        <span
+          id="zoomModeBadge"
+          class="text-[11px] font-mono uppercase tracking-wider text-brand-orange bg-brand-plum/90 border border-brand-teal/40 px-2.5 py-1 rounded-full shadow-md select-none hidden sm:inline-block"
+        >
+          Ajustado
+        </span>
+        <button
+          type="button"
+          onclick="closeImageZoom()"
+          aria-label="Fechar zoom"
+          class="w-9 h-9 rounded-full bg-brand-plum/90 border border-brand-teal/50 text-brand-sage hover:text-brand-orange hover:border-brand-orange flex items-center justify-center transition-colors shadow-lg cursor-pointer"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Zoomable Image Element -->
+      <img
+        id="zoomedFullImg"
+        src=""
+        alt=""
+        onclick="toggleZoomScale(event)"
+        class="transition-all duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-in"
+      />
+    </div>
     <!-- Data & Logic -->
     <script>
       // Bilingual dictionary for dynamic swapping
@@ -1069,7 +1138,7 @@
         titleElem.innerHTML = item.title[currentLang];
         bodyElem.innerHTML = "";
 
-        if (item.type === "image") {
+if (item.type === "image") {
           const imgList =
             item.images && item.images.length > 0 ? item.images : [item.src];
           const hasMultiple = imgList.length > 1;
@@ -1079,8 +1148,11 @@
           <div class="flex flex-col items-center w-full">
             <!-- Container da Imagem com elementos flutuantes -->
             <div class="relative inline-block max-w-full max-h-[58vh] sm:max-h-[66vh] mt-1 sm:mt-3 mb-3">
+              <!-- 📍 REPLACE the <img> tag with this one 👇 -->
               <img id="activeModalImg" src="${imgList[0]}" alt="${item.title[currentLang]}" 
-                   class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full block rounded-xl object-contain shadow-md" 
+                   onclick="openImageZoom(this.src)"
+                   title="Clique para ampliar"
+                   class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full block rounded-xl object-contain shadow-md cursor-zoom-in hover:brightness-105 transition-all" 
                    onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Image';">
               
               ${
@@ -1286,6 +1358,72 @@
         modal.classList.remove("hidden");
         modal.classList.add("flex");
       }
+      
+let isOriginalScale = false;
+
+      function openImageZoom(imgUrl) {
+        const overlay = document.getElementById("imageZoomOverlay");
+        const zoomedImg = document.getElementById("zoomedFullImg");
+        if (!overlay || !zoomedImg) return;
+
+        zoomedImg.src = imgUrl;
+
+        // Inicia sempre no modo ajustado à tela
+        isOriginalScale = false;
+        applyZoomStyles();
+
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+      }
+
+      function toggleZoomScale(event) {
+        if (event) event.stopPropagation();
+        isOriginalScale = !isOriginalScale;
+        applyZoomStyles();
+      }
+
+      function applyZoomStyles() {
+        const zoomedImg = document.getElementById("zoomedFullImg");
+        const badge = document.getElementById("zoomModeBadge");
+        if (!zoomedImg) return;
+
+        if (isOriginalScale) {
+          // 100% escala original desimpedida com scroll nativo
+          zoomedImg.className =
+            "max-w-none max-h-none m-auto transition-all duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-out";
+          if (badge) {
+            badge.textContent =
+              currentLang === "pt" ? "100% Original" : "100% Raw";
+          }
+        } else {
+          // Ajustado à altura da janela
+          zoomedImg.className =
+            "max-w-full max-h-[90vh] object-contain m-auto transition-all duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-in";
+          if (badge) {
+            badge.textContent =
+              currentLang === "pt" ? "Ajustado" : "Fit Screen";
+          }
+        }
+      }
+
+      function handleZoomOverlayClick(event) {
+        if (event.target.id === "imageZoomOverlay") {
+          closeImageZoom();
+        }
+      }
+
+      function closeImageZoom() {
+        const overlay = document.getElementById("imageZoomOverlay");
+        const zoomedImg = document.getElementById("zoomedFullImg");
+        if (!overlay) return;
+
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+        if (zoomedImg) zoomedImg.src = "";
+        isOriginalScale = false;
+        document.body.classList.remove("overflow-hidden");
+      }
 
       function closeModal() {
         const modal = document.getElementById("mediaModal");
@@ -1305,7 +1443,14 @@
       }
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeModal();
+        if (e.key === "Escape") {
+          const zoomOverlay = document.getElementById("imageZoomOverlay");
+          if (zoomOverlay && !zoomOverlay.classList.contains("hidden")) {
+            closeImageZoom();
+          } else {
+            closeModal();
+          }
+        }
       });
 
       // Inicializa a página e carrega o JSON
