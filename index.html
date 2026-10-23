@@ -162,7 +162,7 @@
       <section class="flex flex-col items-center text-center mb-8">
         <div class="relative w-28 h-28 mb-4">
           <div
-            class="w-full h-full rounded-full bg-gradient-to-tr from-brand-magenta via-brand-orange to-brand-mint p-[3px] shadow-lg"
+            class="w-full h-full rounded-full bg-gradient-to-tr from-brand-magenta via-brand-orange to-brand-teal p-[3px] shadow-lg"
           >
             <div
               class="w-full h-full rounded-full bg-brand-plum overflow-hidden flex items-center justify-center"
@@ -1179,79 +1179,78 @@
               }
             </div>
           `;
-        } else if (item.type === "audio") {
+} else if (item.type === "audio") {
           const hasDesc = item.description && item.description[currentLang];
 
           bodyElem.innerHTML = `
-          <div class="flex flex-col items-center w-full max-w-sm mx-auto my-1 sm:my-2">
-            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-brand-teal/40 shadow-2xl bg-brand-plum">
+          <div class="flex flex-col items-center justify-center w-full">
+            <!-- Container da Capa: altura controlada por vh para nunca estourar a tela -->
+            <div class="relative w-auto max-w-[320px] sm:max-w-[360px] max-h-[50vh] sm:max-h-[56vh] aspect-square rounded-2xl overflow-hidden border border-brand-teal/40 shadow-2xl bg-brand-plum flex items-center justify-center">
               
               <!-- Capa da Música -->
               <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${item.title[currentLang]}" 
-                  class="w-full h-full object-cover select-none" 
-                  onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+                   class="w-full h-full object-cover select-none" 
+                   onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
 
-              <!-- Barra do Leitor Flutuante no Topo -->
-              <div class="absolute top-3 inset-x-3 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-brand-plum/85 backdrop-blur-md border border-brand-teal/50 shadow-lg text-brand-sage">
+              <!-- Barra do Leitor Flutuante no Rodapé -->
+              <div class="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 z-30 flex items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-plum/85 backdrop-blur-md border border-brand-teal/50 shadow-lg text-brand-sage">
                 
                 <!-- Botão Play / Pause -->
                 <button type="button" onclick="toggleAudioPlay(this)" aria-label="Tocar / Pausar"
-                        class="w-7 h-7 rounded-full bg-brand-teal hover:bg-brand-mint text-brand-plum flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
-                  <svg id="audioPlayIcon" class="w-3.5 h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
+                        class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-teal hover:bg-brand-mint text-brand-plum flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
+                  <svg id="audioPlayIcon" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  <svg id="audioPauseIcon" class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <svg id="audioPauseIcon" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24">
                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                   </svg>
                 </button>
 
                 <!-- Barra de Progresso + Timers -->
-                <div class="flex-grow flex flex-col justify-center gap-1 min-w-0">
+                <div class="flex-grow flex flex-col justify-center gap-0.5 sm:gap-1 min-w-0">
                   <div onclick="seekAudio(event)" class="w-full h-1.5 bg-brand-plum/90 rounded-full cursor-pointer relative overflow-hidden border border-brand-teal/40">
                     <div id="audioProgressBar" class="h-full bg-gradient-to-r from-brand-teal via-brand-mint to-brand-orange rounded-full w-0 transition-all duration-100"></div>
                   </div>
-                  <div class="flex justify-between items-center text-[10px] font-mono text-brand-sage/80 leading-none">
+                  <div class="flex justify-between items-center text-[9px] sm:text-[10px] font-mono text-brand-sage/80 leading-none">
                     <span id="audioCurrentTime">0:00</span>
                     <span id="audioDurationTime">0:00</span>
                   </div>
                 </div>
 
-                <!-- Secção de Volume (Ícone Mudo/Som + Slider) -->
-                <div class="flex items-center gap-1.5 shrink-0 pl-1 border-l border-brand-teal/30">
-                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-5 h-5 flex items-center justify-center text-brand-sage hover:text-brand-orange transition-colors">
-                    <svg id="audioVolHighIcon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <!-- Secção de Volume -->
+                <div class="flex items-center gap-1 sm:gap-1.5 shrink-0 pl-1 border-l border-brand-teal/30">
+                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-brand-sage hover:text-brand-orange transition-colors">
+                    <svg id="audioVolHighIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
                     </svg>
-                    <svg id="audioVolMutedIcon" class="w-4 h-4 fill-current hidden text-brand-coral" viewBox="0 0 24 24">
+                    <svg id="audioVolMutedIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current hidden text-brand-coral" viewBox="0 0 24 24">
                       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
                     </svg>
                   </button>
                   <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1" 
-                        oninput="changeAudioVolume(this.value)" 
-                        class="w-12 sm:w-14 h-1 bg-brand-plum accent-brand-orange rounded-lg cursor-pointer">
+                         oninput="changeAudioVolume(this.value)" 
+                         class="w-10 sm:w-12 h-1 bg-brand-plum accent-brand-orange rounded-lg cursor-pointer">
                 </div>
 
               </div>
 
-              <!-- Descrição Opcional no Rodapé da Capa -->
-              ${
-                hasDesc
-                  ? `
-                <div class="absolute inset-x-0 bottom-3 px-3 flex justify-center pointer-events-none z-20">
-                  <p id="modalDescriptionText" class="inline-block bg-brand-plum/85 backdrop-blur-md text-brand-sage border border-brand-teal/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
-                    ${item.description[currentLang]}
-                  </p>
-                </div>
-              `
-                  : ""
-              }
-
-              <!-- Elemento de Áudio Nativo em Background -->
+              <!-- Elemento de Áudio Nativo -->
               <audio id="modalAudioElement" autoplay ontimeupdate="updateAudioProgress()" onended="const p=document.getElementById('audioPlayIcon'); const pa=document.getElementById('audioPauseIcon'); if(p&&pa){p.classList.remove('hidden'); pa.classList.add('hidden');}">
                 <source src="${item.src}" type="audio/mpeg">
               </audio>
 
             </div>
+
+            <!-- Descrição externa abaixo da moldura -->
+            ${
+              hasDesc
+                ? `
+              <p id="modalDescriptionText" class="mt-2 text-xs sm:text-sm text-brand-sage/80 text-center max-w-sm px-3 leading-snug">
+                ${item.description[currentLang]}
+              </p>
+            `
+                : ""
+            }
           </div>
         `;
         } else if (item.type === "code") {
