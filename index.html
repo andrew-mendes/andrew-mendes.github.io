@@ -1,680 +1,1081 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23381631'/><polygon points='16,5 26,11 26,21 16,27 6,21 6,11' fill='none' stroke='%23fea85f' stroke-width='2.5' stroke-linejoin='round'/><path d='M16,5 L16,27 M6,11 L26,21 M26,11 L6,21' fill='none' stroke='%235eb6ad' stroke-width='1.5' opacity='0.8'/></svg>">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrew Mendes - Portfolio</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              plum: '#381631',
-              magenta: '#e21c61',
-              coral: '#e26159',
-              orange: '#fea85f',
-              sage: '#d8dcb4',
-              mint: '#5eb6ad',
-              teal: '#1b958d',
-              blue: '#105390'
-            }
+  <head>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23381631'/><polygon points='16,5 26,11 26,21 16,27 6,21 6,11' fill='none' stroke='%23fea85f' stroke-width='2.5' stroke-linejoin='round'/><path d='M16,5 L16,27 M6,11 L26,21 M26,11 L6,21' fill='none' stroke='%235eb6ad' stroke-width='1.5' opacity='0.8'/></svg>"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew Mendes - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                plum: "#381631",
+                magenta: "#e21c61",
+                coral: "#e26159",
+                orange: "#fea85f",
+                sage: "#d8dcb4",
+                mint: "#5eb6ad",
+                teal: "#1b958d",
+                blue: "#105390",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --color-plum: #381631;
+        --color-magenta: #e21c61;
+        --color-coral: #e26159;
+        --color-orange: #fea85f;
+        --color-sage: #d8dcb4;
+        --color-mint: #5eb6ad;
+        --color-teal: #1b958d;
+        --color-blue: #105390;
+      }
+      body {
+        background-color: var(--color-plum);
+        color: var(--color-sage);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: var(--color-plum);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--color-teal);
+        border-radius: 9999px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: var(--color-orange);
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex flex-col justify-between selection:bg-brand-magenta selection:text-white relative overflow-x-hidden"
+  >
+    <!-- Ambient Background Lighting -->
+    <div class="fixed inset-0 pointer-events-none opacity-25">
+      <div
+        class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-magenta rounded-full blur-[120px]"
+      ></div>
+      <div
+        class="absolute top-1/3 -right-24 w-80 h-80 bg-brand-teal rounded-full blur-[140px]"
+      ></div>
+      <div
+        class="absolute bottom-10 -left-20 w-80 h-80 bg-brand-blue rounded-full blur-[130px]"
+      ></div>
+    </div>
+
+    <div
+      class="relative z-10 w-full max-w-2xl mx-auto px-4 py-6 sm:py-10 flex-grow flex flex-col"
+    >
+      <!-- Header Bar: Language Switcher -->
+      <header class="flex justify-end items-center mb-6">
+        <div
+          class="flex items-center gap-1.5 bg-brand-plum/80 backdrop-blur-md p-1.5 rounded-full border border-brand-teal/40 shadow-sm"
+        >
+          <!-- Brazilian Flag Button -->
+          <button
+            id="btn-pt"
+            onclick="setLanguage('pt')"
+            title="Português"
+            aria-label="Português"
+            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-orange transition-all duration-200"
+          >
+            <svg
+              class="w-full h-full"
+              viewBox="0 0 720 504"
+              preserveAspectRatio="xMidYMid slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="720" height="504" fill="#009c3b" />
+              <polygon
+                points="360,37.8 682.2,252 360,466.2 37.8,252"
+                fill="#ffdf00"
+              />
+              <circle cx="360" cy="252" r="126" fill="#002776" />
+              <path
+                d="M234,252 a126,126 0 0,0 248,32 a126,126 0 0,1 -248,-32"
+                fill="#fff"
+              />
+            </svg>
+          </button>
+          <!-- UK Flag Button -->
+          <button
+            id="btn-en"
+            onclick="setLanguage('en')"
+            title="English"
+            aria-label="English"
+            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-orange transition-all duration-200 opacity-60"
+          >
+            <svg
+              class="w-full h-full"
+              viewBox="0 0 60 30"
+              preserveAspectRatio="xMidYMid slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <clipPath id="s"><path d="M0,0 v30 h60 v-30 z" /></clipPath>
+              <clipPath id="t">
+                <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+              </clipPath>
+              <g clip-path="url(#s)">
+                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                <path
+                  d="M0,0 L60,30 M60,0 L0,30"
+                  stroke="#fff"
+                  stroke-width="6"
+                />
+                <path
+                  d="M0,0 L60,30 M60,0 L0,30"
+                  clip-path="url(#t)"
+                  stroke="#C8102E"
+                  stroke-width="4"
+                />
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                <path
+                  d="M30,0 v30 M0,15 h60"
+                  stroke="#C8102E"
+                  stroke-width="6"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Bio / Profile Header -->
+      <section class="flex flex-col items-center text-center mb-8">
+        <div class="relative w-28 h-28 mb-4">
+          <div
+            class="w-full h-full rounded-full bg-gradient-to-tr from-brand-magenta via-brand-orange to-brand-mint p-[3px] shadow-lg"
+          >
+            <div
+              class="w-full h-full rounded-full bg-brand-plum overflow-hidden flex items-center justify-center"
+            >
+              <!-- Profile Picture Placeholder -->
+              <img
+                src="assets/AndrewPhoto.jpg"
+                alt="Andrew Mendes"
+                class="w-full h-full object-cover"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <span
+                class="w-full h-full hidden items-center justify-center text-3xl font-bold text-brand-sage bg-brand-plum"
+                >AM</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl tracking-tight text-brand-sage mb-2">
+          Andrew Mendes
+        </h1>
+
+        <p
+          id="bioSubtitle"
+          class="text-xs sm:text-sm font-normal text-brand-sage/80 max-w-md leading-relaxed px-2 mb-4"
+        >
+          Lápis, pixels, tintas, código, pele, polígonos, um violão e uma
+          impressora 3D. Não necessariamente nessa ordem.
+        </p>
+
+        <!-- Social Media Bar -->
+        <div class="flex items-center justify-center gap-3 mt-1">
+          <!-- WhatsApp -->
+          <a
+            href="https://wa.me/5522997868711"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="WhatsApp"
+            aria-label="WhatsApp"
+            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+          >
+            <svg
+              class="w-4 h-4 fill-current"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+              />
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:andrewmendes@gmail.com"
+            title="E-mail"
+            aria-label="E-mail"
+            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/mendesandrew/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            aria-label="LinkedIn"
+            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+              />
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/andrew-mendes"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+            aria-label="GitHub"
+            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- 1. Gaveta Recolhível: Habilidades & Ferramentas -->
+      <section class="mb-7">
+        <div
+          class="rounded-xl border border-brand-coral/40 bg-brand-plum/80 overflow-hidden transition-all duration-200"
+        >
+          <button
+            onclick="toggleSkillsDrawer()"
+            class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-brand-teal/10 transition-colors"
+          >
+            <span
+              id="skillsDrawerTitle"
+              class="text-xs uppercase tracking-wider font-semibold text-brand-mint"
+            >
+              Habilidades & Ferramentas
+            </span>
+            <svg
+              id="skillsChevron"
+              class="w-4 h-4 text-brand-orange transform transition-transform duration-300"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+
+          <div
+            id="skillsDrawerContent"
+            class="hidden px-4 pb-4 pt-1 border-t border-brand-teal/20 space-y-4"
+          >
+            <!-- Disciplinas -->
+            <div>
+              <h4
+                id="craftsSubtitle"
+                class="text-[11px] uppercase tracking-wider font-semibold text-brand-orange mb-2"
+              >
+                Disciplinas & Artes
+              </h4>
+              <div class="flex flex-wrap gap-1.5 text-xs text-brand-sage">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Escultura Digital</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Miniaturas & Colecionáveis</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Impressão 3D (FDM)</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Tattoo</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Cartoon</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Desenho Realista</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Pixel Art</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Pintura Digital</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Pintura Acrílica</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Luthieria</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Música</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Game Dev</span
+                >
+              </div>
+            </div>
+
+            <!-- Ferramentas & Software -->
+            <div>
+              <h4
+                id="toolsSubtitle"
+                class="text-[11px] uppercase tracking-wider font-semibold text-brand-orange mb-2"
+              >
+                Ferramentas & Software
+              </h4>
+              <div class="flex flex-wrap gap-1.5 text-xs text-brand-sage">
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >ZBrush</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Photoshop</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >CorelDRAW</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Krita</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >OrcaSlicer</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >PrusaSlicer</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Ultimaker Cura</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Anycubic Slicer Next</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Aseprite</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >GDevelop</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Godot</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >Python</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30"
+                  >HTML/CSS/JS</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Projetos Section -->
+      <section class="mb-8">
+        <div class="flex items-center gap-3 mb-3">
+          <h2
+            id="projectsHeading"
+            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-mint shrink-0"
+          >
+            Projetos
+          </h2>
+          <div
+            class="h-px bg-gradient-to-r from-brand-coral/50 via-brand-teal/20 to-transparent flex-grow"
+          ></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          <!-- Goblygon (Light Green / Mint) -->
+          <a
+            href="https://www.artstation.com/goblygon"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-mint/60 hover:border-brand-mint hover:bg-brand-mint/10 text-brand-sage hover:text-brand-mint transition-all duration-200 shadow-sm text-center group"
+          >
+            <img
+              src="assets/Goblygon.jpg"
+              alt="Goblygon"
+              class="w-6 h-6 rounded-full object-cover shrink-0"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span
+              class="w-6 h-6 rounded-full bg-brand-mint/30 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              >G</span
+            >
+            <span class="text-xs font-medium leading-tight">Goblygon</span>
+          </a>
+
+          <!-- Inkalibur (Blue) -->
+          <a
+            href="https://www.instagram.com/inkalibur/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-blue hover:border-brand-mint hover:bg-brand-blue/25 text-brand-sage hover:text-brand-mint transition-all duration-200 shadow-sm text-center group"
+          >
+            <img
+              src="assets/Inkalibur.jpg"
+              alt="Inkalibur"
+              class="w-6 h-6 rounded-full object-cover shrink-0"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span
+              class="w-6 h-6 rounded-full bg-brand-blue text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              >I</span
+            >
+            <span class="text-xs font-medium leading-tight">Inkalibur</span>
+          </a>
+
+          <!-- CS50 (Red / Magenta) -->
+          <a
+            href="https://github.com/andrew-mendes?tab=repositories&q=&type=public&language=&sort=stargazers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-magenta/70 hover:border-brand-magenta hover:bg-brand-magenta/15 text-brand-sage hover:text-brand-coral transition-all duration-200 shadow-sm text-center group"
+          >
+            <img
+              src="assets/CS50.jpg"
+              alt="CS50"
+              class="w-6 h-6 rounded-full object-cover shrink-0"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span
+              class="w-6 h-6 rounded-full bg-brand-magenta/40 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              >C</span
+            >
+            <span class="text-xs font-medium leading-tight">CS50</span>
+          </a>
+
+          <!-- Games Ever Made (Warm Apricot / Orange) -->
+          <a
+            href="https://games-ever-made.itch.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-orange/70 hover:border-brand-orange hover:bg-brand-orange/15 text-brand-sage hover:text-brand-orange transition-all duration-200 shadow-sm text-center group"
+          >
+            <img
+              src="assets/GEM.jpg"
+              alt="GEM"
+              class="w-6 h-6 rounded-full object-cover shrink-0"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span
+              class="w-6 h-6 rounded-full bg-brand-orange/30 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              >M</span
+            >
+            <span class="text-xs font-medium leading-tight"
+              >Games Ever Made</span
+            >
+          </a>
+        </div>
+      </section>
+
+      <!-- Gallery Section with Integrated Filters -->
+      <section class="mb-8">
+        <!-- Título com linha expansiva e contador -->
+        <div class="flex items-center gap-3 mb-4">
+          <h2
+            id="galleryHeading"
+            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-mint shrink-0"
+          >
+            Galeria
+          </h2>
+          <div
+            class="h-px bg-gradient-to-r from-brand-coral/50 via-brand-teal/20 to-transparent flex-grow"
+          ></div>
+          <span
+            id="galleryCount"
+            class="text-[11px] font-mono text-brand-sage/60 shrink-0"
+          ></span>
+        </div>
+
+        <!-- Filtros por Categoria -->
+        <div class="mb-5">
+          <p
+            id="filterHeading"
+            class="text-[11px] uppercase tracking-wider font-medium text-brand-orange mb-2"
+          >
+            Filtre por categoria:
+          </p>
+          <div id="tagContainer" class="flex flex-wrap gap-2">
+            <!-- Rendered via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Grid de Cards -->
+        <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Minimal Footer -->
+    <footer
+      class="relative z-10 w-full border-t border-brand-coral/20 py-4 text-center text-[11px] text-brand-sage/50"
+    >
+      <p>© Andrew Mendes 2026</p>
+    </footer>
+
+    <!-- Lightbox Modal Viewer -->
+    <div
+      id="mediaModal"
+      class="fixed inset-0 z-50 bg-brand-plum/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6"
+      onclick="handleBackdropClick(event)"
+    >
+      <div
+        class="relative w-full max-w-2xl bg-brand-plum border border-brand-teal/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+      >
+        <!-- Modal Header with Title & Close (Centralizado) -->
+        <div
+          class="relative flex items-center justify-center px-12 py-3 border-b border-brand-teal/30 bg-brand-plum/80 min-h-[48px]"
+        >
+          <h3
+            id="modalTitle"
+            class="text-sm font-semibold text-brand-sage text-center truncate w-full"
+          ></h3>
+          <button
+            onclick="closeModal()"
+            aria-label="Fechar"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-plum border border-brand-teal/40 text-brand-sage hover:text-brand-orange hover:border-brand-orange flex items-center justify-center transition-colors shrink-0"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div
+          id="modalBody"
+          class="p-4 sm:p-5 overflow-x-hidden overflow-y-auto flex items-center justify-center custom-scrollbar"
+        >
+        <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Data & Logic -->
+    <script>
+      // Bilingual dictionary for dynamic swapping
+      const i18n = {
+        pt: {
+          skillsDrawerTitle: "Habilidades & Ferramentas",
+          craftsSubtitle: "Disciplinas & Artes",
+          toolsSubtitle: "Ferramentas & Software",
+          projectsTitle: "Projetos",
+          galleryTitle: "Galeria",
+          filterHeading: "Filtre por categoria:",
+          bioSubtitle:
+            "Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.",
+          all: "Todos",
+          tags: {
+            Tradicional: "Tradicional",
+            Digital: "Digital",
+            "2D": "2D",
+            "3D": "3D",
+            Escultura: "Escultura",
+            Pintura: "Pintura",
+            Tattoo: "Tattoo",
+            Código: "Código",
+            Música: "Música",
+            Luthieria: "Luthieria",
+          },
+        },
+        en: {
+          skillsDrawerTitle: "Skills & Tools",
+          craftsSubtitle: "Crafts & Disciplines",
+          toolsSubtitle: "Tools & Software",
+          projectsTitle: "Projects",
+          galleryTitle: "Gallery",
+          filterHeading: "Filter by Category:",
+          bioSubtitle:
+            "Pencil, pixels, paint, code, skin, polygons, a guitar and a 3D printer. Not necessarily in that order.",
+          all: "All",
+          tags: {
+            Tradicional: "Traditional",
+            Digital: "Digital",
+            "2D": "2D",
+            "3D": "3D",
+            Escultura: "Sculpture",
+            Pintura: "Painting",
+            Tattoo: "Tattoo",
+            Código: "Code",
+            GameDev: "Game Dev",
+            Música: "Music",
+            Luthieria: "Luthiery",
+          },
+        },
+      };
+
+      function toggleSkillsDrawer() {
+        const content = document.getElementById("skillsDrawerContent");
+        const chevron = document.getElementById("skillsChevron");
+        const isHidden = content.classList.contains("hidden");
+
+        if (isHidden) {
+          content.classList.remove("hidden");
+          chevron.classList.add("rotate-180");
+        } else {
+          content.classList.add("hidden");
+          chevron.classList.remove("rotate-180");
+        }
+      }
+
+      const tagKeys = [
+        "Tradicional",
+        "Digital",
+        "2D",
+        "3D",
+        "Escultura",
+        "Pintura",
+        "Tattoo",
+        "Código",
+        "GameDev",
+        "Música",
+        "Luthieria",
+      ];
+
+      // Gallery entries with tags, titles, and media handlers
+      let galleryItems = [];
+
+      async function loadGalleryData() {
+        try {
+          const response = await fetch("./gallery.json");
+          if (!response.ok)
+            throw new Error("Erro ao carregar itens da galeria");
+          const data = await response.json();
+
+          // Embaralha garantindo alternância de categorias adjacentes
+          galleryItems = shuffleAndDiversify(data);
+
+          renderGallery();
+        } catch (error) {
+          console.error("Falha ao carregar galeria:", error);
+        }
+      }
+
+      function shuffleAndDiversify(items) {
+        if (!items || items.length <= 2) return items;
+
+        // 1. Embaralha aleatoriamente primeiro
+        const pool = [...items];
+        for (let i = pool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+
+        // 2. Extrai a categoria principal de cada item para comparação
+        // Considera a primeira tag como a disciplina primária (ex: "3D", "Tattoo", "Música")
+        const getPrimaryTag = (item) =>
+          item.tags && item.tags.length > 0 ? item.tags[0] : item.type;
+
+        const result = [pool.shift()];
+
+        // 3. Monta a lista alternando disciplinas adjacentes
+        while (pool.length > 0) {
+          const lastTag = getPrimaryTag(result[result.length - 1]);
+
+          // Procura o primeiro item cujo tipo/tag principal seja diferente do anterior
+          let candidateIndex = pool.findIndex(
+            (item) => getPrimaryTag(item) !== lastTag,
+          );
+
+          // Se encontrou um item de outra área, insere; se só restaram itens da mesma área, pega o primeiro
+          if (candidateIndex !== -1) {
+            result.push(pool.splice(candidateIndex, 1)[0]);
+          } else {
+            result.push(pool.shift());
+          }
+        }
+
+        return result;
+      }
+
+      let currentLang = "pt";
+      let activeTag = "all";
+      let activeModalItem = null;
+
+      function setLanguage(lang) {
+        currentLang = lang;
+
+        const btnPt = document.getElementById("btn-pt");
+        const btnEn = document.getElementById("btn-en");
+        if (lang === "pt") {
+          btnPt.classList.remove("opacity-60");
+          btnPt.classList.add("border-brand-orange");
+          btnEn.classList.add("opacity-60");
+          btnEn.classList.remove("border-brand-orange");
+        } else {
+          btnEn.classList.remove("opacity-60");
+          btnEn.classList.add("border-brand-orange");
+          btnPt.classList.add("opacity-60");
+          btnPt.classList.remove("border-brand-orange");
+        }
+
+        document.getElementById("projectsHeading").textContent =
+          i18n[lang].projectsTitle;
+        document.getElementById("galleryHeading").textContent =
+          i18n[lang].galleryTitle;
+        document.getElementById("filterHeading").textContent =
+          i18n[lang].filterHeading;
+        document.getElementById("bioSubtitle").textContent =
+          i18n[lang].bioSubtitle;
+        document.getElementById("skillsDrawerTitle").textContent =
+          i18n[lang].skillsDrawerTitle;
+        document.getElementById("craftsSubtitle").textContent =
+          i18n[lang].craftsSubtitle;
+        document.getElementById("toolsSubtitle").textContent =
+          i18n[lang].toolsSubtitle;
+
+        renderTags();
+        renderGallery();
+
+        if (activeModalItem) {
+          document.getElementById("modalTitle").innerHTML =
+            activeModalItem.title[currentLang];
+          const descElem = document.getElementById("modalDescriptionText");
+          if (
+            descElem &&
+            activeModalItem.description &&
+            activeModalItem.description[currentLang]
+          ) {
+            descElem.innerHTML = activeModalItem.description[currentLang];
           }
         }
       }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #381631;
-      color: #d8dcb4;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #381631;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #1b958d;
-      border-radius: 9999px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #fea85f;
-    }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#e21c61] selection:text-white relative overflow-x-hidden">
 
-  <!-- Ambient Background Lighting -->
-  <div class="fixed inset-0 pointer-events-none opacity-25">
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#e21c61] rounded-full blur-[120px]"></div>
-    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-[#1b958d] rounded-full blur-[140px]"></div>
-    <div class="absolute bottom-10 -left-20 w-80 h-80 bg-[#105390] rounded-full blur-[130px]"></div>
-  </div>
+      function renderTags() {
+        const container = document.getElementById("tagContainer");
+        container.innerHTML = "";
 
-  <div class="relative z-10 w-full max-w-2xl mx-auto px-4 py-6 sm:py-10 flex-grow flex flex-col">
-
-    <!-- Header Bar: Language Switcher -->
-    <header class="flex justify-end items-center mb-6">
-      <div class="flex items-center gap-1.5 bg-[#381631]/80 backdrop-blur-md p-1.5 rounded-full border border-[#1b958d]/40 shadow-sm">
-        <!-- Brazilian Flag Button -->
-        <button id="btn-pt" onclick="setLanguage('pt')" title="Português" aria-label="Português" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200">
-          <svg class="w-full h-full" viewBox="0 0 720 504" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="720" height="504" fill="#009c3b"/>
-            <polygon points="360,37.8 682.2,252 360,466.2 37.8,252" fill="#ffdf00"/>
-            <circle cx="360" cy="252" r="126" fill="#002776"/>
-            <path d="M234,252 a126,126 0 0,0 248,32 a126,126 0 0,1 -248,-32" fill="#fff"/>
-          </svg>
-        </button>
-        <!-- UK Flag Button -->
-        <button id="btn-en" onclick="setLanguage('en')" title="English" aria-label="English" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-[#fea85f] transition-all duration-200 opacity-60">
-          <svg class="w-full h-full" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
-            <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
-            <g clip-path="url(#s)">
-              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
-              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
-              <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
-              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
-              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
-            </g>
-          </svg>
-        </button>
-      </div>
-    </header>
-
-    <!-- Bio / Profile Header -->
-    <section class="flex flex-col items-center text-center mb-8">
-      <div class="relative w-28 h-28 mb-4">
-        <div class="w-full h-full rounded-full bg-gradient-to-tr from-[#e21c61] via-[#fea85f] to-[#5eb6ad] p-[3px] shadow-lg">
-          <div class="w-full h-full rounded-full bg-[#381631] overflow-hidden flex items-center justify-center">
-            <!-- Profile Picture Placeholder -->
-            <img src="assets/AndrewPhoto.jpg" alt="Andrew Mendes" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <span class="w-full h-full hidden items-center justify-center text-3xl font-bold text-[#d8dcb4] bg-[#381631]">AM</span>
-          </div>
-        </div>
-      </div>
-
-      <h1 class="text-2xl sm:text-3xl tracking-tight text-[#d8dcb4] mb-2">Andrew Mendes</h1>
-      
-      <p id="bioSubtitle" class="text-xs sm:text-sm font-normal text-[#d8dcb4]/80 max-w-md leading-relaxed px-2 mb-4">
-        Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.
-      </p>
-
-      <!-- Social Media Bar -->
-      <div class="flex items-center justify-center gap-3 mt-1">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/5522997868711" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp" 
-           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-        </a>
-
-        <!-- Email -->
-        <a href="mailto:andrewmendes@gmail.com" title="E-mail" aria-label="E-mail"
-           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </a>
-
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/mendesandrew/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"
-           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-        </a>
-
-        <!-- GitHub -->
-        <a href="https://github.com/andrew-mendes" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"
-           class="w-9 h-9 rounded-full bg-[#381631] border border-[#1b958d]/50 hover:border-[#5eb6ad] hover:bg-[#1b958d]/20 text-[#d8dcb4] hover:text-[#5eb6ad] flex items-center justify-center transition-all duration-200">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="mb-8">
-      <h2 id="projectsHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-3">Projetos</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-        
-        <!-- Goblygon (Light Green / Mint) -->
-        <a href="https://www.artstation.com/goblygon" target="_blank" rel="noopener noreferrer"
-           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#5eb6ad]/60 hover:border-[#5eb6ad] hover:bg-[#5eb6ad]/10 text-[#d8dcb4] hover:text-[#5eb6ad] transition-all duration-200 shadow-sm text-center group">
-          <img src="assets/Goblygon.jpg" alt="Goblygon" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span class="w-6 h-6 rounded-full bg-[#5eb6ad]/30 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">G</span>
-          <span class="text-xs font-medium leading-tight">Goblygon</span>
-        </a>
-
-        <!-- Inkalibur (Blue) -->
-        <a href="https://www.instagram.com/inkalibur/" target="_blank" rel="noopener noreferrer"
-           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#105390] hover:border-[#5eb6ad] hover:bg-[#105390]/25 text-[#d8dcb4] hover:text-[#5eb6ad] transition-all duration-200 shadow-sm text-center group">
-          <img src="assets/Inkalibur.jpg" alt="Inkalibur" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span class="w-6 h-6 rounded-full bg-[#105390] text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">I</span>
-          <span class="text-xs font-medium leading-tight">Inkalibur</span>
-        </a>
-
-        <!-- CS50 (Red / Magenta) -->
-        <a href="https://github.com/andrew-mendes?tab=repositories&q=&type=public&language=&sort=stargazers" target="_blank" rel="noopener noreferrer"
-           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#e21c61]/70 hover:border-[#e21c61] hover:bg-[#e21c61]/15 text-[#d8dcb4] hover:text-[#e26159] transition-all duration-200 shadow-sm text-center group">
-          <img src="assets/CS50.jpg" alt="CS50" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span class="w-6 h-6 rounded-full bg-[#e21c61]/40 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">C</span>
-          <span class="text-xs font-medium leading-tight">CS50</span>
-        </a>
-
-        <!-- Games Ever Made (Warm Apricot / Orange) -->
-        <a href="https://games-ever-made.itch.io" target="_blank" rel="noopener noreferrer"
-           class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#381631] border border-[#fea85f]/70 hover:border-[#fea85f] hover:bg-[#fea85f]/15 text-[#d8dcb4] hover:text-[#fea85f] transition-all duration-200 shadow-sm text-center group">
-          <img src="assets/GEM.jpg" alt="GEM" class="w-6 h-6 rounded-full object-cover shrink-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span class="w-6 h-6 rounded-full bg-[#fea85f]/30 text-[#d8dcb4] text-[10px] font-bold items-center justify-center shrink-0 hidden">M</span>
-          <span class="text-xs font-medium leading-tight">Games Ever Made</span>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Gaveta Recolhível: Habilidades & Ferramentas -->
-    <section class="mb-7">
-      <div class="rounded-xl border border-[#1b958d]/40 bg-[#381631]/80 overflow-hidden transition-all duration-200">
-        <button onclick="toggleSkillsDrawer()" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-[#1b958d]/10 transition-colors">
-          <span id="skillsDrawerTitle" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad]">
-            Habilidades & Ferramentas
-          </span>
-          <svg id="skillsChevron" class="w-4 h-4 text-[#fea85f] transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-
-        <div id="skillsDrawerContent" class="hidden px-4 pb-4 pt-1 border-t border-[#1b958d]/20 space-y-4">
-          <!-- Disciplinas -->
-          <div>
-            <h4 id="craftsSubtitle" class="text-[11px] uppercase tracking-wider font-semibold text-[#fea85f] mb-2">
-              Disciplinas & Artes
-            </h4>
-            <div class="flex flex-wrap gap-1.5 text-xs text-[#d8dcb4]">
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Escultura Digital</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Miniaturas & Colecionáveis</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Impressão 3D (FDM)</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Tattoo</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Cartoon</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Desenho Realista</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Pixel Art</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Pintura Digital</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Pintura Acrílica</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Luthieria</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Música</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Game Dev</span>
-            </div>
-          </div>
-
-          <!-- Ferramentas & Software -->
-          <div>
-            <h4 id="toolsSubtitle" class="text-[11px] uppercase tracking-wider font-semibold text-[#fea85f] mb-2">
-              Ferramentas & Software
-            </h4>
-            <div class="flex flex-wrap gap-1.5 text-xs text-[#d8dcb4]">
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">ZBrush</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Photoshop</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">CorelDRAW</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Krita</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">OrcaSlicer</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">PrusaSlicer</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Ultimaker Cura</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Anycubic Slicer Next</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Aseprite</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">GDevelop</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Godot</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">Python</span>
-              <span class="px-2.5 py-1 rounded-md bg-[#381631] border border-[#1b958d]/30">HTML/CSS/JS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Tag Filters Section -->
-    <section class="mb-6">
-      <h2 id="filterHeading" class="text-xs uppercase tracking-wider font-semibold text-[#5eb6ad] mb-2.5">Filtre por categoria:</h2>
-      <div id="tagContainer" class="flex flex-wrap gap-2">
-        <!-- Rendered via JavaScript -->
-      </div>
-    </section>
-
-    <!-- Mixed Media Gallery Section -->
-    <section class="mb-8">
-      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        <!-- Rendered via JavaScript -->
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Minimal Footer -->
-  <footer class="relative z-10 w-full border-t border-[#1b958d]/20 py-4 text-center text-[11px] text-[#d8dcb4]/50">
-    <p>© Andrew Mendes 2026</p>
-  </footer>
-
-  <!-- Lightbox Modal Viewer -->
-  <div id="mediaModal" class="fixed inset-0 z-50 bg-[#381631]/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6" onclick="handleBackdropClick(event)">
-    <div class="relative w-full max-w-2xl bg-[#381631] border border-[#1b958d]/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-      
-      <!-- Modal Header with Title & Close (Centralizado) -->
-      <div class="relative flex items-center justify-center px-12 py-3 border-b border-[#1b958d]/30 bg-[#381631]/80 min-h-[48px]">
-        <h3 id="modalTitle" class="text-sm font-semibold text-[#d8dcb4] text-center truncate w-full"></h3>
-        <button onclick="closeModal()" aria-label="Fechar" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#381631] border border-[#1b958d]/40 text-[#d8dcb4] hover:text-[#fea85f] hover:border-[#fea85f] flex items-center justify-center transition-colors shrink-0">
-          ✕
-        </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div id="modalBody" class="p-3 sm:p-5 pt-4 sm:pt-7 overflow-y-auto flex items-center justify-center custom-scrollbar">
-        <!-- Injected dynamically -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Data & Logic -->
-  <script>
-    // Bilingual dictionary for dynamic swapping
-    const i18n = {
-      pt: {
-        skillsDrawerTitle: "Habilidades & Ferramentas",
-        craftsSubtitle: "Disciplinas & Artes",
-        toolsSubtitle: "Ferramentas & Software",
-        projectsTitle: "Projetos",
-        filterHeading: "Filtre por categoria:",
-        bioSubtitle: "Lápis, pixels, tintas, código, pele, polígonos, um violão e uma impressora 3D. Não necessariamente nessa ordem.",
-        all: "Todos",
-        tags: {
-          Tradicional: "Tradicional",
-          Digital: "Digital",
-          "2D": "2D",
-          "3D": "3D",
-          Escultura: "Escultura",
-          Pintura: "Pintura",
-          Tattoo: "Tattoo",
-          "Código": "Código",
-          "Música": "Música",
-          Luthieria: "Luthieria"
-        }
-      },
-      en: {
-        skillsDrawerTitle: "Skills & Tools",
-        craftsSubtitle: "Crafts & Disciplines",
-        toolsSubtitle: "Tools & Software",
-        projectsTitle: "Projects",
-        filterHeading: "Filter by Category:",
-        bioSubtitle: "Pencil, pixels, paint, code, skin, polygons, a guitar and a 3D printer. Not necessarily in that order.",
-        all: "All",
-        tags: {
-          Tradicional: "Traditional",
-          Digital: "Digital",
-          "2D": "2D",
-          "3D": "3D",
-          Escultura: "Sculpture",
-          Pintura: "Painting",
-          Tattoo: "Tattoo",
-          Código: "Code",
-          GameDev: "Game Dev",
-          "Música": "Music",
-          Luthieria: "Luthiery"
-        }
-      }
-    };
-
-    function toggleSkillsDrawer() {
-      const content = document.getElementById("skillsDrawerContent");
-      const chevron = document.getElementById("skillsChevron");
-      const isHidden = content.classList.contains("hidden");
-      
-      if (isHidden) {
-        content.classList.remove("hidden");
-        chevron.classList.add("rotate-180");
-      } else {
-        content.classList.add("hidden");
-        chevron.classList.remove("rotate-180");
-      }
-    }
-
-    const tagKeys = ["Tradicional", "Digital", "2D", "3D", "Escultura", "Pintura", "Tattoo", "Código", "GameDev", "Música", "Luthieria"];
-
-    // Gallery entries with tags, titles, and media handlers
-    let galleryItems = [];
-
-    async function loadGalleryData() {
-      try {
-        const response = await fetch('./gallery.json');
-        if (!response.ok) throw new Error('Erro ao carregar itens da galeria');
-        const data = await response.json();
-        
-        // Embaralha garantindo alternância de categorias adjacentes
-        galleryItems = shuffleAndDiversify(data);
-        
-        renderGallery();
-      } catch (error) {
-        console.error("Falha ao carregar galeria:", error);
-      }
-    }
-
-    function shuffleAndDiversify(items) {
-      if (!items || items.length <= 2) return items;
-
-      // 1. Embaralha aleatoriamente primeiro
-      const pool = [...items];
-      for (let i = pool.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [pool[i], pool[j]] = [pool[j], pool[i]];
-      }
-
-      // 2. Extrai a categoria principal de cada item para comparação
-      // Considera a primeira tag como a disciplina primária (ex: "3D", "Tattoo", "Música")
-      const getPrimaryTag = (item) => (item.tags && item.tags.length > 0 ? item.tags[0] : item.type);
-
-      const result = [pool.shift()];
-
-      // 3. Monta a lista alternando disciplinas adjacentes
-      while (pool.length > 0) {
-        const lastTag = getPrimaryTag(result[result.length - 1]);
-        
-        // Procura o primeiro item cujo tipo/tag principal seja diferente do anterior
-        let candidateIndex = pool.findIndex(item => getPrimaryTag(item) !== lastTag);
-
-        // Se encontrou um item de outra área, insere; se só restaram itens da mesma área, pega o primeiro
-        if (candidateIndex !== -1) {
-          result.push(pool.splice(candidateIndex, 1)[0]);
-        } else {
-          result.push(pool.shift());
-        }
-      }
-
-      return result;
-    }
-
-    let currentLang = "pt";
-    let activeTag = "all";
-    let activeModalItem = null;
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      
-      const btnPt = document.getElementById("btn-pt");
-      const btnEn = document.getElementById("btn-en");
-      if (lang === "pt") {
-        btnPt.classList.remove("opacity-60");
-        btnPt.classList.add("border-[#fea85f]");
-        btnEn.classList.add("opacity-60");
-        btnEn.classList.remove("border-[#fea85f]");
-      } else {
-        btnEn.classList.remove("opacity-60");
-        btnEn.classList.add("border-[#fea85f]");
-        btnPt.classList.add("opacity-60");
-        btnPt.classList.remove("border-[#fea85f]");
-      }
-
-      document.getElementById("projectsHeading").textContent = i18n[lang].projectsTitle;
-      document.getElementById("filterHeading").textContent = i18n[lang].filterHeading;
-      document.getElementById("bioSubtitle").textContent = i18n[lang].bioSubtitle;
-      document.getElementById("skillsDrawerTitle").textContent = i18n[lang].skillsDrawerTitle;
-      document.getElementById("craftsSubtitle").textContent = i18n[lang].craftsSubtitle;
-      document.getElementById("toolsSubtitle").textContent = i18n[lang].toolsSubtitle;
-
-      renderTags();
-      renderGallery();
-
-      if (activeModalItem) {
-        document.getElementById("modalTitle").innerHTML = activeModalItem.title[currentLang];
-        const descElem = document.getElementById("modalDescriptionText");
-        if (descElem && activeModalItem.description && activeModalItem.description[currentLang]) {
-          descElem.innerHTML = activeModalItem.description[currentLang];
-        }
-      }
-    }
-
-    function renderTags() {
-      const container = document.getElementById("tagContainer");
-      container.innerHTML = "";
-
-      const allBtn = document.createElement("button");
-      allBtn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
-        activeTag === "all"
-          ? "bg-[#fea85f] text-[#381631] border-[#fea85f] font-semibold"
-          : "bg-[#381631] text-[#d8dcb4] border-[#1b958d]/40 hover:border-[#fea85f]"
-      }`;
-      allBtn.textContent = i18n[currentLang].all;
-      allBtn.onclick = () => { activeTag = "all"; renderTags(); renderGallery(); };
-      container.appendChild(allBtn);
-
-      tagKeys.forEach(tagKey => {
-        const btn = document.createElement("button");
-        const isActive = activeTag === tagKey;
-        btn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
-          isActive
-            ? "bg-[#5eb6ad] text-[#381631] border-[#5eb6ad] font-semibold"
-            : "bg-[#381631] text-[#d8dcb4] border-[#1b958d]/40 hover:border-[#5eb6ad]"
+        const allBtn = document.createElement("button");
+        allBtn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
+          activeTag === "all"
+            ? "bg-brand-orange text-brand-plum border-brand-orange font-semibold"
+            : "bg-brand-plum text-brand-sage border-brand-teal/40 hover:border-brand-orange"
         }`;
-        btn.textContent = (i18n[currentLang].tags && i18n[currentLang].tags[tagKey]) || tagKey;
-        btn.onclick = () => { activeTag = tagKey; renderTags(); renderGallery(); };
-        container.appendChild(btn);
-      });
-    }
+        allBtn.textContent = i18n[currentLang].all;
+        allBtn.onclick = () => {
+          activeTag = "all";
+          renderTags();
+          renderGallery();
+        };
+        container.appendChild(allBtn);
 
-    function renderGallery() {
-      const grid = document.getElementById("galleryGrid");
-      grid.innerHTML = "";
+        tagKeys.forEach((tagKey) => {
+          const btn = document.createElement("button");
+          const isActive = activeTag === tagKey;
+          btn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
+            isActive
+              ? "bg-brand-mint text-brand-plum border-brand-mint font-semibold"
+              : "bg-brand-plum text-brand-sage border-brand-teal/40 hover:border-brand-mint"
+          }`;
+          btn.textContent =
+            (i18n[currentLang].tags && i18n[currentLang].tags[tagKey]) ||
+            tagKey;
+          btn.onclick = () => {
+            activeTag = tagKey;
+            renderTags();
+            renderGallery();
+          };
+          container.appendChild(btn);
+        });
+      }
 
-      const filtered = activeTag === "all"
-        ? galleryItems
-        : galleryItems.filter(item => item.tags.includes(activeTag));
+      function renderGallery() {
+        const grid = document.getElementById("galleryGrid");
+        grid.innerHTML = "";
 
-      filtered.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "group relative aspect-square rounded-xl overflow-hidden bg-[#381631] border border-[#1b958d]/30 hover:border-[#fea85f] transition-all duration-200 cursor-pointer shadow-sm";
-        card.onclick = () => openModal(item);
+        const filtered =
+          activeTag === "all"
+            ? galleryItems
+            : galleryItems.filter((item) => item.tags.includes(activeTag));
 
-        let innerContent = "";
-        const titleText = item.title[currentLang];
+        const countElem = document.getElementById("galleryCount");
+        if (countElem) {
+          countElem.textContent = `${filtered.length} ${
+            filtered.length === 1 ? "item" : "itens"
+          }`;
+        }
 
-        if (item.type === "image") {
-          const imgList = item.images && item.images.length > 0 ? item.images : [item.src];
-          const hasMultiple = imgList.length > 1;
+        filtered.forEach((item) => {
+          const card = document.createElement("div");
+          card.className =
+            "group relative aspect-square rounded-xl overflow-hidden bg-brand-plum border border-brand-teal/30 hover:border-brand-orange transition-all duration-200 cursor-pointer shadow-sm";
+          card.onclick = () => openModal(item);
 
-          innerContent = `
+          let innerContent = "";
+          const titleText = item.title[currentLang];
+
+          if (item.type === "image") {
+            const imgList =
+              item.images && item.images.length > 0 ? item.images : [item.src];
+            const hasMultiple = imgList.length > 1;
+
+            innerContent = `
             <img src="${item.src}" alt="${titleText}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
-            ${hasMultiple ? `
-              <div class="absolute top-2.5 right-2.5 bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 rounded-full px-2 py-0.5 text-[10px] text-[#fea85f] flex items-center gap-1.5 shadow-sm">
+            ${
+              hasMultiple
+                ? `
+              <div class="absolute top-2.5 right-2.5 bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 rounded-full px-2 py-0.5 text-[10px] text-brand-orange flex items-center gap-1.5 shadow-sm">
                 <!-- Ícone vetorial minimalista monocromático -->
                 <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                   <path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
                 </svg>
                 <span class="font-medium">${imgList.length}</span>
               </div>
-            ` : ''}
+            `
+                : ""
+            }
           `;
-        } else if (item.type === "video") {
-          const thumbUrl = item.poster || (item.youtubeId ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg` : (item.src || 'assets/Goblygon.jpg'));
+          } else if (item.type === "video") {
+            const thumbUrl =
+              item.poster ||
+              (item.youtubeId
+                ? `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`
+                : item.src || "assets/Goblygon.jpg");
 
-          innerContent = `
-            <div class="relative w-full h-full bg-[#381631] overflow-hidden">
+            innerContent = `
+            <div class="relative w-full h-full bg-brand-plum overflow-hidden">
               <img src="${thumbUrl}" alt="${titleText}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
               <div class="absolute inset-0 flex justify-end p-2.5 sm:p-3 pointer-events-none">
-                <span class="w-7 h-7 rounded-full bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 text-[#fea85f] flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
+                <span class="w-7 h-7 rounded-full bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 text-brand-orange flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
               </div>
             </div>
           `;
-        } else if (item.type === "audio") {
+          } else if (item.type === "audio") {
             innerContent = `
-              <div class="relative w-full h-full bg-[#381631] overflow-hidden">
+              <div class="relative w-full h-full bg-brand-plum overflow-hidden">
                 <!-- Imagem 100% visível (sem opacity-60) -->
-                <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+                <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
                 
                 <!-- Overlay transparente apenas para posicionar os botões de nota e play -->
                 <div class="absolute inset-0 flex flex-col justify-between p-2.5 sm:p-3 pointer-events-none">
-                  <span class="self-end w-7 h-7 rounded-full bg-[#381631]/80 backdrop-blur-sm border border-[#1b958d]/40 text-[#fea85f] flex items-center justify-center text-xs font-bold shadow-sm">♪</span>
+                  <span class="self-end w-7 h-7 rounded-full bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 text-brand-orange flex items-center justify-center text-xs font-bold shadow-sm">♪</span>
                 </div>
               </div>
             `;
-        } else if (item.type === "code") {
-        innerContent = `
-          <div class="w-full h-full p-3.5 bg-[#381631] flex flex-col justify-between font-mono text-[10px] text-[#5eb6ad] overflow-hidden">
-            <div class="text-[9px] uppercase tracking-widest text-[#e21c61] font-bold">SOURCE CODE</div>
+          } else if (item.type === "code") {
+            innerContent = `
+          <div class="w-full h-full p-3.5 bg-brand-plum flex flex-col justify-between font-mono text-[10px] text-brand-mint overflow-hidden">
+            <div class="text-[9px] uppercase tracking-widest text-brand-magenta font-bold">SOURCE CODE</div>
             <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
-            <div class="text-[9px] text-[#fea85f]">&lt;/&gt; View Code</div>
+            <div class="text-[9px] text-brand-orange">&lt;/&gt; View Code</div>
           </div>
         `;
-      }
+          }
 
-      card.innerHTML = `
+          card.innerHTML = `
         ${innerContent}
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#381631] via-[#381631]/85 to-transparent p-2.5 pt-8 pointer-events-none">
-            <p class="text-xs font-medium text-[#d8dcb4] group-hover:text-[#fea85f] line-clamp-2 leading-tight transition-colors">${titleText}</p>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-plum via-brand-plum/85 to-transparent p-2.5 pt-8 pointer-events-none">
+            <p class="text-xs font-medium text-brand-sage group-hover:text-brand-orange line-clamp-2 leading-tight transition-colors">${titleText}</p>
           </div>
         `;
 
-      grid.appendChild(card);
-      });
-    }
-
-    function switchModalImage(imgUrl, clickedBtn) {
-      const mainImg = document.getElementById("activeModalImg");
-      if (mainImg) {
-        mainImg.src = imgUrl;
+          grid.appendChild(card);
+        });
       }
-      
-      document.querySelectorAll(".thumb-btn").forEach(btn => {
-        btn.classList.remove("border-[#fea85f]", "opacity-100");
-        btn.classList.add("border-[#1b958d]/40", "opacity-50");
-      });
-      
-      clickedBtn.classList.remove("border-[#1b958d]/40", "opacity-50");
-      clickedBtn.classList.add("border-[#fea85f]", "opacity-100");
-    }
 
-    function toggleModalDescription() {
-      const panel = document.getElementById("modalDescriptionPanel");
-      if (!panel) return;
+      function switchModalImage(imgUrl, clickedBtn) {
+        const mainImg = document.getElementById("activeModalImg");
+        if (mainImg) {
+          mainImg.src = imgUrl;
+        }
 
-      if (panel.style.display === "none" || panel.style.display === "") {
-        panel.style.display = "flex";
-      } else {
-        panel.style.display = "none";
+        document.querySelectorAll(".thumb-btn").forEach((btn) => {
+          btn.classList.remove("border-brand-orange", "opacity-100");
+          btn.classList.add("border-brand-teal/40", "opacity-50");
+        });
+
+        clickedBtn.classList.remove("border-brand-teal/40", "opacity-50");
+        clickedBtn.classList.add("border-brand-orange", "opacity-100");
       }
-    }
 
-    function toggleAudioPlay(btn) {
-      const audio = document.getElementById("modalAudioElement");
-      const playIcon = document.getElementById("audioPlayIcon");
-      const pauseIcon = document.getElementById("audioPauseIcon");
-      if (!audio) return;
+      function toggleModalDescription() {
+        const panel = document.getElementById("modalDescriptionPanel");
+        if (!panel) return;
 
-      if (audio.paused) {
-        audio.play();
-        if (playIcon) playIcon.classList.add("hidden");
-        if (pauseIcon) pauseIcon.classList.remove("hidden");
-      } else {
-        audio.pause();
-        if (playIcon) playIcon.classList.remove("hidden");
-        if (pauseIcon) pauseIcon.classList.add("hidden");
+        if (panel.style.display === "none" || panel.style.display === "") {
+          panel.style.display = "flex";
+        } else {
+          panel.style.display = "none";
+        }
       }
-    }
 
-    function updateAudioProgress() {
-      const audio = document.getElementById("modalAudioElement");
-      const progressBar = document.getElementById("audioProgressBar");
-      const timeCurrent = document.getElementById("audioCurrentTime");
-      const timeDuration = document.getElementById("audioDurationTime");
-      if (!audio || !progressBar) return;
+      function toggleAudioPlay(btn) {
+        const audio = document.getElementById("modalAudioElement");
+        const playIcon = document.getElementById("audioPlayIcon");
+        const pauseIcon = document.getElementById("audioPauseIcon");
+        if (!audio) return;
 
-      if (audio.duration) {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = percent + "%";
-
-        const format = (sec) => {
-          const m = Math.floor(sec / 60);
-          const s = Math.floor(sec % 60);
-          return `${m}:${s < 10 ? '0' : ''}${s}`;
-        };
-
-        if (timeCurrent) timeCurrent.textContent = format(audio.currentTime);
-        if (timeDuration && !isNaN(audio.duration)) timeDuration.textContent = format(audio.duration);
+        if (audio.paused) {
+          audio.play();
+          if (playIcon) playIcon.classList.add("hidden");
+          if (pauseIcon) pauseIcon.classList.remove("hidden");
+        } else {
+          audio.pause();
+          if (playIcon) playIcon.classList.remove("hidden");
+          if (pauseIcon) pauseIcon.classList.add("hidden");
+        }
       }
-    }
 
-    function seekAudio(event) {
-      const audio = document.getElementById("modalAudioElement");
-      const track = event.currentTarget;
-      if (!audio || !track || !audio.duration) return;
+      function updateAudioProgress() {
+        const audio = document.getElementById("modalAudioElement");
+        const progressBar = document.getElementById("audioProgressBar");
+        const timeCurrent = document.getElementById("audioCurrentTime");
+        const timeDuration = document.getElementById("audioDurationTime");
+        if (!audio || !progressBar) return;
 
-      const rect = track.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
-      audio.currentTime = ratio * audio.duration;
-    }
+        if (audio.duration) {
+          const percent = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = percent + "%";
 
-    let lastVolume = 0.5; // Default volume level
+          const format = (sec) => {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? "0" : ""}${s}`;
+          };
 
-    function changeAudioVolume(val) {
-      const audio = document.getElementById("modalAudioElement");
-      const volHigh = document.getElementById("audioVolHighIcon");
-      const volMuted = document.getElementById("audioVolMutedIcon");
-      if (!audio) return;
-
-      const volume = parseFloat(val);
-      audio.volume = volume;
-      audio.muted = volume === 0;
-
-      if (volume === 0) {
-        if (volHigh) volHigh.classList.add("hidden");
-        if (volMuted) volMuted.classList.remove("hidden");
-      } else {
-        lastVolume = volume;
-        if (volHigh) volHigh.classList.remove("hidden");
-        if (volMuted) volMuted.classList.add("hidden");
+          if (timeCurrent) timeCurrent.textContent = format(audio.currentTime);
+          if (timeDuration && !isNaN(audio.duration))
+            timeDuration.textContent = format(audio.duration);
+        }
       }
-    }
 
-    function toggleMute() {
-      const audio = document.getElementById("modalAudioElement");
-      const slider = document.getElementById("audioVolumeSlider");
-      if (!audio) return;
+      function seekAudio(event) {
+        const audio = document.getElementById("modalAudioElement");
+        const track = event.currentTarget;
+        if (!audio || !track || !audio.duration) return;
 
-      if (audio.muted || audio.volume === 0) {
-        audio.muted = false;
-        audio.volume = lastVolume > 0 ? lastVolume : 0.5;
-        if (slider) slider.value = audio.volume;
-        changeAudioVolume(audio.volume);
-      } else {
-        lastVolume = audio.volume;
-        audio.muted = true;
-        audio.volume = 0;
-        if (slider) slider.value = 0;
-        changeAudioVolume(0);
+        const rect = track.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        audio.currentTime = ratio * audio.duration;
       }
-    }
-    function openModal(item) {
-      activeModalItem = item;
-      const modal = document.getElementById("mediaModal");
-      const titleElem = document.getElementById("modalTitle");
-      const bodyElem = document.getElementById("modalBody");
 
-      titleElem.innerHTML = item.title[currentLang];
-      bodyElem.innerHTML = "";
+      let lastVolume = 0.5; // Default volume level
 
-      if (item.type === "image") {
-        const imgList = item.images && item.images.length > 0 ? item.images : [item.src];
-        const hasMultiple = imgList.length > 1;
-        const hasDesc = item.description && item.description[currentLang];
+      function changeAudioVolume(val) {
+        const audio = document.getElementById("modalAudioElement");
+        const volHigh = document.getElementById("audioVolHighIcon");
+        const volMuted = document.getElementById("audioVolMutedIcon");
+        if (!audio) return;
 
-        bodyElem.innerHTML = `
+        const volume = parseFloat(val);
+        audio.volume = volume;
+        audio.muted = volume === 0;
+
+        if (volume === 0) {
+          if (volHigh) volHigh.classList.add("hidden");
+          if (volMuted) volMuted.classList.remove("hidden");
+        } else {
+          lastVolume = volume;
+          if (volHigh) volHigh.classList.remove("hidden");
+          if (volMuted) volMuted.classList.add("hidden");
+        }
+      }
+
+      function toggleMute() {
+        const audio = document.getElementById("modalAudioElement");
+        const slider = document.getElementById("audioVolumeSlider");
+        if (!audio) return;
+
+        if (audio.muted || audio.volume === 0) {
+          audio.muted = false;
+          audio.volume = lastVolume > 0 ? lastVolume : 0.5;
+          if (slider) slider.value = audio.volume;
+          changeAudioVolume(audio.volume);
+        } else {
+          lastVolume = audio.volume;
+          audio.muted = true;
+          audio.volume = 0;
+          if (slider) slider.value = 0;
+          changeAudioVolume(0);
+        }
+      }
+      function openModal(item) {
+        activeModalItem = item;
+        const modal = document.getElementById("mediaModal");
+        const titleElem = document.getElementById("modalTitle");
+        const bodyElem = document.getElementById("modalBody");
+
+        titleElem.innerHTML = item.title[currentLang];
+        bodyElem.innerHTML = "";
+
+        if (item.type === "image") {
+          const imgList =
+            item.images && item.images.length > 0 ? item.images : [item.src];
+          const hasMultiple = imgList.length > 1;
+          const hasDesc = item.description && item.description[currentLang];
+
+          bodyElem.innerHTML = `
           <div class="flex flex-col items-center w-full">
             <!-- Container da Imagem com elementos flutuantes -->
             <div class="relative inline-block max-w-full max-h-[58vh] sm:max-h-[66vh] mt-1 sm:mt-3 mb-3">
@@ -682,10 +1083,12 @@
                    class="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full block rounded-xl object-contain shadow-md" 
                    onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Image';">
               
-              ${hasDesc ? `
+              ${
+                hasDesc
+                  ? `
                 <!-- Botão ℹ fixo no canto da imagem -->
                 <button type="button" onclick="event.stopPropagation(); toggleModalDescription();" title="Informações" aria-label="Informações"
-                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-[#381631]/85 hover:bg-[#381631] text-[#fea85f] border border-[#1b958d]/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
+                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-brand-plum/85 hover:bg-brand-plum text-brand-orange border border-brand-teal/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
                   ℹ
                 </button>
 
@@ -693,34 +1096,44 @@
                 <div id="modalDescriptionPanel" style="display: none;" 
                      class="absolute inset-x-0 bottom-3 px-3 sm:px-4 z-20 flex justify-center pointer-events-none">
                   <p id="modalDescriptionText" 
-                     class="inline-block bg-[#381631]/85 backdrop-blur-md text-[#d8dcb4] border border-[#1b958d]/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
+                     class="inline-block bg-brand-plum/85 backdrop-blur-md text-brand-sage border border-brand-teal/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
                     ${item.description[currentLang]}
                   </p>
                 </div>
-              ` : ''}
+              `
+                  : ""
+              }
             </div>
 
             <!-- Miniaturas -->
-            ${hasMultiple ? `
+            ${
+              hasMultiple
+                ? `
               <div class="flex items-center gap-2 overflow-x-auto max-w-full py-1.5 px-2 custom-scrollbar">
-                ${imgList.map((img, idx) => `
+                ${imgList
+                  .map(
+                    (img, idx) => `
                   <button type="button" onclick="switchModalImage('${img}', this)" 
-                          class="thumb-btn shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border-2 ${idx === 0 ? 'border-[#fea85f] opacity-100' : 'border-[#1b958d]/40 opacity-50'} hover:opacity-100 transition-all">
+                          class="thumb-btn shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border-2 ${idx === 0 ? "border-brand-orange opacity-100" : "border-brand-teal/40 opacity-50"} hover:opacity-100 transition-all">
                     <img src="${img}" class="w-full h-full object-cover">
                   </button>
-                `).join('')}
+                `,
+                  )
+                  .join("")}
               </div>
-            ` : ''}
+            `
+                : ""
+            }
           </div>
         `;
-      } else if (item.type === "video") {
-        const hasDesc = item.description && item.description[currentLang];
+        } else if (item.type === "video") {
+          const hasDesc = item.description && item.description[currentLang];
 
-        let videoMarkup = "";
-        if (item.youtubeId) {
-          // Embed do YouTube permanece em 16:9 widescreen tradicional
-          videoMarkup = `
-            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-[#1b958d]/30">
+          let videoMarkup = "";
+          if (item.youtubeId) {
+            // Embed do YouTube permanece em 16:9 widescreen tradicional
+            videoMarkup = `
+            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-brand-teal/30">
               <iframe 
                 class="w-full h-full block" 
                 src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?loop=1&playlist=${item.youtubeId}&rel=0"                title="${item.title[currentLang]}" 
@@ -730,55 +1143,60 @@
               </iframe>
             </div>
           `;
-        } else {
-          // Vídeo Local: autoplay + muted + playsinline e sem forçar widescreen
-          videoMarkup = `
-            <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-[#1b958d]/30">
-              <video 
-                id="modalVideoElement" 
-                controls 
-                autoplay 
-                muted
-                loop 
-                playsinline 
-                preload="auto" 
-                poster="${item.poster || ''}" 
-                class="block max-h-[62vh] sm:max-h-[70vh] w-auto max-w-full rounded-xl object-contain">
-                <source src="${item.src}" type="video/mp4">
-                Seu navegador não suporta vídeos.
-              </video>
+          } else {
+            // Vídeo Local: autoplay + muted + playsinline e sem forçar widescreen
+            videoMarkup = `
+              <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-brand-teal/30">
+                <video 
+                  id="modalVideoElement" 
+                  controls 
+                  autoplay 
+                  muted 
+                  loop 
+                  playsinline 
+                  preload="auto" 
+                  poster="${item.poster || ''}" 
+                  src="${item.src}" 
+                  class="block max-h-[55vh] sm:max-h-[60vh] w-auto max-w-full rounded-xl object-contain">
+                  <source src="${item.src}" type="video/mp4">
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+            `;
+          }
+
+          bodyElem.innerHTML = `
+            <div class="flex flex-col items-center justify-center w-full">
+              ${videoMarkup}
+              ${
+                hasDesc
+                  ? `
+                <p id="modalDescriptionText" class="mt-2.5 text-xs sm:text-sm text-brand-sage/80 text-center max-w-md px-3 leading-snug">
+                  ${item.description[currentLang]}
+                </p>
+              `
+                  : ""
+              }
             </div>
           `;
-        }
+        } else if (item.type === "audio") {
+          const hasDesc = item.description && item.description[currentLang];
 
-        bodyElem.innerHTML = `
-          <div class="flex flex-col items-center w-full my-1 sm:my-2">
-            ${videoMarkup}
-            ${hasDesc ? `
-              <p class="mt-3 text-xs sm:text-sm text-[#d8dcb4]/80 text-center max-w-md px-2">
-                ${item.description[currentLang]}
-              </p>
-            ` : ''}
-          </div>
-        `;
-      } else if (item.type === "audio") {
-        const hasDesc = item.description && item.description[currentLang];
-
-        bodyElem.innerHTML = `
+          bodyElem.innerHTML = `
           <div class="flex flex-col items-center w-full max-w-sm mx-auto my-1 sm:my-2">
-            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-[#1b958d]/40 shadow-2xl bg-[#381631]">
+            <div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-brand-teal/40 shadow-2xl bg-brand-plum">
               
               <!-- Capa da Música -->
-              <img src="${item.coverUrl || 'assets/CS50.jpg'}" alt="${item.title[currentLang]}" 
+              <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${item.title[currentLang]}" 
                   class="w-full h-full object-cover select-none" 
                   onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
 
               <!-- Barra do Leitor Flutuante no Topo -->
-              <div class="absolute top-3 inset-x-3 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#381631]/85 backdrop-blur-md border border-[#1b958d]/50 shadow-lg text-[#d8dcb4]">
+              <div class="absolute top-3 inset-x-3 z-30 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-brand-plum/85 backdrop-blur-md border border-brand-teal/50 shadow-lg text-brand-sage">
                 
                 <!-- Botão Play / Pause -->
                 <button type="button" onclick="toggleAudioPlay(this)" aria-label="Tocar / Pausar"
-                        class="w-7 h-7 rounded-full bg-[#1b958d] hover:bg-[#5eb6ad] text-[#381631] flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
+                        class="w-7 h-7 rounded-full bg-brand-teal hover:bg-brand-mint text-brand-plum flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
                   <svg id="audioPlayIcon" class="w-3.5 h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
@@ -789,40 +1207,44 @@
 
                 <!-- Barra de Progresso + Timers -->
                 <div class="flex-grow flex flex-col justify-center gap-1 min-w-0">
-                  <div onclick="seekAudio(event)" class="w-full h-1.5 bg-[#381631]/90 rounded-full cursor-pointer relative overflow-hidden border border-[#1b958d]/40">
-                    <div id="audioProgressBar" class="h-full bg-gradient-to-r from-[#1b958d] via-[#5eb6ad] to-[#fea85f] rounded-full w-0 transition-all duration-100"></div>
+                  <div onclick="seekAudio(event)" class="w-full h-1.5 bg-brand-plum/90 rounded-full cursor-pointer relative overflow-hidden border border-brand-teal/40">
+                    <div id="audioProgressBar" class="h-full bg-gradient-to-r from-brand-teal via-brand-mint to-brand-orange rounded-full w-0 transition-all duration-100"></div>
                   </div>
-                  <div class="flex justify-between items-center text-[10px] font-mono text-[#d8dcb4]/80 leading-none">
+                  <div class="flex justify-between items-center text-[10px] font-mono text-brand-sage/80 leading-none">
                     <span id="audioCurrentTime">0:00</span>
                     <span id="audioDurationTime">0:00</span>
                   </div>
                 </div>
 
                 <!-- Secção de Volume (Ícone Mudo/Som + Slider) -->
-                <div class="flex items-center gap-1.5 shrink-0 pl-1 border-l border-[#1b958d]/30">
-                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-5 h-5 flex items-center justify-center text-[#d8dcb4] hover:text-[#fea85f] transition-colors">
+                <div class="flex items-center gap-1.5 shrink-0 pl-1 border-l border-brand-teal/30">
+                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-5 h-5 flex items-center justify-center text-brand-sage hover:text-brand-orange transition-colors">
                     <svg id="audioVolHighIcon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
                     </svg>
-                    <svg id="audioVolMutedIcon" class="w-4 h-4 fill-current hidden text-[#e26159]" viewBox="0 0 24 24">
+                    <svg id="audioVolMutedIcon" class="w-4 h-4 fill-current hidden text-brand-coral" viewBox="0 0 24 24">
                       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
                     </svg>
                   </button>
                   <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1" 
                         oninput="changeAudioVolume(this.value)" 
-                        class="w-12 sm:w-14 h-1 bg-[#381631] accent-[#fea85f] rounded-lg cursor-pointer">
+                        class="w-12 sm:w-14 h-1 bg-brand-plum accent-brand-orange rounded-lg cursor-pointer">
                 </div>
 
               </div>
 
               <!-- Descrição Opcional no Rodapé da Capa -->
-              ${hasDesc ? `
+              ${
+                hasDesc
+                  ? `
                 <div class="absolute inset-x-0 bottom-3 px-3 flex justify-center pointer-events-none z-20">
-                  <p id="modalDescriptionText" class="inline-block bg-[#381631]/85 backdrop-blur-md text-[#d8dcb4] border border-[#1b958d]/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
+                  <p id="modalDescriptionText" class="inline-block bg-brand-plum/85 backdrop-blur-md text-brand-sage border border-brand-teal/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
                     ${item.description[currentLang]}
                   </p>
                 </div>
-              ` : ''}
+              `
+                  : ""
+              }
 
               <!-- Elemento de Áudio Nativo em Background -->
               <audio id="modalAudioElement" autoplay ontimeupdate="updateAudioProgress()" onended="const p=document.getElementById('audioPlayIcon'); const pa=document.getElementById('audioPauseIcon'); if(p&&pa){p.classList.remove('hidden'); pa.classList.add('hidden');}">
@@ -832,55 +1254,64 @@
             </div>
           </div>
         `;
-      } else if (item.type === "code") {
-        bodyElem.innerHTML = `
+        } else if (item.type === "code") {
+          bodyElem.innerHTML = `
           <div class="w-full">
-            <pre class="bg-[#381631] p-4 rounded-xl text-xs font-mono text-[#5eb6ad] border border-[#1b958d]/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+            <pre class="bg-brand-plum p-4 rounded-xl text-xs font-mono text-brand-mint border border-brand-teal/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
           </div>
         `;
+        }
+
+        // Reset audio volume and slider for audio items
+        if (item.type === "audio") {
+          const audioElement = document.getElementById("modalAudioElement");
+          const volumeSlider = document.getElementById("audioVolumeSlider");
+          if (audioElement) {
+            audioElement.volume = 0.5;
+          }
+          if (volumeSlider) {
+            volumeSlider.value = 0.5;
+          }
+          lastVolume = 0.5;
+        }
+
+        if (item.type === "video" && !item.youtubeId) {
+          const vid = document.getElementById("modalVideoElement");
+          if (vid) {
+            vid.load();
+            vid.play().catch(() => {
+              // Caso o navegador bloqueie o autoplay automático, o controle nativo continua funcional
+            });
+          }
+        }
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
       }
 
-      // Reset audio volume and slider for audio items
-      if (item.type === "audio") {
-        const audioElement = document.getElementById("modalAudioElement");
-        const volumeSlider = document.getElementById("audioVolumeSlider");
-        if (audioElement) {
-          audioElement.volume = 0.5;
-        }
-        if (volumeSlider) {
-          volumeSlider.value = 0.5;
-        }
-        lastVolume = 0.5;
+      function closeModal() {
+        const modal = document.getElementById("mediaModal");
+        const bodyElem = document.getElementById("modalBody");
+
+        // Pausa tags HTML5 se houver
+        const media = bodyElem.querySelector("video, audio");
+        if (media) media.pause();
+
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        bodyElem.innerHTML = ""; // Destrói o iframe do YouTube imediatamente
+        activeModalItem = null;
+      }
+      function handleBackdropClick(event) {
+        if (event.target.id === "mediaModal") closeModal();
       }
 
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-    }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
 
-    function closeModal() {
-      const modal = document.getElementById("mediaModal");
-      const bodyElem = document.getElementById("modalBody");
-      
-      // Pausa tags HTML5 se houver
-      const media = bodyElem.querySelector("video, audio");
-      if (media) media.pause();
-
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      bodyElem.innerHTML = ""; // Destrói o iframe do YouTube imediatamente
-      activeModalItem = null;
-    }
-    function handleBackdropClick(event) {
-      if (event.target.id === "mediaModal") closeModal();
-    }
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    // Inicializa a página e carrega o JSON
-    setLanguage("pt");
-    loadGalleryData();
-  </script>
-</body>
+      // Inicializa a página e carrega o JSON
+      setLanguage("pt");
+      loadGalleryData();
+    </script>
+  </body>
 </html>

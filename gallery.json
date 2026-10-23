@@ -1,218 +1,336 @@
-[{
-  "id": 1,
-  "type": "image",
-  "tags": ["3D", "Digital", "Escultura"],
-  "title": { "pt": "Busto de Ronaldinho 'O Bruxo'", "en": "Ronaldinho 'The Wizard' Bust" },
-  "src": "assets/RonaldinhoCover.jpg",
-  "images": ["assets/Ronaldinho.jpg", "assets/Ronaldinho1.jpg", "assets/Ronaldinho2.jpg", "assets/Ronaldinho3.jpg"]
-}, {
-  "id": 2,
-  "type": "image",
-  "tags": ["Tattoo", "Tradicional"],
-  "title": { "pt": "Tattoo Fine Line de Beija-Flor", "en": "Hummingbird Fine Line Tattoo" },
-  "src": "assets/TattooBeijaFlor.jpg"
-}, {
-  "id": 3,
-  "type": "image",
-  "tags": ["Tradicional"],
-  "title": { "pt": "Retrato de Rafael Bittencourt", "en": "Rafael Bittencourt Portrait" },
-  "src": "assets/DesenhoRafael.jpg"
-}, {
-  "id": 4,
-  "type": "audio",
-  "tags": ["Música"],
-  "title": { "pt": "Pé na Estrada", "en": "Pé na Estrada <i>(Hit the Road)</i>" },
-  "coverUrl": "assets/ChillinQuestSepia.jpg",
-  "src": "assets/PeNaEstrada.mp3",
-  "description": {
-    "pt": "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
-    "en": "Home recording of Chillin' Quest's original soundtrack, final project for Harvard's CS50."
-  }
-}, {
-  "id": 5,
-  "type": "image",
-  "tags": ["3D", "Tradicional", "Escultura", "Pintura"],
-  "title": { "pt": "Estátua de Oxossi", "en": "Oxossi Sculpture" },
-  "src": "assets/OxossiEstatua.jpg",
-  "images": ["assets/OxossiEstatua.jpg", "assets/OxossiEstatua1.jpg", "assets/OxossiEstatua2.jpg", "assets/OxossiEstatua3.jpg", "assets/OxossiEstatua4.jpg"]
-}, {
-  "id": 6,
-  "type": "image",
-  "tags": ["Luthieria", "Pintura"],
-  "title": { "pt": "Restauração e Conversão de violão", "en": "Restoration and Conversion of Guitar" },
-  "src": "assets/7cordasCover.jpg",
-  "images": ["assets/7cordas.jpg", "assets/7cordas1.jpg", "assets/7cordas2.jpg", "assets/7cordas3.jpg", "assets/7cordas4.jpg"],
-  "description": {
-    "pt": "Restauração e conversão de um violão de 12 cordas (aço) pra 7 cordas (nylon) com decoração customizada em marchetaria.",
-    "en": "Restoration and conversion of a steel 12-strings guitar to nylon 7-strings with custom decoration in marquetry."
-  }
-}, {
-  "id": 7,
-  "type": "image",
-  "tags": ["Tattoo", "Pintura", "Tradicional"],
-  "title": { "pt": "Tattoo do Super Mario", "en": "Super Mario Tattoo" },
-  "src": "assets/TattooMario.jpg",
-  "images": ["assets/TattooMario.jpg"]
-}, {
-  "id": 8,
-  "type": "audio",
-  "tags": ["Música", "Digital", "GameDev"],
-  "title": { "pt": "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>", "en": "Shipping Shipping Ships" },
-  "src": "assets/ShippingShippingShips.mp3",
-  "coverUrl": "assets/SpaceLtd.jpg",
-  "description": {
-    "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
-    "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
-  }
-}, {
-  "id": 9,
-  "type": "image",
-  "tags": ["3D", "Digital", "Escultura"],
-  "title": { "pt": "Busto de Joel Miller (Pedro Pascal) - The Last of Us", "en": "Bust of Joel Miller (Pedro Pascal) - The Last of Us" },
-  "src": "assets/JoelCover.jpg",
-  "images": ["assets/Joel1.jpg", "assets/Joel2.jpg", "assets/Joel3.jpg", "assets/Joel4.jpg"]
-}, {
-  "id": 10,
-  "type": "video",
-  "tags": ["Código", "Digital"],
-  "title": { "pt": "Trailer de Chillin' Quest - Projeto Final do CS50", "en": "Chillin' Quest Trailer - CS50 Final Project" },
-  "youtubeId": "in0qF2AU-YU",
-  "poster": "assets/ChillinQuest.jpg"
-}, {
-  "id": 11,
-  "type": "image",
-  "tags": ["2D", "Digital", "Tradicional", "Pintura"],
-  "title": { "pt": "Academia Seguindo Saúde", "en": "Seguindo Saúde Gym" },
-  "src": "assets/SeguindoSaude.jpg",
-  "images": ["assets/SeguindoSaude.jpg", "assets/SeguindoSaude1.jpg", "assets/SeguindoSaude2.jpg", "assets/SeguindoSaude3.jpg", "assets/SeguindoSaude4.jpg"],
-  "description": {
-    "pt": "Desenhados no Photoshop, recortados em compensado e pintados com tinta acrílica.",
-    "en": "Drawn in Photoshop, cut in plywood and painted with acrylic paint."
-  }
-}, {
-  "id": 12,
-  "type": "audio",
-  "tags": ["Música", "Digital", "GameDev"],
-  "title": { "pt": "Bossa Supernova", "en": "Bossa Supernova" },
-  "src": "assets/BossaSupernova.mp3",
-  "coverUrl": "assets/SpaceLtd.jpg",
-  "description": {
-    "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
-    "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
-  }
-}, {
-  "id": 13,
-  "type": "image",
-  "tags": ["Tattoo", "Tradicional"],
-  "title": { "pt": "Tattoo Realista de Tigre", "en": "Realistic Tiger Tattoo" },
-  "src": "assets/TattooTigre.jpg",
-  "images": ["assets/TattooTigre.jpg"]
-}, {
+[
+  {
+    "id": 1,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Busto de Ronaldinho 'O Bruxo'",
+      "en": "Ronaldinho 'The Wizard' Bust"
+    },
+    "src": "assets/RonaldinhoCover.jpg",
+    "images": [
+      "assets/Ronaldinho.jpg",
+      "assets/Ronaldinho1.jpg",
+      "assets/Ronaldinho2.jpg",
+      "assets/Ronaldinho3.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": {
+      "pt": "Tattoo Fine Line de Beija-Flor",
+      "en": "Hummingbird Fine Line Tattoo"
+    },
+    "src": "assets/TattooBeijaFlor.jpg"
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "tags": ["Tradicional"],
+    "title": {
+      "pt": "Retrato de Rafael Bittencourt",
+      "en": "Rafael Bittencourt Portrait"
+    },
+    "src": "assets/DesenhoRafael.jpg"
+  },
+  {
+    "id": 4,
+    "type": "audio",
+    "tags": ["Música"],
+    "title": {
+      "pt": "Pé na Estrada",
+      "en": "Pé na Estrada <i>(Hit the Road)</i>"
+    },
+    "coverUrl": "assets/ChillinQuestSepia.jpg",
+    "src": "assets/PeNaEstrada.mp3",
+    "description": {
+      "pt": "Gravação caseira da trilha autoral do Chillin' Quest, projeto final pro CS50 de Harvard.",
+      "en": "Home recording of Chillin' Quest's original soundtrack, final project for Harvard's CS50."
+    }
+  },
+  {
+    "id": 5,
+    "type": "image",
+    "tags": ["3D", "Tradicional", "Escultura", "Pintura"],
+    "title": { "pt": "Estátua de Oxossi", "en": "Oxossi Sculpture" },
+    "src": "assets/OxossiEstatua.jpg",
+    "images": [
+      "assets/OxossiEstatua.jpg",
+      "assets/OxossiEstatua1.jpg",
+      "assets/OxossiEstatua2.jpg",
+      "assets/OxossiEstatua3.jpg",
+      "assets/OxossiEstatua4.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "image",
+    "tags": ["Luthieria", "Pintura"],
+    "title": {
+      "pt": "Restauração e Conversão de violão",
+      "en": "Restoration and Conversion of Guitar"
+    },
+    "src": "assets/7cordasCover.jpg",
+    "images": [
+      "assets/7cordas.jpg",
+      "assets/7cordas1.jpg",
+      "assets/7cordas2.jpg",
+      "assets/7cordas3.jpg",
+      "assets/7cordas4.jpg"
+    ],
+    "description": {
+      "pt": "Restauração e conversão de um violão de 12 cordas (aço) pra 7 cordas (nylon) com decoração customizada em marchetaria.",
+      "en": "Restoration and conversion of a steel 12-strings guitar to nylon 7-strings with custom decoration in marquetry."
+    }
+  },
+  {
+    "id": 7,
+    "type": "image",
+    "tags": ["Tattoo", "Pintura", "Tradicional"],
+    "title": { "pt": "Tattoo do Super Mario", "en": "Super Mario Tattoo" },
+    "src": "assets/TattooMario.jpg",
+    "images": ["assets/TattooMario.jpg"]
+  },
+  {
+    "id": 8,
+    "type": "audio",
+    "tags": ["Música", "Digital", "GameDev"],
+    "title": {
+      "pt": "Frete em Frente Frequente <i>(Shipping Shipping Ships)</i>",
+      "en": "Shipping Shipping Ships"
+    },
+    "src": "assets/ShippingShippingShips.mp3",
+    "coverUrl": "assets/SpaceLtd.jpg",
+    "description": {
+      "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
+      "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
+    }
+  },
+  {
+    "id": 9,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Busto de Joel Miller (Pedro Pascal) - The Last of Us",
+      "en": "Bust of Joel Miller (Pedro Pascal) - The Last of Us"
+    },
+    "src": "assets/JoelCover.jpg",
+    "images": [
+      "assets/Joel1.jpg",
+      "assets/Joel2.jpg",
+      "assets/Joel3.jpg",
+      "assets/Joel4.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "video",
+    "tags": ["Código", "Digital"],
+    "title": {
+      "pt": "Trailer de Chillin' Quest - Projeto Final do CS50",
+      "en": "Chillin' Quest Trailer - CS50 Final Project"
+    },
+    "youtubeId": "in0qF2AU-YU",
+    "poster": "assets/ChillinQuest.jpg"
+  },
+  {
+    "id": 11,
+    "type": "image",
+    "tags": ["2D", "Digital", "Tradicional", "Pintura"],
+    "title": { "pt": "Academia Seguindo Saúde", "en": "Seguindo Saúde Gym" },
+    "src": "assets/SeguindoSaude.jpg",
+    "images": [
+      "assets/SeguindoSaude.jpg",
+      "assets/SeguindoSaude1.jpg",
+      "assets/SeguindoSaude2.jpg",
+      "assets/SeguindoSaude3.jpg",
+      "assets/SeguindoSaude4.jpg"
+    ],
+    "description": {
+      "pt": "Desenhados no Photoshop, recortados em compensado e pintados com tinta acrílica.",
+      "en": "Drawn in Photoshop, cut in plywood and painted with acrylic paint."
+    }
+  },
+  {
+    "id": 12,
+    "type": "audio",
+    "tags": ["Música", "Digital", "GameDev"],
+    "title": { "pt": "Bossa Supernova", "en": "Bossa Supernova" },
+    "src": "assets/BossaSupernova.mp3",
+    "coverUrl": "assets/SpaceLtd.jpg",
+    "description": {
+      "pt": "Trilha sonora do jogo Space Ltd., feita em 72h na LD Jam 54 com a Games Ever Made ",
+      "en": "Soundtrack of the game Space Ltd., made in 72h at LD Jam 54 with Games Ever Made"
+    }
+  },
+  {
+    "id": 13,
+    "type": "image",
+    "tags": ["Tattoo", "Tradicional"],
+    "title": {
+      "pt": "Tattoo Realista de Tigre",
+      "en": "Realistic Tiger Tattoo"
+    },
+    "src": "assets/TattooTigre.jpg",
+    "images": ["assets/TattooTigre.jpg"]
+  },
+  {
     "id": 14,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
-    "title": { "pt": "Tattoo Foto Artística de Alice", "en": "Artistic Photo Tattoo of Alice" },
+    "title": {
+      "pt": "Tattoo Foto Artística de Alice",
+      "en": "Artistic Photo Tattoo of Alice"
+    },
     "src": "assets/TattooAlice.jpg",
     "images": ["assets/TattooAlice.jpg"]
-}, {
+  },
+  {
     "id": 15,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo de Bruxinha", "en": "Witch Tattoo" },
     "src": "assets/TattooBruxinha.jpg",
     "images": ["assets/TattooBruxinha.jpg"]
-}, {
+  },
+  {
     "id": 16,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo Astrosurfista", "en": "Astro Surfer Tattoo" },
     "src": "assets/TattooAstronauta.jpg",
     "images": ["assets/TattooAstronauta.jpg"]
-}, {
+  },
+  {
     "id": 17,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
-    "title": { "pt": "Tattoo Foto Sketch de Ronaldo", "en": "Sketch Photo Tattoo of Ronaldo" },
+    "title": {
+      "pt": "Tattoo Foto Sketch de Ronaldo",
+      "en": "Sketch Photo Tattoo of Ronaldo"
+    },
     "src": "assets/TattooRonaldo.jpg",
     "images": ["assets/TattooRonaldo.jpg"]
-}, {
+  },
+  {
     "id": 18,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo de Doguinhos", "en": "Puppies Tattoo" },
     "src": "assets/TattooCaes.jpg",
     "images": ["assets/TattooCaes.jpg"]
-}, {
+  },
+  {
     "id": 19,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo de Pug", "en": "Pug Tattoo" },
     "src": "assets/TattooPug.jpg",
     "images": ["assets/TattooPug.jpg"]
-}, {
+  },
+  {
     "id": 20,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
-    "title": { "pt": "Tattoo de Gaara - Naruto", "en": "Tattoo of Gaara - Naruto" },
+    "title": {
+      "pt": "Tattoo de Gaara - Naruto",
+      "en": "Tattoo of Gaara - Naruto"
+    },
     "src": "assets/TattooGaara.jpg",
     "images": ["assets/TattooGaara.jpg"]
-}, {
+  },
+  {
     "id": 21,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo de Leão de Judá", "en": "Lion of Judah Tattoo" },
     "src": "assets/TattooLeao.jpg",
     "images": ["assets/TattooLeao.jpg"]
-}, {
+  },
+  {
     "id": 22,
     "type": "image",
     "tags": ["Tattoo", "Tradicional"],
     "title": { "pt": "Tattoo de Folhas", "en": "Leaves Tattoo" },
     "src": "assets/TattooFolhas.jpg",
     "images": ["assets/TattooFolhas.jpg"]
-}, {
+  },
+  {
     "id": 23,
     "type": "image",
     "tags": ["3D", "Digital", "Escultura"],
     "title": { "pt": "Escultura 3D de Oxossi", "en": "3D Sculpture of Oxossi" },
     "src": "assets/OxossiCover.jpg",
-    "images": ["assets/Oxossi.jpg", "assets/Oxossi1.jpg", "assets/Oxossi2.jpg", "assets/OxossiCover.jpg"]
-}, {
-  "id": 24,
-  "type": "video",
-  "tags": ["Código", "Digital"],
-  "title": { "pt": "Trailer de Brazil Fire Tracker - Projeto Final do CS50w", "en": "Brazil Fire Tracker Trailer- CS50w Final Project" },
-  "youtubeId": "T-61iMFjbik",
-  "poster": "assets/BrazilFireTracker.jpg"
-}, {
-  "id": 25,
-  "type": "image",
-  "tags": ["3D", "Digital", "Escultura"],
-  "title": { "pt": "Goblygon - Personagem Original", "en": "Goblygon - Original Character" },
-  "src": "assets/Goblygon.jpg",
-  "images": ["assets/Goblygon.jpg", "assets/Goblygon1.jpg", "assets/Goblygon2.jpg", "assets/Goblygon3.jpg"]
-}, {
-  "id": 26,
-  "type": "image",
-  "tags": ["2D", "Digital", "Painting"],
-  "title": { "pt": "Sybil de Pseudoregalia", "en": "Sybil from Pseudoregalia" },
-  "src": "assets/Sybil.jpg",
-  "images": ["assets/Sybil.jpg"]
-}, {
-  "id": 27,
-  "type": "image",
-  "tags": ["2D", "Digital", "Painting"],
-  "title": { "pt": "Ref. Sheet Furry de HolySparks", "en": "Furry Ref. Sheet of HolySparks" },
-  "src": "assets/HolySparks.jpg",
-  "images": ["assets/HolySparks.jpg"]
-}, {
-  "id": 28,
-  "type": "image",
-  "tags": ["2D", "Digital", "Painting"],
-  "title": { "pt": "Ref. Sheet Furry de Taj", "en": "Furry Ref. Sheet of Taj" },
-  "src": "assets/Taj.jpg",
-  "images": ["assets/Taj.jpg"]
-},{
+    "images": [
+      "assets/Oxossi.jpg",
+      "assets/Oxossi1.jpg",
+      "assets/Oxossi2.jpg",
+      "assets/OxossiCover.jpg"
+    ]
+  },
+  {
+    "id": 24,
+    "type": "video",
+    "tags": ["Código", "Digital"],
+    "title": {
+      "pt": "Trailer de Brazil Fire Tracker - Projeto Final do CS50w",
+      "en": "Brazil Fire Tracker Trailer- CS50w Final Project"
+    },
+    "youtubeId": "T-61iMFjbik",
+    "poster": "assets/BrazilFireTracker.jpg"
+  },
+  {
+    "id": 25,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Goblygon - Personagem Original",
+      "en": "Goblygon - Original Character"
+    },
+    "src": "assets/Goblygon.jpg",
+    "images": [
+      "assets/Goblygon.jpg",
+      "assets/Goblygon1.jpg",
+      "assets/Goblygon2.jpg",
+      "assets/Goblygon3.jpg"
+    ]
+  },
+  {
+    "id": 26,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting"],
+    "title": {
+      "pt": "Sybil de Pseudoregalia",
+      "en": "Sybil from Pseudoregalia"
+    },
+    "src": "assets/Sybil.jpg",
+    "images": ["assets/Sybil.jpg"]
+  },
+  {
+    "id": 27,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting"],
+    "title": {
+      "pt": "Ref. Sheet Furry de HolySparks",
+      "en": "Furry Ref. Sheet of HolySparks"
+    },
+    "src": "assets/HolySparks.jpg",
+    "images": ["assets/HolySparks.jpg"]
+  },
+  {
+    "id": 28,
+    "type": "image",
+    "tags": ["2D", "Digital", "Painting"],
+    "title": {
+      "pt": "Ref. Sheet Furry de Taj",
+      "en": "Furry Ref. Sheet of Taj"
+    },
+    "src": "assets/Taj.jpg",
+    "images": ["assets/Taj.jpg"]
+  },
+  {
     "id": 29,
     "type": "audio",
     "tags": ["Música", "Digital", "GameDev"],
@@ -223,32 +341,57 @@
       "pt": "Trilha sonora feita com @fgil90 e @lindotex. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
       "en": "Soundtrack made with @fgil90 and @lindotex. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
     }
-}, {
+  },
+  {
     "id": 30,
     "type": "image",
     "tags": ["2D", "Digital", "Painting", "GameDev"],
-    "title": { "pt": "Belzosbul - Personagem original de Summoning as a Service", "en": "Beelzosbub - Original Character from Summoning as a Service" },
+    "title": {
+      "pt": "Belzosbul - Personagem original de Summoning as a Service",
+      "en": "Beelzosbub - Original Character from Summoning as a Service"
+    },
     "src": "assets/Belzosbul.jpg",
     "images": ["assets/Belzosbul.jpg", "assets/Belzosbul1.jpg"],
     "description": {
       "pt": "Qualquer semelhança é mera coincidência. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
       "en": "Any resemblance is purely coincidental. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
     }
-}, {
+  },
+  {
     "id": 31,
     "type": "image",
     "tags": ["2D", "Digital", "Painting", "GameDev"],
-    "title": { "pt": "Sprites em pixel art pra protótipo de jogo sobre Cangaço", "en": "Sprites in Pixel Art for Game Prototype base on the Cangaço" },
+    "title": {
+      "pt": "Sprites em pixel art pra protótipo de jogo sobre Cangaço",
+      "en": "Sprites in Pixel Art for Game Prototype base on the Cangaço"
+    },
     "src": "assets/Caatinga.gif",
-    "images": ["assets/Caatinga.gif", "assets/Caatinga1.gif", "assets/Caatinga2.gif", "assets/Caatinga3.gif", "assets/Caatinga4.gif", "assets/Caatinga5.gif"]
-}, {
+    "images": [
+      "assets/Caatinga.gif",
+      "assets/Caatinga1.gif",
+      "assets/Caatinga2.gif",
+      "assets/Caatinga3.gif",
+      "assets/Caatinga4.gif",
+      "assets/Caatinga5.gif"
+    ]
+  },
+  {
     "id": 32,
     "type": "image",
     "tags": ["2D", "Digital", "Painting", "GameDev"],
-    "title": { "pt": "Arte Conceitual pra Jogo Sobre o Cangaço", "en": "Concept Art for Game on the Cangaço"},
+    "title": {
+      "pt": "Arte Conceitual pra Jogo Sobre o Cangaço",
+      "en": "Concept Art for Game on the Cangaço"
+    },
     "src": "assets/CaatingaConcept.jpg",
-    "images": ["assets/CaatingaConcept.jpg", "assets/CaatingaConcept1.jpg", "assets/CaatingaConcept2.jpg", "assets/CaatingaConcept3.jpg"]
-}, {
+    "images": [
+      "assets/CaatingaConcept.jpg",
+      "assets/CaatingaConcept1.jpg",
+      "assets/CaatingaConcept2.jpg",
+      "assets/CaatingaConcept3.jpg"
+    ]
+  },
+  {
     "id": 33,
     "type": "audio",
     "tags": ["Música", "Digital", "GameDev"],
@@ -259,36 +402,49 @@
       "pt": "Trilha sonora feita com @fgil90 pro jogo BSOD na GDevelop Big Game Jam #7 com a Games Ever Made.",
       "en": "Soundtrack made with @fgil90 for the game BSOD at GDevelop Big Game Jam #7 with Games Ever Made."
     }
-}, {
+  },
+  {
     "id": 34,
     "type": "image",
     "tags": ["3D", "Digital", "Escultura"],
-    "title": {"pt": "Escultura 3D de Ka'iana (Jason Momoa) - Chefe de Guerra",
-              "en": "3D Sculpture of Ka'iana (Jason Momoa)- Chief of War"
+    "title": {
+      "pt": "Escultura 3D de Ka'iana (Jason Momoa) - Chefe de Guerra",
+      "en": "3D Sculpture of Ka'iana (Jason Momoa)- Chief of War"
     },
     "src": "assets/Kaiana.jpg",
-    "images": ["assets/Kaiana1.jpg", "assets/Kaiana2.jpg", "assets/Kaiana3.jpg", "assets/Kaiana4.jpg", "assets/Kaiana5.jpg", "assets/Kaiana.jpg"]
-}, {
+    "images": [
+      "assets/Kaiana1.jpg",
+      "assets/Kaiana2.jpg",
+      "assets/Kaiana3.jpg",
+      "assets/Kaiana4.jpg",
+      "assets/Kaiana5.jpg",
+      "assets/Kaiana.jpg"
+    ]
+  },
+  {
     "id": 35,
     "type": "video",
     "tags": ["3D", "Digital", "Escultura"],
-    "title": {"pt": "360° de Esboço 3D do Goleiro Vozinha",
-              "en": "360° of 3D Sketch of the Goalkeeper Vozinha"
+    "title": {
+      "pt": "360° de Esboço 3D do Goleiro Vozinha",
+      "en": "360° of 3D Sketch of the Goalkeeper Vozinha"
     },
     "src": "assets/Vozinha.mp4",
     "poster": "assets/VozinhaCover.jpg"
-}, {
-    "id": 36 ,
+  },
+  {
+    "id": 36,
     "type": "video",
     "tags": ["3D", "Digital", "Escultura"],
-    "title": {"pt": "360° de Busto 3D de um Alien",
-              "en": "360° of an Alien's Bust"
+    "title": {
+      "pt": "360° de Busto 3D de um Alien",
+      "en": "360° of an Alien's Bust"
     },
     "src": "assets/Alien.mp4",
     "poster": "assets/AlienCover.jpg",
     "description": {
-      "pt": "Pro curso de ZBrush da Rafa Souza Academy.",
-      "en": "For Rafa Souza Academy's ZBrush course."
+      "pt": "Projeto final feito no curso de introdução ao ZBrush da Rafa Souza Academy.",
+      "en": "Final project made in Rafa Souza Academy's introduction to ZBrush course."
     }
-}
+  }
 ]
