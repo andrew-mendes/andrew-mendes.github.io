@@ -445,5 +445,26 @@
       "pt": "Projeto final feito no curso de introdução ao ZBrush da Rafa Souza Academy.",
       "en": "Final project made in Rafa Souza Academy's introduction to ZBrush course."
     }
+  },
+  {
+    "id": 37,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Busto 3D do Prof. David",
+      "en": "Teacher David 3D Bust"
+    },
+    "src": "assets/ProfDavidCover.jpg",
+    "images": [
+      "assets/ProfDavid1.jpg",
+      "assets/ProfDavid2.jpg",
+      "assets/ProfDavid3.jpg",
+      "assets/ProfDavid4.jpg",
+      "assets/ProfDavid5.jpg"
+    ],
+    "description": {
+      "pt": "Meu avô, meu professor e meu amigo. Pra sempre em minha memória.",
+      "en": "My grampa, my teacher, and my friend. Forever in my memory."
+    }
   }
 ]
