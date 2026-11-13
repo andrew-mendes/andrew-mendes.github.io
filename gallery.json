@@ -466,5 +466,25 @@
       "pt": "Meu avô, meu professor e meu amigo. Pra sempre em minha memória.",
       "en": "My grandpa, my teacher, and my friend. Forever in my memory."
     }
+  },
+  {
+    "id": 38,
+    "type": "image",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Busto 3D do Cel. Augusto",
+      "en": "Col. Augusto 3D Bust"
+    },
+    "src": "assets/CelAugusto.jpg",
+    "images": [
+      "assets/CelAugusto.jpg",
+      "assets/CelAugusto1.jpg",
+      "assets/CelAugusto2.jpg",
+      "assets/CelAugusto3.jpg"
+    ],
+    "description": {
+      "pt": "Encomenda para impressão 3D.",
+      "en": "Comission for 3D printing."
+    }
   }
 ]
