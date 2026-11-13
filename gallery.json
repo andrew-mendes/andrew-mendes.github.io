@@ -486,5 +486,20 @@
       "pt": "Encomenda para impressão 3D.",
       "en": "Comission for 3D printing."
     }
+  },
+  {
+    "id": 39,
+    "type": "video",
+    "tags": ["3D", "Digital", "Escultura"],
+    "title": {
+      "pt": "Escultura 3D de Seu Jorge (trabalho em andamento)",
+      "en": "3D Sculpture of Seu Jorge (work in progress)"
+    },
+    "src": "assets/SeuJorgeWIP.mp4",
+    "poster": "assets/SeuJorgeCover.jpg",
+    "description": {
+      "pt": "Gravação de tela do ZBrush.",
+      "en": "Screen recording of ZBrush."
+    }
   }
 ]
