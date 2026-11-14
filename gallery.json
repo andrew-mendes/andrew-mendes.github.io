@@ -361,10 +361,10 @@
     "type": "image",
     "tags": ["2D", "Digital", "Painting", "GameDev"],
     "title": {
-      "pt": "Sprites em pixel art pra protótipo de jogo sobre Cangaço",
-      "en": "Sprites in Pixel Art for Game Prototype base on the Cangaço"
+      "pt": "Sprites em pixel art pra jogo sobre o Cangaço",
+      "en": "Sprites in Pixel Art for Game on the Cangaço"
     },
-    "src": "assets/Caatinga.gif",
+    "src": "assets/Caatinga3.gif",
     "images": [
       "assets/Caatinga.gif",
       "assets/Caatinga1.gif",
