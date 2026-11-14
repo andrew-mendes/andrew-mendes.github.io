@@ -4,7 +4,7 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23381631'/><polygon points='16,5 26,11 26,21 16,27 6,21 6,11' fill='none' stroke='%23fea85f' stroke-width='2.5' stroke-linejoin='round'/><path d='M16,5 L16,27 M6,11 L26,21 M26,11 L6,21' fill='none' stroke='%235eb6ad' stroke-width='1.5' opacity='0.8'/></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e4044'/><polygon points='16,5 26,11 26,21 16,27 6,21 6,11' fill='none' stroke='%23e98537' stroke-width='2.5' stroke-linejoin='round'/><path d='M16,5 L16,27 M6,11 L26,21 M26,11 L6,21' fill='none' stroke='%239de64e' stroke-width='1.5' opacity='0.8'/></svg>"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,42 +44,20 @@
       content="https://andrew-mendes.github.io/assets/AndrewPhoto.jpg"
     />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                plum: "#381631",
-                magenta: "#e21c61",
-                coral: "#e26159",
-                orange: "#fea85f",
-                sage: "#d8dcb4",
-                mint: "#5eb6ad",
-                teal: "#1b958d",
-                blue: "#105390",
-              },
-            },
-          },
-        },
-      };
-    </script>
     <style>
       :root {
-        --color-plum: #381631;
-        --color-magenta: #e21c61;
-        --color-coral: #e26159;
-        --color-orange: #fea85f;
-        --color-sage: #d8dcb4;
-        --color-mint: #5eb6ad;
-        --color-teal: #1b958d;
-        --color-blue: #105390;
+        --color-canvas: #1e4044;     /* Deep pine-teal background */
+        --color-cream: #f6e8e0;      /* Primary warm text */
+        --color-lime: #9de64e;       /* Vibrant leaf-lime accents & headings */
+        --color-sage: #008b8b;       /* Card & modal borders */
+        --color-tangerine: #f3a833;  /* Warm copper highlights */
+        --color-bronze: #ce9248;     /* Drawer border & section divider start */
+        --color-crimson: #ec273f;    /* CS50 accent & avatar gradient start */
+        --color-sky: #36c5f4;        /* Inkalibur sky-blue accent */
       }
       body {
-        background-color: var(--color-plum);
-        color: var(--color-sage);
+        background-color: var(--color-canvas);
+        color: var(--color-cream);
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
           Arial, sans-serif;
@@ -89,30 +67,56 @@
         height: 6px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: var(--color-plum);
+        background: var(--color-canvas);
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: var(--color-teal);
+        background: var(--color-sage);
         border-radius: 9999px;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: var(--color-orange);
+        background: var(--color-tangerine);
       }
     </style>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      const rootStyles = getComputedStyle(document.documentElement);
+      const getVar = (name) => rootStyles.getPropertyValue(name).trim();
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                canvas: getVar("--color-canvas"),
+                cream: getVar("--color-cream"),
+                lime: getVar("--color-lime"),
+                sage: getVar("--color-sage"),
+                tangerine: getVar("--color-tangerine"),
+                bronze: getVar("--color-bronze"),
+                crimson: getVar("--color-crimson"),
+                sky: getVar("--color-sky"),
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body
-    class="min-h-screen flex flex-col justify-between selection:bg-brand-magenta selection:text-white relative overflow-x-hidden"
+    class="min-h-screen flex flex-col justify-between selection:bg-brand-crimson selection:text-white relative overflow-x-hidden"
   >
-    <!-- Iluminação de Fundo Ambiente -->
+    <!-- Iluminação de Fundo Ambiente (Verde Claro, Teal e Amarelo Suave) -->
     <div class="fixed inset-0 pointer-events-none opacity-25">
       <div
-        class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-magenta rounded-full blur-[120px]"
+        class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#5ab552] rounded-full blur-[120px]"
       ></div>
       <div
-        class="absolute top-1/3 -right-24 w-80 h-80 bg-brand-teal rounded-full blur-[140px]"
+        class="absolute top-1/3 -right-24 w-80 h-80 bg-[#008b8b] rounded-full blur-[140px]"
       ></div>
       <div
-        class="absolute bottom-10 -left-20 w-80 h-80 bg-brand-blue rounded-full blur-[130px]"
+        class="absolute bottom-10 -left-20 w-80 h-80 bg-[#e8d282] rounded-full blur-[130px]"
       ></div>
     </div>
 
@@ -122,7 +126,7 @@
       <!-- Barra Superior: Troca de Idioma -->
       <header class="flex justify-end items-center mb-6">
         <div
-          class="flex items-center gap-1.5 bg-brand-plum/80 backdrop-blur-md p-1.5 rounded-full border border-brand-teal/40 shadow-sm"
+          class="flex items-center gap-1.5 bg-brand-canvas/80 backdrop-blur-md p-1.5 rounded-full border border-brand-sage/40 shadow-sm"
         >
           <!-- Botão Bandeira do Brasil -->
           <button
@@ -130,7 +134,7 @@
             onclick="setLanguage('pt')"
             title="Português"
             aria-label="Português"
-            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-orange transition-all duration-200"
+            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-tangerine transition-all duration-200"
           >
             <svg
               class="w-full h-full"
@@ -156,7 +160,7 @@
             onclick="setLanguage('en')"
             title="English"
             aria-label="English"
-            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-orange transition-all duration-200 opacity-60"
+            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center border-2 border-transparent hover:border-brand-tangerine transition-all duration-200 opacity-60"
           >
             <svg
               class="w-full h-full"
@@ -197,10 +201,10 @@
       <section class="flex flex-col items-center text-center mb-8">
         <div class="relative w-28 h-28 mb-4">
           <div
-            class="w-full h-full rounded-full bg-gradient-to-tr from-brand-magenta via-brand-orange to-brand-teal p-[3px] shadow-lg"
+            class="w-full h-full rounded-full bg-gradient-to-tr from-brand-crimson via-brand-tangerine to-brand-sage p-[3px] shadow-lg"
           >
             <div
-              class="w-full h-full rounded-full bg-brand-plum overflow-hidden flex items-center justify-center"
+              class="w-full h-full rounded-full bg-brand-canvas overflow-hidden flex items-center justify-center"
             >
               <img
                 src="assets/AndrewPhoto.jpg"
@@ -212,20 +216,20 @@
                 "
               />
               <span
-                class="w-full h-full hidden items-center justify-center text-3xl font-bold text-brand-sage bg-brand-plum"
+                class="w-full h-full hidden items-center justify-center text-3xl font-bold text-brand-cream bg-brand-canvas"
                 >AM</span
               >
             </div>
           </div>
         </div>
 
-        <h1 class="text-2xl sm:text-3xl tracking-tight text-brand-sage mb-2">
+        <h1 class="text-2xl sm:text-3xl tracking-tight text-brand-cream mb-2">
           Andrew Mendes
         </h1>
 
         <p
           id="bioSubtitle"
-          class="text-xs sm:text-sm font-normal text-brand-sage/80 max-w-md leading-relaxed px-2 mb-4"
+          class="text-xs sm:text-sm font-normal text-brand-cream/80 max-w-md leading-relaxed px-2 mb-4"
         >
           Lápis, pixels, tintas, código, pele, polígonos, um violão e uma
           impressora 3D. Não necessariamente nessa ordem.
@@ -240,7 +244,7 @@
             rel="noopener noreferrer"
             title="WhatsApp"
             aria-label="WhatsApp"
-            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+            class="w-9 h-9 rounded-full bg-brand-canvas border border-brand-sage/50 hover:border-brand-lime hover:bg-brand-sage/20 text-brand-cream hover:text-brand-lime flex items-center justify-center transition-all duration-200"
           >
             <svg
               class="w-4 h-4 fill-current"
@@ -258,7 +262,7 @@
             href="mailto:andrewmendes@gmail.com"
             title="E-mail"
             aria-label="E-mail"
-            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+            class="w-9 h-9 rounded-full bg-brand-canvas border border-brand-sage/50 hover:border-brand-lime hover:bg-brand-sage/20 text-brand-cream hover:text-brand-lime flex items-center justify-center transition-all duration-200"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path
@@ -274,7 +278,7 @@
             rel="noopener noreferrer"
             title="LinkedIn"
             aria-label="LinkedIn"
-            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+            class="w-9 h-9 rounded-full bg-brand-canvas border border-brand-sage/50 hover:border-brand-lime hover:bg-brand-sage/20 text-brand-cream hover:text-brand-lime flex items-center justify-center transition-all duration-200"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path
@@ -290,7 +294,7 @@
             rel="noopener noreferrer"
             title="GitHub"
             aria-label="GitHub"
-            class="w-9 h-9 rounded-full bg-brand-plum border border-brand-teal/50 hover:border-brand-mint hover:bg-brand-teal/20 text-brand-sage hover:text-brand-mint flex items-center justify-center transition-all duration-200"
+            class="w-9 h-9 rounded-full bg-brand-canvas border border-brand-sage/50 hover:border-brand-lime hover:bg-brand-sage/20 text-brand-cream hover:text-brand-lime flex items-center justify-center transition-all duration-200"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path
@@ -306,21 +310,21 @@
       <!-- 1. Gaveta Retrátil: Habilidades e Ferramentas -->
       <section class="mb-7">
         <div
-          class="rounded-xl border border-brand-coral/40 bg-brand-plum/80 overflow-hidden transition-all duration-200"
+          class="rounded-xl border border-brand-bronze/40 bg-brand-canvas/80 overflow-hidden transition-all duration-200"
         >
           <button
             onclick="toggleSkillsDrawer()"
-            class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-brand-teal/10 transition-colors"
+            class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-brand-sage/10 transition-colors"
           >
             <span
               id="skillsDrawerTitle"
-              class="text-xs uppercase tracking-wider font-semibold text-brand-mint"
+              class="text-xs uppercase tracking-wider font-semibold text-brand-lime"
             >
               Habilidades & Ferramentas
             </span>
             <svg
               id="skillsChevron"
-              class="w-4 h-4 text-brand-orange transform transition-transform duration-300"
+              class="w-4 h-4 text-brand-tangerine transform transition-transform duration-300"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -334,29 +338,29 @@
 
           <div
             id="skillsDrawerContent"
-            class="hidden px-4 pb-4 pt-1 border-t border-brand-teal/20 space-y-4"
+            class="hidden px-4 pb-4 pt-1 border-t border-brand-sage/20 space-y-4"
           >
             <!-- Disciplinas -->
             <div>
               <h4
                 id="craftsSubtitle"
-                class="text-[11px] uppercase tracking-wider font-semibold text-brand-orange mb-2"
+                class="text-[11px] uppercase tracking-wider font-semibold text-brand-tangerine mb-2"
               >
                 Disciplinas & Artes
               </h4>
-              <div class="flex flex-wrap gap-1.5 text-xs text-brand-sage">
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Escultura Digital</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Miniaturas & Colecionáveis</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Impressão 3D (FDM)</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Tattoo</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Cartoon</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Desenho Realista</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Pixel Art</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Pintura Digital</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Pintura Acrílica</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Luthieria</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Música</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Game Dev</span>
+              <div class="flex flex-wrap gap-1.5 text-xs text-brand-cream">
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Escultura Digital</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Miniaturas & Colecionáveis</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Impressão 3D (FDM)</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Tattoo</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Cartoon</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Desenho Realista</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Pixel Art</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Pintura Digital</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Pintura Acrílica</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Luthieria</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Música</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Game Dev</span>
               </div>
             </div>
 
@@ -364,24 +368,24 @@
             <div>
               <h4
                 id="toolsSubtitle"
-                class="text-[11px] uppercase tracking-wider font-semibold text-brand-orange mb-2"
+                class="text-[11px] uppercase tracking-wider font-semibold text-brand-tangerine mb-2"
               >
                 Ferramentas & Software
               </h4>
-              <div class="flex flex-wrap gap-1.5 text-xs text-brand-sage">
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">ZBrush</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Photoshop</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">CorelDRAW</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Krita</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">OrcaSlicer</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">PrusaSlicer</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Ultimaker Cura</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Anycubic Slicer Next</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Aseprite</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">GDevelop</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Godot</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">Python</span>
-                <span class="px-2.5 py-1 rounded-md bg-brand-plum border border-brand-teal/30">HTML/CSS/JS</span>
+              <div class="flex flex-wrap gap-1.5 text-xs text-brand-cream">
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">ZBrush</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Photoshop</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">CorelDRAW</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Krita</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">OrcaSlicer</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">PrusaSlicer</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Ultimaker Cura</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Anycubic Slicer Next</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Aseprite</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">GDevelop</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Godot</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">Python</span>
+                <span class="px-2.5 py-1 rounded-md bg-brand-canvas border border-brand-sage/30">HTML/CSS/JS</span>
               </div>
             </div>
           </div>
@@ -393,44 +397,89 @@
         <div class="flex items-center gap-3 mb-3">
           <h2
             id="projectsHeading"
-            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-mint shrink-0"
+            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-lime shrink-0"
           >
             Projetos
           </h2>
           <div
-            class="h-px bg-gradient-to-r from-brand-coral/50 via-brand-teal/20 to-transparent flex-grow"
+            class="h-px bg-gradient-to-r from-brand-bronze/50 via-brand-sage/20 to-transparent flex-grow"
           ></div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <!-- Goblygon -->
-          <a
-            href="https://www.artstation.com/goblygon"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-mint/60 hover:border-brand-mint hover:bg-brand-mint/10 text-brand-sage hover:text-brand-mint transition-all duration-200 shadow-sm text-center group"
-          >
-            <img
-              src="assets/Goblygon.jpg"
-              alt="Goblygon"
-              class="w-6 h-6 rounded-full object-cover shrink-0"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <span
-              class="w-6 h-6 rounded-full bg-brand-mint/30 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
-              >G</span
+          <div id="goblygonCell" class="relative min-h-[46px]">
+            <div
+              id="goblygonCard"
+              class="h-full rounded-lg bg-brand-canvas border border-brand-lime/60 hover:border-brand-lime transition-colors duration-200 shadow-sm overflow-hidden"
             >
-            <span class="text-xs font-medium leading-tight">Goblygon</span>
-          </a>
+              <button
+                id="goblygonToggleBtn"
+                type="button"
+                onclick="toggleGoblygonDrawer(event)"
+                aria-expanded="false"
+                class="w-full h-full flex items-center justify-center gap-2 py-2.5 px-3 hover:bg-brand-lime/15 text-brand-cream hover:text-brand-lime transition-colors duration-200 text-center cursor-pointer focus:outline-none"
+              >
+                <img
+                  src="assets/Goblygon.jpg"
+                  alt="Goblygon"
+                  class="w-6 h-6 rounded-full object-cover shrink-0"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                />
+                <span
+                  class="w-6 h-6 rounded-full bg-brand-lime/30 text-brand-cream text-[10px] font-bold items-center justify-center shrink-0 hidden"
+                  >G</span
+                >
+                <span class="text-xs font-medium leading-tight">Goblygon</span>
+                <svg
+                  id="goblygonChevron"
+                  class="w-3.5 h-3.5 text-brand-lime/80 transform transition-transform duration-200 shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links internos expandidos -->
+              <div
+                id="goblygonDrawer"
+                class="hidden border-t border-brand-sage/20 divide-y divide-brand-sage/15"
+              >
+                <a
+                  href="https://www.artstation.com/goblygon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-between px-3 py-2 text-xs text-brand-cream hover:bg-brand-lime/15 hover:text-brand-lime transition-colors"
+                >
+                  <span>ArtStation</span>
+                  <span class="text-[10px] opacity-75">↗</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/goblygon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-between px-3 py-2 text-xs text-brand-cream hover:bg-brand-lime/15 hover:text-brand-lime transition-colors"
+                >
+                  <span>Instagram</span>
+                  <span class="text-[10px] opacity-75">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
           <!-- Inkalibur -->
           <a
             href="https://www.instagram.com/inkalibur/"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-blue hover:border-brand-mint hover:bg-brand-blue/25 text-brand-sage hover:text-brand-mint transition-all duration-200 shadow-sm text-center group"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-canvas border border-brand-sky/70 hover:border-brand-sky hover:bg-brand-sky/15 text-brand-cream hover:text-brand-sky transition-all duration-200 shadow-sm text-center group"
           >
             <img
               src="assets/Inkalibur.jpg"
@@ -442,7 +491,7 @@
               "
             />
             <span
-              class="w-6 h-6 rounded-full bg-brand-blue text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              class="w-6 h-6 rounded-full bg-brand-sky/30 text-brand-cream text-[10px] font-bold items-center justify-center shrink-0 hidden"
               >I</span
             >
             <span class="text-xs font-medium leading-tight">Inkalibur</span>
@@ -453,7 +502,7 @@
             href="https://github.com/andrew-mendes?tab=repositories&q=&type=public&language=&sort=stargazers"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-magenta/70 hover:border-brand-magenta hover:bg-brand-magenta/15 text-brand-sage hover:text-brand-coral transition-all duration-200 shadow-sm text-center group"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-canvas border border-brand-crimson/70 hover:border-brand-crimson hover:bg-brand-crimson/15 text-brand-cream hover:text-brand-crimson transition-all duration-200 shadow-sm text-center group"
           >
             <img
               src="assets/CS50.jpg"
@@ -465,7 +514,7 @@
               "
             />
             <span
-              class="w-6 h-6 rounded-full bg-brand-magenta/40 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              class="w-6 h-6 rounded-full bg-brand-crimson/40 text-brand-cream text-[10px] font-bold items-center justify-center shrink-0 hidden"
               >C</span
             >
             <span class="text-xs font-medium leading-tight">CS50</span>
@@ -476,7 +525,7 @@
             href="https://games-ever-made.itch.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-plum border border-brand-orange/70 hover:border-brand-orange hover:bg-brand-orange/15 text-brand-sage hover:text-brand-orange transition-all duration-200 shadow-sm text-center group"
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-brand-canvas border border-brand-tangerine/70 hover:border-brand-tangerine hover:bg-brand-tangerine/15 text-brand-cream hover:text-brand-tangerine transition-all duration-200 shadow-sm text-center group"
           >
             <img
               src="assets/GEM.jpg"
@@ -488,7 +537,7 @@
               "
             />
             <span
-              class="w-6 h-6 rounded-full bg-brand-orange/30 text-brand-sage text-[10px] font-bold items-center justify-center shrink-0 hidden"
+              class="w-6 h-6 rounded-full bg-brand-tangerine/30 text-brand-cream text-[10px] font-bold items-center justify-center shrink-0 hidden"
               >M</span
             >
             <span class="text-xs font-medium leading-tight">Games Ever Made</span>
@@ -501,16 +550,16 @@
         <div class="flex items-center gap-3 mb-4">
           <h2
             id="galleryHeading"
-            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-mint shrink-0"
+            class="text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-lime shrink-0"
           >
             Galeria
           </h2>
           <div
-            class="h-px bg-gradient-to-r from-brand-coral/50 via-brand-teal/20 to-transparent flex-grow"
+            class="h-px bg-gradient-to-r from-brand-bronze/50 via-brand-sage/20 to-transparent flex-grow"
           ></div>
           <span
             id="galleryCount"
-            class="text-[11px] font-mono text-brand-sage/60 shrink-0"
+            class="text-[11px] font-mono text-brand-cream/60 shrink-0"
           ></span>
         </div>
 
@@ -518,7 +567,7 @@
         <div class="mb-5">
           <p
             id="filterHeading"
-            class="text-[11px] uppercase tracking-wider font-medium text-brand-orange mb-2"
+            class="text-[11px] uppercase tracking-wider font-medium text-brand-tangerine mb-2"
           >
             Filtre por categoria:
           </p>
@@ -532,7 +581,7 @@
 
     <!-- Rodapé -->
     <footer
-      class="relative z-10 w-full border-t border-brand-coral/20 py-4 text-center text-[11px] text-brand-sage/50"
+      class="relative z-10 w-full border-t border-brand-bronze/20 py-4 text-center text-[11px] text-brand-cream/50"
     >
       <p>© Andrew Mendes 2026</p>
     </footer>
@@ -540,24 +589,24 @@
     <!-- Modal Lightbox -->
     <div
       id="mediaModal"
-      class="fixed inset-0 z-50 bg-brand-plum/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6"
+      class="fixed inset-0 z-50 bg-brand-canvas/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6"
       onclick="handleBackdropClick(event)"
     >
       <div
-        class="relative w-full max-w-2xl bg-brand-plum border border-brand-teal/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+        class="relative w-full max-w-2xl bg-brand-canvas border border-brand-sage/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
       >
         <!-- Cabeçalho do Modal -->
         <div
-          class="relative flex items-center justify-center px-12 py-3 border-b border-brand-teal/30 bg-brand-plum/80 min-h-[48px]"
+          class="relative flex items-center justify-center px-12 py-3 border-b border-brand-sage/30 bg-brand-canvas/80 min-h-[48px]"
         >
           <h3
             id="modalTitle"
-            class="text-xs sm:text-sm font-semibold text-brand-sage text-center leading-snug w-full px-2"
+            class="text-xs sm:text-sm font-semibold text-brand-cream text-center leading-snug w-full px-2"
           ></h3>
           <button
             onclick="closeModal()"
             aria-label="Fechar"
-            class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-plum border border-brand-teal/40 text-brand-sage hover:text-brand-orange hover:border-brand-orange flex items-center justify-center transition-colors shrink-0"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-canvas border border-brand-sage/40 text-brand-cream hover:text-brand-tangerine hover:border-brand-tangerine flex items-center justify-center transition-colors shrink-0"
           >
             ✕
           </button>
@@ -571,10 +620,10 @@
       </div>
     </div>
 
-<!-- Camada de Zoom em Tela Cheia -->
+    <!-- Camada de Zoom em Tela Cheia -->
     <div
       id="imageZoomOverlay"
-      class="fixed inset-0 z-[60] bg-brand-plum/95 backdrop-blur-md hidden select-none"
+      class="fixed inset-0 z-[60] bg-brand-canvas/95 backdrop-blur-md hidden select-none"
     >
       <!-- Controles Superiores: Minimalistas e Fixos -->
       <div
@@ -582,7 +631,7 @@
       >
         <span
           id="zoomModeBadge"
-          class="text-[11px] font-mono uppercase tracking-wider text-brand-orange bg-brand-plum/90 border border-brand-teal/40 px-2.5 py-1 rounded-full shadow-md select-none hidden sm:inline-block"
+          class="text-[11px] font-mono uppercase tracking-wider text-brand-tangerine bg-brand-canvas/90 border border-brand-sage/40 px-2.5 py-1 rounded-full shadow-md select-none hidden sm:inline-block"
         >
           Ajustado
         </span>
@@ -591,7 +640,7 @@
           onclick="closeImageZoom()"
           aria-label="Fechar tela cheia"
           title="Fechar tela cheia"
-          class="w-9 h-9 text-brand-sage hover:text-brand-orange text-2xl flex items-center justify-center transition-colors active:scale-90 [text-shadow:0_1px_6px_rgba(0,0,0,0.85)] cursor-pointer focus:outline-none"
+          class="w-9 h-9 text-brand-cream hover:text-brand-tangerine text-2xl flex items-center justify-center transition-colors active:scale-90 [text-shadow:0_1px_6px_rgba(0,0,0,0.85)] cursor-pointer focus:outline-none"
         >
           ✕
         </button>
@@ -683,6 +732,79 @@
           chevron.classList.remove("rotate-180");
         }
       }
+      
+      function setGoblygonOpen(open) {
+        const cell = document.getElementById("goblygonCell");
+        const card = document.getElementById("goblygonCard");
+        const drawer = document.getElementById("goblygonDrawer");
+        const chevron = document.getElementById("goblygonChevron");
+        const btn = document.getElementById("goblygonToggleBtn");
+        if (!cell || !card || !drawer || !btn) return;
+
+        if (open) {
+          // Captura a altura exata que o botão tem na grade antes de flutuar
+          const currentHeight = cell.offsetHeight;
+          cell.style.height = currentHeight + "px";
+          btn.style.height = currentHeight + "px";
+
+          btn.classList.remove("h-full");
+          card.classList.remove("h-full", "border-brand-lime/60");
+          card.classList.add(
+            "absolute",
+            "inset-x-0",
+            "top-0",
+            "z-30",
+            "shadow-xl",
+            "border-brand-lime",
+            "bg-brand-canvas/95",
+            "backdrop-blur-md",
+          );
+          drawer.classList.remove("hidden");
+          if (chevron) chevron.classList.add("rotate-180");
+          btn.setAttribute("aria-expanded", "true");
+        } else {
+          drawer.classList.add("hidden");
+          card.classList.remove(
+            "absolute",
+            "inset-x-0",
+            "top-0",
+            "z-30",
+            "shadow-xl",
+            "border-brand-lime",
+            "bg-brand-canvas/95",
+            "backdrop-blur-md",
+          );
+          card.classList.add("h-full", "border-brand-lime/60");
+          btn.classList.add("h-full");
+
+          // Limpa as alturas inline para voltar a acompanhar a grade responsiva
+          cell.style.height = "";
+          btn.style.height = "";
+
+          if (chevron) chevron.classList.remove("rotate-180");
+          btn.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      function toggleGoblygonDrawer(event) {
+        if (event) event.stopPropagation();
+        const drawer = document.getElementById("goblygonDrawer");
+        if (!drawer) return;
+        setGoblygonOpen(drawer.classList.contains("hidden"));
+      }
+
+      document.addEventListener("click", (e) => {
+        const card = document.getElementById("goblygonCard");
+        const drawer = document.getElementById("goblygonDrawer");
+        if (
+          drawer &&
+          !drawer.classList.contains("hidden") &&
+          card &&
+          !card.contains(e.target)
+        ) {
+          setGoblygonOpen(false);
+        }
+      });
 
       const tagKeys = [
         "Tradicional",
@@ -756,14 +878,14 @@
         const btnEn = document.getElementById("btn-en");
         if (lang === "pt") {
           btnPt.classList.remove("opacity-60");
-          btnPt.classList.add("border-brand-orange");
+          btnPt.classList.add("border-brand-tangerine");
           btnEn.classList.add("opacity-60");
-          btnEn.classList.remove("border-brand-orange");
+          btnEn.classList.remove("border-brand-tangerine");
         } else {
           btnEn.classList.remove("opacity-60");
-          btnEn.classList.add("border-brand-orange");
+          btnEn.classList.add("border-brand-tangerine");
           btnPt.classList.add("opacity-60");
-          btnPt.classList.remove("border-brand-orange");
+          btnPt.classList.remove("border-brand-tangerine");
         }
 
         document.getElementById("projectsHeading").textContent =
@@ -805,8 +927,8 @@
         const allBtn = document.createElement("button");
         allBtn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
           activeTag === "all"
-            ? "bg-brand-orange text-brand-plum border-brand-orange font-semibold"
-            : "bg-brand-plum text-brand-sage border-brand-teal/40 hover:border-brand-orange"
+            ? "bg-brand-tangerine text-brand-canvas border-brand-tangerine font-semibold"
+            : "bg-brand-canvas text-brand-cream border-brand-sage/40 hover:border-brand-tangerine"
         }`;
         allBtn.textContent = i18n[currentLang].all;
         allBtn.onclick = () => {
@@ -821,8 +943,8 @@
           const isActive = activeTag === tagKey;
           btn.className = `px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border ${
             isActive
-              ? "bg-brand-mint text-brand-plum border-brand-mint font-semibold"
-              : "bg-brand-plum text-brand-sage border-brand-teal/40 hover:border-brand-mint"
+              ? "bg-brand-lime text-brand-canvas border-brand-lime font-semibold"
+              : "bg-brand-canvas text-brand-cream border-brand-sage/40 hover:border-brand-lime"
           }`;
           btn.textContent =
             (i18n[currentLang].tags && i18n[currentLang].tags[tagKey]) ||
@@ -855,7 +977,7 @@
         filtered.forEach((item) => {
           const card = document.createElement("div");
           card.className =
-            "group relative aspect-square rounded-xl overflow-hidden bg-brand-plum border border-brand-teal/30 hover:border-brand-orange transition-all duration-200 cursor-pointer shadow-sm";
+            "group relative aspect-square rounded-xl overflow-hidden bg-brand-canvas border border-brand-sage/30 hover:border-brand-tangerine transition-all duration-200 cursor-pointer shadow-sm";
           card.onclick = () => openModal(item);
 
           let innerContent = "";
@@ -867,11 +989,11 @@
             const hasMultiple = imgList.length > 1;
 
             innerContent = `
-            <img src="${item.src}" alt="${titleText}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/d8dcb4?text=3D+Art';">
+            <img src="${item.src}" alt="${titleText}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/1e4044/f6e8e0?text=3D+Art';">
             ${
               hasMultiple
                 ? `
-              <div class="absolute top-2.5 right-2.5 bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 rounded-full px-2 py-0.5 text-[10px] text-brand-orange flex items-center gap-1.5 shadow-sm">
+              <div class="absolute top-2.5 right-2.5 bg-brand-canvas/80 backdrop-blur-sm border border-brand-sage/40 rounded-full px-2 py-0.5 text-[10px] text-brand-tangerine flex items-center gap-1.5 shadow-sm">
                 <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                   <path d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
                 </svg>
@@ -889,36 +1011,36 @@
                 : item.src || "assets/Goblygon.jpg");
 
             innerContent = `
-            <div class="relative w-full h-full bg-brand-plum overflow-hidden">
-              <img src="${thumbUrl}" alt="${titleText}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/105390/d8dcb4?text=Video';">
+            <div class="relative w-full h-full bg-brand-canvas overflow-hidden">
+              <img src="${thumbUrl}" alt="${titleText}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/36c5f4/f6e8e0?text=Video';">
               <div class="absolute inset-0 flex justify-end p-2.5 sm:p-3 pointer-events-none">
-                <span class="w-7 h-7 rounded-full bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 text-brand-orange flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
+                <span class="w-7 h-7 rounded-full bg-brand-canvas/80 backdrop-blur-sm border border-brand-sage/40 text-brand-tangerine flex items-center justify-center text-[10px] pl-0.5 font-bold shadow-sm">▶</span>
               </div>
             </div>
           `;
           } else if (item.type === "audio") {
             innerContent = `
-              <div class="relative w-full h-full bg-brand-plum overflow-hidden">
-                <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+              <div class="relative w-full h-full bg-brand-canvas overflow-hidden">
+                <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/1e4044/e98537?text=Audio';">
                 <div class="absolute inset-0 flex flex-col justify-between p-2.5 sm:p-3 pointer-events-none">
-                  <span class="self-end w-7 h-7 rounded-full bg-brand-plum/80 backdrop-blur-sm border border-brand-teal/40 text-brand-orange flex items-center justify-center text-xs font-bold shadow-sm">♪</span>
+                  <span class="self-end w-7 h-7 rounded-full bg-brand-canvas/80 backdrop-blur-sm border border-brand-sage/40 text-brand-tangerine flex items-center justify-center text-xs font-bold shadow-sm">♪</span>
                 </div>
               </div>
             `;
           } else if (item.type === "code") {
             innerContent = `
-          <div class="w-full h-full p-3.5 bg-brand-plum flex flex-col justify-between font-mono text-[10px] text-brand-mint overflow-hidden">
-            <div class="text-[9px] uppercase tracking-widest text-brand-magenta font-bold">SOURCE CODE</div>
+          <div class="w-full h-full p-3.5 bg-brand-canvas flex flex-col justify-between font-mono text-[10px] text-brand-lime overflow-hidden">
+            <div class="text-[9px] uppercase tracking-widest text-brand-crimson font-bold">SOURCE CODE</div>
             <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
-            <div class="text-[9px] text-brand-orange">&lt;/&gt; Ver Código</div>
+            <div class="text-[9px] text-brand-tangerine">&lt;/&gt; Ver Código</div>
           </div>
         `;
           }
 
           card.innerHTML = `
         ${innerContent}
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-plum via-brand-plum/85 to-transparent p-2.5 pt-8 pointer-events-none">
-            <p class="text-xs font-medium text-brand-sage group-hover:text-brand-orange line-clamp-2 leading-tight transition-colors">${titleText}</p>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-canvas via-brand-canvas/85 to-transparent p-2.5 pt-8 pointer-events-none">
+            <p class="text-xs font-medium text-brand-cream group-hover:text-brand-tangerine line-clamp-2 leading-tight transition-colors">${titleText}</p>
           </div>
         `;
 
@@ -1064,11 +1186,11 @@
         const thumbs = document.querySelectorAll(".thumb-btn");
         thumbs.forEach((btn, idx) => {
           if (idx === currentModalImageIndex) {
-            btn.classList.remove("border-brand-teal/40", "opacity-50");
-            btn.classList.add("border-brand-orange", "opacity-100");
+            btn.classList.remove("border-brand-sage/40", "opacity-50");
+            btn.classList.add("border-brand-tangerine", "opacity-100");
           } else {
-            btn.classList.remove("border-brand-orange", "opacity-100");
-            btn.classList.add("border-brand-teal/40", "opacity-50");
+            btn.classList.remove("border-brand-tangerine", "opacity-100");
+            btn.classList.add("border-brand-sage/40", "opacity-50");
           }
         });
 
@@ -1101,7 +1223,7 @@
         titleElem.innerHTML = item.title[currentLang];
         bodyElem.innerHTML = "";
 
-if (item.type === "image") {
+        if (item.type === "image") {
           const imgList =
             item.images && item.images.length > 0 ? item.images : [item.src];
           const hasMultiple = imgList.length > 1;
@@ -1129,7 +1251,7 @@ if (item.type === "image") {
                          onclick="openImageZoom('${imgSrc}')"
                          title="Clique para ampliar"
                          class="max-h-[50vh] sm:max-h-[56vh] w-auto max-w-full block rounded-xl object-contain shadow-md cursor-zoom-in hover:brightness-105 select-none" 
-                         onerror="this.src='https://placehold.co/800x800/381631/d8dcb4?text=Imagem';">
+                         onerror="this.src='https://placehold.co/800x800/1e4044/f6e8e0?text=Imagem';">
                   </div>
                 `,
                   )
@@ -1141,11 +1263,11 @@ if (item.type === "image") {
                   ? `
                 <!-- Setas discretas no celular -->
                 <button type="button" onclick="event.stopPropagation(); navigateModal(-1);" aria-label="Imagem anterior" title="Imagem anterior"
-                        class="sm:hidden absolute left-0 top-1/2 -translate-y-1/2 z-20 text-brand-sage/80 active:text-brand-orange text-3xl px-3 py-4 select-none [text-shadow:0_1px_5px_rgba(0,0,0,0.9)] focus:outline-none">
+                        class="sm:hidden absolute left-0 top-1/2 -translate-y-1/2 z-20 text-brand-cream/80 active:text-brand-tangerine text-3xl px-3 py-4 select-none [text-shadow:0_1px_5px_rgba(0,0,0,0.9)] focus:outline-none">
                   ‹
                 </button>
                 <button type="button" onclick="event.stopPropagation(); navigateModal(1);" aria-label="Próxima imagem" title="Próxima imagem"
-                        class="sm:hidden absolute right-0 top-1/2 -translate-y-1/2 z-20 text-brand-sage/80 active:text-brand-orange text-3xl px-3 py-4 select-none [text-shadow:0_1px_5px_rgba(0,0,0,0.9)] focus:outline-none">
+                        class="sm:hidden absolute right-0 top-1/2 -translate-y-1/2 z-20 text-brand-cream/80 active:text-brand-tangerine text-3xl px-3 py-4 select-none [text-shadow:0_1px_5px_rgba(0,0,0,0.9)] focus:outline-none">
                   ›
                 </button>
               `
@@ -1157,7 +1279,7 @@ if (item.type === "image") {
                   ? `
                 <!-- Botão de informações -->
                 <button type="button" onclick="event.stopPropagation(); toggleModalDescription();" title="Informações" aria-label="Informações"
-                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-brand-plum/85 hover:bg-brand-plum text-brand-orange border border-brand-teal/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
+                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-brand-canvas/85 hover:bg-brand-canvas text-brand-tangerine border border-brand-sage/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
                   ℹ
                 </button>
 
@@ -1165,7 +1287,7 @@ if (item.type === "image") {
                 <div id="modalDescriptionPanel" style="display: none;" 
                      class="absolute inset-x-0 bottom-3 px-3 sm:px-4 z-20 flex justify-center pointer-events-none">
                   <p id="modalDescriptionText" 
-                     class="inline-block bg-brand-plum/85 backdrop-blur-md text-brand-sage border border-brand-teal/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
+                     class="inline-block bg-brand-canvas/85 backdrop-blur-md text-brand-cream border border-brand-sage/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
                     ${item.description[currentLang]}
                   </p>
                 </div>
@@ -1185,8 +1307,8 @@ if (item.type === "image") {
                   <button type="button" onclick="switchModalImage('${img}', this)" 
                           class="thumb-btn shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border-2 ${
                             idx === currentModalImageIndex
-                              ? "border-brand-orange opacity-100"
-                              : "border-brand-teal/40 opacity-50"
+                              ? "border-brand-tangerine opacity-100"
+                              : "border-brand-sage/40 opacity-50"
                           } hover:opacity-100 transition-all">
                     <img src="${img}" class="w-full h-full object-cover">
                   </button>
@@ -1205,7 +1327,7 @@ if (item.type === "image") {
           let videoMarkup = "";
           if (item.youtubeId) {
             videoMarkup = `
-            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-brand-teal/30">
+            <div class="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-brand-sage/30">
               <iframe 
                 class="w-full h-full block" 
                 src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?loop=1&playlist=${item.youtubeId}&rel=0" 
@@ -1218,7 +1340,7 @@ if (item.type === "image") {
           `;
           } else {
             videoMarkup = `
-              <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-brand-teal/30">
+              <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-brand-sage/30">
                 <video 
                   id="modalVideoElement" 
                   controls 
@@ -1243,7 +1365,7 @@ if (item.type === "image") {
               ${
                 hasDesc
                   ? `
-                <p id="modalDescriptionText" class="mt-2.5 text-xs sm:text-sm text-brand-sage/80 text-center max-w-md px-3 leading-snug">
+                <p id="modalDescriptionText" class="mt-2.5 text-xs sm:text-sm text-brand-cream/80 text-center max-w-md px-3 leading-snug">
                   ${item.description[currentLang]}
                 </p>
               `
@@ -1256,16 +1378,16 @@ if (item.type === "image") {
 
           bodyElem.innerHTML = `
           <div class="flex flex-col items-center justify-center w-full">
-            <div class="relative w-auto max-w-[320px] sm:max-w-[360px] max-h-[50vh] sm:max-h-[56vh] aspect-square rounded-2xl overflow-hidden border border-brand-teal/40 shadow-2xl bg-brand-plum flex items-center justify-center">
+            <div class="relative w-auto max-w-[320px] sm:max-w-[360px] max-h-[50vh] sm:max-h-[56vh] aspect-square rounded-2xl overflow-hidden border border-brand-sage/40 shadow-2xl bg-brand-canvas flex items-center justify-center">
               
               <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${item.title[currentLang]}" 
                    class="w-full h-full object-cover select-none" 
-                   onerror="this.src='https://placehold.co/400x400/381631/fea85f?text=Audio';">
+                   onerror="this.src='https://placehold.co/400x400/1e4044/e98537?text=Audio';">
 
-              <div class="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 z-30 flex items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-plum/85 backdrop-blur-md border border-brand-teal/50 shadow-lg text-brand-sage">
+              <div class="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 z-30 flex items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-canvas/85 backdrop-blur-md border border-brand-sage/50 shadow-lg text-brand-cream">
                 
                 <button type="button" onclick="toggleAudioPlay(this)" aria-label="Tocar / Pausar"
-                        class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-teal hover:bg-brand-mint text-brand-plum flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
+                        class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-sage hover:bg-brand-lime text-brand-canvas flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
                   <svg id="audioPlayIcon" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
@@ -1275,27 +1397,27 @@ if (item.type === "image") {
                 </button>
 
                 <div class="flex-grow flex flex-col justify-center gap-0.5 sm:gap-1 min-w-0">
-                  <div onclick="seekAudio(event)" class="w-full h-1.5 bg-brand-plum/90 rounded-full cursor-pointer relative overflow-hidden border border-brand-teal/40">
-                    <div id="audioProgressBar" class="h-full bg-gradient-to-r from-brand-teal via-brand-mint to-brand-orange rounded-full w-0 transition-all duration-100"></div>
+                  <div onclick="seekAudio(event)" class="w-full h-1.5 bg-brand-canvas/90 rounded-full cursor-pointer relative overflow-hidden border border-brand-sage/40">
+                    <div id="audioProgressBar" class="h-full bg-gradient-to-r from-brand-sage via-brand-lime to-brand-tangerine rounded-full w-0 transition-all duration-100"></div>
                   </div>
-                  <div class="flex justify-between items-center text-[9px] sm:text-[10px] font-mono text-brand-sage/80 leading-none">
+                  <div class="flex justify-between items-center text-[9px] sm:text-[10px] font-mono text-brand-cream/80 leading-none">
                     <span id="audioCurrentTime">0:00</span>
                     <span id="audioDurationTime">0:00</span>
                   </div>
                 </div>
 
-                <div class="flex items-center gap-1 sm:gap-1.5 shrink-0 pl-1 border-l border-brand-teal/30">
-                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-brand-sage hover:text-brand-orange transition-colors">
+                <div class="flex items-center gap-1 sm:gap-1.5 shrink-0 pl-1 border-l border-brand-sage/30">
+                  <button type="button" onclick="toggleMute()" aria-label="Volume" class="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-brand-cream hover:text-brand-tangerine transition-colors">
                     <svg id="audioVolHighIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
                     </svg>
-                    <svg id="audioVolMutedIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current hidden text-brand-coral" viewBox="0 0 24 24">
+                    <svg id="audioVolMutedIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current hidden text-brand-bronze" viewBox="0 0 24 24">
                       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
                     </svg>
                   </button>
                   <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1" 
                          oninput="changeAudioVolume(this.value)" 
-                         class="w-10 sm:w-12 h-1 bg-brand-plum accent-brand-orange rounded-lg cursor-pointer">
+                         class="w-10 sm:w-12 h-1 bg-brand-canvas accent-brand-tangerine rounded-lg cursor-pointer">
                 </div>
 
               </div>
@@ -1309,7 +1431,7 @@ if (item.type === "image") {
             ${
               hasDesc
                 ? `
-              <p id="modalDescriptionText" class="mt-2 text-xs sm:text-sm text-brand-sage/80 text-center max-w-sm px-3 leading-snug">
+              <p id="modalDescriptionText" class="mt-2 text-xs sm:text-sm text-brand-cream/80 text-center max-w-sm px-3 leading-snug">
                 ${item.description[currentLang]}
               </p>
             `
@@ -1320,7 +1442,7 @@ if (item.type === "image") {
         } else if (item.type === "code") {
           bodyElem.innerHTML = `
           <div class="w-full">
-            <pre class="bg-brand-plum p-4 rounded-xl text-xs font-mono text-brand-mint border border-brand-teal/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+            <pre class="bg-brand-canvas p-4 rounded-xl text-xs font-mono text-brand-lime border border-brand-sage/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
           </div>
         `;
         }
@@ -1506,7 +1628,7 @@ if (item.type === "image") {
         }
       }
 
-function handleTouchMove(e) {
+      function handleTouchMove(e) {
         if (!isDragging) return;
 
         const zoomOverlay = document.getElementById("imageZoomOverlay");
