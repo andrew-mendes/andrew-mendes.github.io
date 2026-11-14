@@ -733,7 +733,7 @@
         }
       }
       
-      function setGoblygonOpen(open) {
+function setGoblygonOpen(open) {
         const cell = document.getElementById("goblygonCell");
         const card = document.getElementById("goblygonCard");
         const drawer = document.getElementById("goblygonDrawer");
@@ -742,10 +742,12 @@
         if (!cell || !card || !drawer || !btn) return;
 
         if (open) {
-          // Captura a altura exata que o botão tem na grade antes de flutuar
-          const currentHeight = cell.offsetHeight;
-          cell.style.height = currentHeight + "px";
-          btn.style.height = currentHeight + "px";
+          // Mede a altura exata da célula E a altura interna exata do botão separadamente
+          const cellHeight = cell.offsetHeight;
+          const btnHeight = btn.offsetHeight;
+
+          cell.style.height = cellHeight + "px";
+          btn.style.height = btnHeight + "px";
 
           btn.classList.remove("h-full");
           card.classList.remove("h-full", "border-brand-lime/60");
@@ -777,7 +779,6 @@
           card.classList.add("h-full", "border-brand-lime/60");
           btn.classList.add("h-full");
 
-          // Limpa as alturas inline para voltar a acompanhar a grade responsiva
           cell.style.height = "";
           btn.style.height = "";
 
@@ -785,7 +786,7 @@
           btn.setAttribute("aria-expanded", "false");
         }
       }
-
+      
       function toggleGoblygonDrawer(event) {
         if (event) event.stopPropagation();
         const drawer = document.getElementById("goblygonDrawer");
