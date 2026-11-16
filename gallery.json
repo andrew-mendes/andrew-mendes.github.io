@@ -501,5 +501,17 @@
       "pt": "Gravação de tela do ZBrush.",
       "en": "Screen recording of ZBrush."
     }
+  },{
+    "id": 40,
+    "type": "image",
+    "tags": ["2D", "Tradicional"],
+    "title": {
+      "pt": "Esboço de Anjo",
+      "en": "Angel Sketch"
+    },
+    "src": "assets/Angel.jpg",
+    "images": [
+      "assets/Angel.jpg"
+    ]
   }
 ]
