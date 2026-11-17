@@ -337,8 +337,8 @@
     "src": "assets/HellOfAShift.mp3",
     "coverUrl": "assets/SaasCover.jpg",
     "description": {
-      "pt": "Trilha sonora feita com @fgil90 e @lindotex. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
-      "en": "Soundtrack made with @fgil90 and @lindotex. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
+      "pt": "Trilha sonora em colaboração com @fgil90 e @lindotex. SaaS é um jogo feito em 72h pra LD Jam 55 com a Games Ever Made.",
+      "en": "Soundtrack in collaboration with @fgil90 and @lindotex. SaaS is a game made in 72h for LD Jam 55 with Games Ever Made."
     }
   },
   {
@@ -394,12 +394,12 @@
     "id": 33,
     "type": "audio",
     "tags": ["Música", "Digital", "GameDev"],
-    "title": { "pt": "Metal", "en": "Metal" },
+    "title": { "pt": "Circuito de Metal", "en": "Metal Circuit" },
     "src": "assets/Metal.m4a",
     "coverUrl": "assets/BSODCover.jpg",
     "description": {
-      "pt": "Trilha sonora feita com @fgil90 pro jogo BSOD na GDevelop Big Game Jam #7 com a Games Ever Made.",
-      "en": "Soundtrack made with @fgil90 for the game BSOD at GDevelop Big Game Jam #7 with Games Ever Made."
+      "pt": "Trilha sonora em colaboração com @fgil90 pro jogo BSOD na GDevelop Big Game Jam #7 com a Games Ever Made.",
+      "en": "Soundtrack in collaboration with @fgil90 for the game BSOD at GDevelop Big Game Jam #7 with Games Ever Made."
     }
   },
   {
