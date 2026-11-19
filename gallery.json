@@ -513,5 +513,28 @@
     "images": [
       "assets/Angel.jpg"
     ]
+  },
+  {
+    "id": 41,
+    "type": "image",
+    "tags": ["2D", "Digital", "GameDev"],
+    "title": {
+      "pt": "Sprites em pixel art pra Gotta Cat 'em All",
+      "en": "Pixel Art Sprites for Gotta Cat 'em All"
+    },
+    "src": "assets/LDJ58_Cover.png",
+    "images": [
+      "assets/LDJ58_Cover.png",
+      "assets/LDJ58_House.png",
+      "assets/LDJ58_Player.gif",
+      "assets/LDJ58_Manuel.gif",
+      "assets/LDJ58_Veia.gif",
+      "assets/LDJ58_PetshopBoys.gif",
+      "assets/LDJ58_Pets.png"
+    ],
+    "description": {
+      "pt": "Sprites em pixel art feitos para o jogo Gotta Cat 'em All, feito em 72h na LD Jam 58 com a Games Ever Made.",
+      "en": "Pixel art sprites made for the game Gotta Cat 'em All, made in 72h at LD Jam 58 with Games Ever Made."
+    }
   }
 ]

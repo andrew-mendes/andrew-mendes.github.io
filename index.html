@@ -1252,7 +1252,7 @@
                  ontouchmove="handleTouchMove(event)"
                  ontouchend="handleTouchEnd(event)"
                  ontouchcancel="handleTouchEnd(event)"
-                 class="relative w-fit max-w-full max-h-[55vh] sm:max-h-[60vh] select-none overflow-hidden rounded-xl flex items-center justify-center shrink-0"
+                 class="relative w-fit max-w-full h-[55vh] sm:h-[60vh] select-none overflow-hidden rounded-xl flex items-center justify-center shrink-0"
                  style="touch-action: pan-y;">
 
               <!-- Active Slide Track -->
@@ -1261,11 +1261,11 @@
                   .map(
                     (imgSrc, idx) => `
                   <div class="modal-slide ${idx === currentModalImageIndex ? "flex" : "hidden"} items-center justify-center max-h-[55vh] sm:max-h-[60vh] max-w-full">
-                    <img src="${imgSrc}" alt="${item.title[currentLang]}"
+                      <img src="${imgSrc}" alt="${item.title[currentLang]}"
                          draggable="false"
                          onclick="openImageZoom('${imgSrc}')"
                          title="${currentLang === "pt" ? "Clique para ampliar" : "Click to zoom"}"
-                         class="max-h-[55vh] sm:max-h-[60vh] w-auto max-w-[92vw] sm:max-w-2xl block rounded-xl object-contain shadow-2xl cursor-zoom-in hover:brightness-105 select-none"
+                         class="max-h-[55vh] sm:max-h-[60vh] w-auto max-w-[92vw] sm:max-w-2xl block rounded-xl object-contain cursor-zoom-in hover:brightness-105 select-none"
                          onerror="this.src='https://placehold.co/800x800/1e4044/f6e8e0?text=Imagem';">
                   </div>
                 `,
