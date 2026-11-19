@@ -1178,9 +1178,23 @@ function setGoblygonOpen(open) {
 
       function updateModalCarouselPosition(animate = true) {
         const track = document.getElementById("imageSwipeTrack");
+        const slides = document.querySelectorAll(".modal-slide");
+
+        if (slides.length > 0) {
+          slides.forEach((slide, idx) => {
+            if (idx === currentModalImageIndex) {
+              slide.classList.remove("hidden");
+              slide.classList.add("flex");
+            } else {
+              slide.classList.add("hidden");
+              slide.classList.remove("flex");
+            }
+          });
+        }
+
         if (track) {
-          track.style.transition = animate ? "transform 0.28s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
-          track.style.transform = `translateX(-${currentModalImageIndex * 100}%)`;
+          track.style.transition = animate ? "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+          track.style.transform = "translateX(0px)";
         }
 
         // Atualiza a borda da miniatura correspondente
@@ -1233,25 +1247,25 @@ function setGoblygonOpen(open) {
           bodyElem.innerHTML = `
           <div class="flex flex-col items-center justify-center w-fit max-w-full">
             <!-- Moldura do Carrossel ajustada à largura real da imagem -->
-            <div id="imageSwipeContainer" 
+              <div id="imageSwipeContainer" 
                  ontouchstart="handleTouchStart(event)" 
                  ontouchmove="handleTouchMove(event)" 
                  ontouchend="handleTouchEnd(event)" 
                  ontouchcancel="handleTouchEnd(event)"
-                 class="relative w-fit max-w-[50vh] sm:max-w-[56vh] max-h-[50vh] sm:max-h-[56vh] mt-0.5 sm:mt-1 mb-2 sm:mb-2.5 select-none overflow-hidden rounded-xl flex items-center justify-start shrink-0"
+                 class="relative w-fit max-w-full max-h-[50vh] sm:max-h-[56vh] mt-0.5 sm:mt-1 mb-2 sm:mb-2.5 select-none overflow-hidden rounded-xl flex items-center justify-center shrink-0" 
                  style="touch-action: pan-y;">
               
-              <!-- Faixa com todas as imagens lado a lado -->
-              <div id="imageSwipeTrack" class="flex flex-nowrap h-full items-center will-change-transform" style="transform: translateX(-${currentModalImageIndex * 100}%);">
+              <!-- Slides (apenas o ativo ocupa largura real no layout) -->
+              <div id="imageSwipeTrack" class="flex items-center justify-center w-fit max-w-full h-full will-change-transform">
                 ${imgList
                   .map(
                     (imgSrc, idx) => `
-                  <div class="min-w-full shrink-0 flex items-center justify-center max-h-[50vh] sm:max-h-[56vh]">
+                  <div class="modal-slide ${idx === currentModalImageIndex ? "flex" : "hidden"} items-center justify-center max-h-[50vh] sm:max-h-[56vh] max-w-full">
                     <img src="${imgSrc}" alt="${item.title[currentLang]}" 
                          draggable="false"
                          onclick="openImageZoom('${imgSrc}')"
                          title="Clique para ampliar"
-                         class="max-h-[50vh] sm:max-h-[56vh] w-auto max-w-full block rounded-xl object-contain shadow-md cursor-zoom-in hover:brightness-105 select-none" 
+                         class="max-h-[50vh] sm:max-h-[56vh] w-auto max-w-[82vw] sm:max-w-xl block rounded-xl object-contain shadow-md cursor-zoom-in hover:brightness-105 select-none" 
                          onerror="this.src='https://placehold.co/800x800/1e4044/f6e8e0?text=Imagem';">
                   </div>
                 `,
@@ -1625,8 +1639,11 @@ function setGoblygonOpen(open) {
           if (zoomedImg) zoomedImg.style.transition = "none";
         } else {
           const track = document.getElementById("imageSwipeTrack");
-          if (track) track.style.transition = "none";
-        }
+          if (track) {
+            track.style.transition = "none";
+            track.style.opacity = "1";
+          }
+        } 
       }
 
       function handleTouchMove(e) {
@@ -1663,13 +1680,9 @@ function setGoblygonOpen(open) {
               zoomedImg.style.transform = `translateX(${currentDeltaX}px)`;
             }
           } else {
-            const container = document.getElementById("imageSwipeContainer");
             const track = document.getElementById("imageSwipeTrack");
-            if (container && track) {
-              const width = container.offsetWidth || window.innerWidth;
-              const deltaPercent = (currentDeltaX / width) * 100;
-              const basePercent = -(currentModalImageIndex * 100);
-              track.style.transform = `translateX(${basePercent + deltaPercent}%)`;
+            if (track) {
+              track.style.transform = `translateX(${currentDeltaX}px)`;
             }
           }
         }
@@ -1729,13 +1742,34 @@ function setGoblygonOpen(open) {
               }, 180);
             }
           } else {
-            // No modal normal (fora da tela cheia)
-            if (movingLeft) {
-              currentModalImageIndex = (currentModalImageIndex + 1) % imgList.length;
-            } else {
-              currentModalImageIndex = (currentModalImageIndex - 1 + imgList.length) % imgList.length;
+            // No modal normal: saída para o lado do arrasto e entrada pelo lado oposto
+            const track = document.getElementById("imageSwipeTrack");
+            const container = document.getElementById("imageSwipeContainer");
+            if (track && container) {
+              const slideW = container.offsetWidth || 320;
+              // 1. Termina de deslizar a foto atual para fora na direção do gesto
+              track.style.transition = "transform 0.16s ease-out, opacity 0.16s ease-out";
+              track.style.transform = `translateX(${movingLeft ? -slideW : slideW}px)`;
+              track.style.opacity = "0";
+
+              setTimeout(() => {
+                // 2. Atualiza o índice e troca o slide visível
+                currentModalImageIndex = movingLeft
+                  ? (currentModalImageIndex + 1) % imgList.length
+                  : (currentModalImageIndex - 1 + imgList.length) % imgList.length;
+                updateModalCarouselPosition(false);
+
+                // 3. Posiciona a nova foto no lado oposto sem transição
+                track.style.transition = "none";
+                track.style.transform = `translateX(${movingLeft ? slideW : -slideW}px)`;
+
+                // 4. Força o reflow e anima a entrada até o centro (0px)
+                void track.offsetWidth;
+                track.style.transition = "transform 0.24s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.24s ease-out";
+                track.style.transform = "translateX(0px)";
+                track.style.opacity = "1";
+              }, 160);
             }
-            updateModalCarouselPosition(true);
           }
         } else {
           // Gesto cancelado / solto antes do limiar: volta suave ao centro
