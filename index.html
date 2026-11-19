@@ -9,8 +9,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrew Mendes - Portfolio</title>
-    
-    <!-- Metadados Principais e SEO -->
+
+    <!-- Primary Metadata & SEO -->
     <meta name="title" content="Andrew Mendes - Portfolio" />
     <meta
       name="description"
@@ -49,7 +49,7 @@
         --color-canvas: #1e4044;     /* Deep pine-teal background */
         --color-cream: #f6e8e0;      /* Primary warm text */
         --color-lime: #9de64e;       /* Vibrant leaf-lime accents & headings */
-        --color-sage: #008b8b;       /* Card & modal borders */
+        --color-sage: #008b8b;       /* Teal secondary accents */
         --color-tangerine: #f3a833;  /* Warm copper highlights */
         --color-bronze: #ce9248;     /* Drawer border & section divider start */
         --color-crimson: #ec273f;    /* CS50 accent & avatar gradient start */
@@ -107,7 +107,7 @@
   <body
     class="min-h-screen flex flex-col justify-between selection:bg-brand-crimson selection:text-white relative overflow-x-hidden"
   >
-    <!-- Iluminação de Fundo Ambiente (Verde Claro, Teal e Amarelo Suave) -->
+    <!-- Ambient Background Lighting -->
     <div class="fixed inset-0 pointer-events-none opacity-25">
       <div
         class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#5ab552] rounded-full blur-[120px]"
@@ -123,12 +123,12 @@
     <div
       class="relative z-10 w-full max-w-2xl mx-auto px-4 py-6 sm:py-10 flex-grow flex flex-col"
     >
-      <!-- Barra Superior: Troca de Idioma -->
+      <!-- Top Bar: Language Switcher -->
       <header class="flex justify-end items-center mb-6">
         <div
           class="flex items-center gap-1.5 bg-brand-canvas/80 backdrop-blur-md p-1.5 rounded-full border border-brand-lime/40 shadow-sm"
         >
-          <!-- Botão Bandeira do Brasil -->
+          <!-- Brazil Flag Button -->
           <button
             id="btn-pt"
             onclick="setLanguage('pt')"
@@ -154,7 +154,7 @@
               />
             </svg>
           </button>
-          <!-- Botão Bandeira do Reino Unido -->
+          <!-- UK Flag Button -->
           <button
             id="btn-en"
             onclick="setLanguage('en')"
@@ -197,7 +197,7 @@
         </div>
       </header>
 
-      <!-- Cabeçalho de Perfil / Bio -->
+      <!-- Profile / Bio Header -->
       <section class="flex flex-col items-center text-center mb-8">
         <div class="relative w-28 h-28 mb-4">
           <div
@@ -235,7 +235,7 @@
           impressora 3D. Não necessariamente nessa ordem.
         </p>
 
-        <!-- Barra de Redes Sociais -->
+        <!-- Social Media Links -->
         <div class="flex items-center justify-center gap-3 mt-1">
           <!-- WhatsApp -->
           <a
@@ -257,7 +257,7 @@
             </svg>
           </a>
 
-          <!-- E-mail -->
+          <!-- Email -->
           <a
             href="mailto:andrewmendes@gmail.com"
             title="E-mail"
@@ -307,7 +307,7 @@
         </div>
       </section>
 
-      <!-- 1. Gaveta Retrátil: Habilidades e Ferramentas -->
+      <!-- 1. Collapsible Drawer: Skills & Tools -->
       <section class="mb-7">
         <div
           class="rounded-xl border border-brand-bronze/40 bg-brand-canvas/80 overflow-hidden transition-all duration-200"
@@ -340,7 +340,7 @@
             id="skillsDrawerContent"
             class="hidden px-4 pb-4 pt-1 border-t border-brand-lime/20 space-y-4"
           >
-            <!-- Disciplinas -->
+            <!-- Crafts & Disciplines -->
             <div>
               <h4
                 id="craftsSubtitle"
@@ -364,7 +364,7 @@
               </div>
             </div>
 
-            <!-- Ferramentas & Software -->
+            <!-- Tools & Software -->
             <div>
               <h4
                 id="toolsSubtitle"
@@ -392,7 +392,7 @@
         </div>
       </section>
 
-      <!-- 2. Seção de Projetos -->
+      <!-- 2. Projects Section -->
       <section class="mb-8">
         <div class="flex items-center gap-3 mb-3">
           <h2
@@ -447,7 +447,7 @@
                 </svg>
               </button>
 
-              <!-- Links internos expandidos -->
+              <!-- Expanded Internal Links -->
               <div
                 id="goblygonDrawer"
                 class="hidden border-t border-brand-lime/20 divide-y divide-brand-sage/15"
@@ -545,7 +545,7 @@
         </div>
       </section>
 
-      <!-- Seção da Galeria com Filtros Integrados -->
+      <!-- 3. Gallery Section with Integrated Filters -->
       <section class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <h2
@@ -563,7 +563,7 @@
           ></span>
         </div>
 
-        <!-- Filtros por Categoria -->
+        <!-- Category Filters -->
         <div class="mb-5">
           <p
             id="filterHeading"
@@ -574,58 +574,55 @@
           <div id="tagContainer" class="flex flex-wrap gap-2"></div>
         </div>
 
-        <!-- Grade de Cards -->
+        <!-- Cards Grid -->
         <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
       </section>
     </div>
 
-    <!-- Rodapé -->
+    <!-- Footer -->
     <footer
       class="relative z-10 w-full border-t border-brand-bronze/20 py-4 text-center text-[11px] text-brand-cream/50"
     >
       <p>© Andrew Mendes 2026</p>
     </footer>
 
-    <!-- Modal Lightbox -->
+    <!-- Frameless Lightbox Modal -->
     <div
       id="mediaModal"
-      class="fixed inset-0 z-50 bg-brand-canvas/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6"
+      class="fixed inset-0 z-50 bg-brand-canvas/95 backdrop-blur-md hidden flex-col items-center justify-center p-4 sm:p-6"
       onclick="handleBackdropClick(event)"
     >
-      <div
-        class="relative w-auto max-w-[92vw] sm:max-w-2xl bg-brand-canvas border border-brand-lime/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+      <!-- Floating Close Button -->
+      <button
+        type="button"
+        onclick="closeModal()"
+        aria-label="Fechar"
+        title="Fechar"
+        class="fixed top-4 right-4 z-50 w-9 h-9 text-brand-cream hover:text-brand-tangerine text-2xl flex items-center justify-center transition-colors active:scale-90 [text-shadow:0_1px_6px_rgba(0,0,0,0.85)] cursor-pointer focus:outline-none"
       >
-        <!-- Cabeçalho do Modal -->
-        <div
-          class="relative flex items-center justify-center px-12 py-3 border-b border-brand-lime/30 bg-brand-canvas/80 min-h-[48px]"
-        >
-          <h3
-            id="modalTitle"
-            class="text-xs sm:text-sm font-semibold text-brand-cream text-center leading-snug w-full px-2"
-          ></h3>
-          <button
-            onclick="closeModal()"
-            aria-label="Fechar"
-            class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-brand-canvas border border-brand-lime/40 text-brand-cream hover:text-brand-tangerine hover:border-brand-tangerine flex items-center justify-center transition-colors shrink-0"
-          >
-            ✕
-          </button>
-        </div>
+        ✕
+      </button>
 
-        <!-- Corpo do Modal -->
-        <div
-          id="modalBody"
-          class="p-4 sm:p-5 overflow-x-hidden overflow-y-auto flex items-center justify-center custom-scrollbar"
-        ></div>
-      </div>
+      <!-- Title Above Content -->
+      <h3
+        id="modalTitle"
+        class="text-sm sm:text-base font-semibold text-brand-cream text-center leading-snug max-w-xl px-10 mb-3 sm:mb-4 [text-shadow:0_1px_6px_rgba(0,0,0,0.75)] shrink-0"
+      ></h3>
+
+      <!-- Center Media & Bottom Description / Carousel -->
+      <div
+        id="modalBody"
+        onclick="handleBackdropClick(event)"
+        class="w-full max-w-3xl max-h-[88vh] overflow-visible overflow-x-hidden flex flex-col items-center justify-center custom-scrollbar"
+      ></div>
     </div>
 
-    <!-- Camada de Zoom em Tela Cheia -->
+    <!-- Fullscreen Image Zoom Overlay -->
     <div
       id="imageZoomOverlay"
       class="fixed inset-0 z-[60] bg-brand-canvas/95 backdrop-blur-md hidden select-none"
     >
-      <!-- Controles Superiores: Minimalistas e Fixos -->
+      <!-- Minimal Fixed Top Controls -->
       <div
         class="absolute top-4 right-4 z-50 flex items-center gap-2 pointer-events-auto"
       >
@@ -646,7 +643,7 @@
         </button>
       </div>
 
-      <!-- Área de Rolagem: overflow livre e sem overflow-x-hidden -->
+      <!-- Free Scroll / Pan Area -->
       <div
         id="imageZoomScrollArea"
         ontouchstart="handleTouchStart(event)"
@@ -667,7 +664,7 @@
       </div>
     </div>
 
-    <!-- Dados e Lógica JavaScript -->
+    <!-- Data & JavaScript Logic -->
     <script>
       const i18n = {
         pt: {
@@ -689,6 +686,7 @@
             Pintura: "Pintura",
             Tattoo: "Tattoo",
             Código: "Código",
+            GameDev: "Game Dev",
             Música: "Música",
             Luthieria: "Luthieria",
           },
@@ -732,8 +730,8 @@
           chevron.classList.remove("rotate-180");
         }
       }
-      
-function setGoblygonOpen(open) {
+
+      function setGoblygonOpen(open) {
         const cell = document.getElementById("goblygonCell");
         const card = document.getElementById("goblygonCard");
         const drawer = document.getElementById("goblygonDrawer");
@@ -742,7 +740,7 @@ function setGoblygonOpen(open) {
         if (!cell || !card || !drawer || !btn) return;
 
         if (open) {
-          // Mede a altura exata da célula E a altura interna exata do botão separadamente
+          // Capture exact cell and inner button heights before expanding
           const cellHeight = cell.offsetHeight;
           const btnHeight = btn.offsetHeight;
 
@@ -786,7 +784,7 @@ function setGoblygonOpen(open) {
           btn.setAttribute("aria-expanded", "false");
         }
       }
-      
+
       function toggleGoblygonDrawer(event) {
         if (event) event.stopPropagation();
         const drawer = document.getElementById("goblygonDrawer");
@@ -971,7 +969,11 @@ function setGoblygonOpen(open) {
         const countElem = document.getElementById("galleryCount");
         if (countElem) {
           countElem.textContent = `${filtered.length} ${
-            filtered.length === 1 ? "item" : "itens"
+            filtered.length === 1
+              ? "item"
+              : currentLang === "pt"
+                ? "itens"
+                : "items"
           }`;
         }
 
@@ -1028,14 +1030,6 @@ function setGoblygonOpen(open) {
                 </div>
               </div>
             `;
-          } else if (item.type === "code") {
-            innerContent = `
-          <div class="w-full h-full p-3.5 bg-brand-canvas flex flex-col justify-between font-mono text-[10px] text-brand-lime overflow-hidden">
-            <div class="text-[9px] uppercase tracking-widest text-brand-crimson font-bold">SOURCE CODE</div>
-            <pre class="opacity-80 line-clamp-4 leading-tight">${item.codeSnippet}</pre>
-            <div class="text-[9px] text-brand-tangerine">&lt;/&gt; Ver Código</div>
-          </div>
-        `;
           }
 
           card.innerHTML = `
@@ -1047,17 +1041,6 @@ function setGoblygonOpen(open) {
 
           grid.appendChild(card);
         });
-      }
-
-      function toggleModalDescription() {
-        const panel = document.getElementById("modalDescriptionPanel");
-        if (!panel) return;
-
-        if (panel.style.display === "none" || panel.style.display === "") {
-          panel.style.display = "flex";
-        } else {
-          panel.style.display = "none";
-        }
       }
 
       function toggleAudioPlay(btn) {
@@ -1155,15 +1138,18 @@ function setGoblygonOpen(open) {
       function navigateModal(direction) {
         if (!activeModalItem) return;
 
-        // Se o zoom estiver em 100% de escala, ignora para não interferir na navegação livre (pan)
+        // Ignore keyboard slide navigation when zoomed to 100% scale so panning works freely
         const zoomOverlay = document.getElementById("imageZoomOverlay");
-        const isZoomOpen = zoomOverlay && !zoomOverlay.classList.contains("hidden");
+        const isZoomOpen =
+          zoomOverlay && !zoomOverlay.classList.contains("hidden");
         if (isZoomOpen && isOriginalScale) return;
 
         const imgList =
           activeModalItem.images && activeModalItem.images.length > 0
             ? activeModalItem.images
-            : (activeModalItem.src ? [activeModalItem.src] : []);
+            : activeModalItem.src
+              ? [activeModalItem.src]
+              : [];
 
         if (imgList.length > 1) {
           let nextIndex = currentModalImageIndex + direction;
@@ -1193,11 +1179,13 @@ function setGoblygonOpen(open) {
         }
 
         if (track) {
-          track.style.transition = animate ? "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+          track.style.transition = animate
+            ? "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)"
+            : "none";
           track.style.transform = "translateX(0px)";
         }
 
-        // Atualiza a borda da miniatura correspondente
+        // Update active thumbnail border
         const thumbs = document.querySelectorAll(".thumb-btn");
         thumbs.forEach((btn, idx) => {
           if (idx === currentModalImageIndex) {
@@ -1209,16 +1197,24 @@ function setGoblygonOpen(open) {
           }
         });
 
-        // Sincroniza a imagem exibida no zoom se estiver aberto
+        // Sync zoomed image if fullscreen zoom is open
         const zoomedImg = document.getElementById("zoomedFullImg");
         const zoomOverlay = document.getElementById("imageZoomOverlay");
-        const imgList = activeModalItem && activeModalItem.images ? activeModalItem.images : [activeModalItem.src];
-        if (zoomOverlay && !zoomOverlay.classList.contains("hidden") && zoomedImg && imgList[currentModalImageIndex]) {
+        const imgList =
+          activeModalItem && activeModalItem.images
+            ? activeModalItem.images
+            : [activeModalItem.src];
+        if (
+          zoomOverlay &&
+          !zoomOverlay.classList.contains("hidden") &&
+          zoomedImg &&
+          imgList[currentModalImageIndex]
+        ) {
           zoomedImg.src = imgList[currentModalImageIndex];
         }
       }
 
-      function switchModalImage(imgUrl, clickedBtn) {
+      function switchModalImage(imgUrl) {
         if (!activeModalItem) return;
         const imgList = activeModalItem.images || [activeModalItem.src];
         const foundIdx = imgList.indexOf(imgUrl);
@@ -1238,34 +1234,38 @@ function setGoblygonOpen(open) {
         titleElem.innerHTML = item.title[currentLang];
         bodyElem.innerHTML = "";
 
+        const hasDesc = item.description && item.description[currentLang];
+        const descriptionMarkup = hasDesc
+          ? `<p id="modalDescriptionText" class="mt-2.5 text-xs sm:text-sm text-brand-cream/85 text-center max-w-lg px-3 leading-snug [text-shadow:0_1px_4px_rgba(0,0,0,0.75)]">${item.description[currentLang]}</p>`
+          : "";
+
         if (item.type === "image") {
           const imgList =
             item.images && item.images.length > 0 ? item.images : [item.src];
           const hasMultiple = imgList.length > 1;
-          const hasDesc = item.description && item.description[currentLang];
 
           bodyElem.innerHTML = `
-          <div class="flex flex-col items-center justify-center w-fit max-w-full">
-            <!-- Moldura do Carrossel ajustada à largura real da imagem -->
-              <div id="imageSwipeContainer" 
-                 ontouchstart="handleTouchStart(event)" 
-                 ontouchmove="handleTouchMove(event)" 
-                 ontouchend="handleTouchEnd(event)" 
+          <div onclick="event.stopPropagation()" class="flex flex-col items-center justify-center w-fit max-w-full">
+            <!-- Frameless Carousel Container -->
+            <div id="imageSwipeContainer"
+                 ontouchstart="handleTouchStart(event)"
+                 ontouchmove="handleTouchMove(event)"
+                 ontouchend="handleTouchEnd(event)"
                  ontouchcancel="handleTouchEnd(event)"
-                 class="relative w-fit max-w-full max-h-[50vh] sm:max-h-[56vh] mt-0.5 sm:mt-1 mb-2 sm:mb-2.5 select-none overflow-hidden rounded-xl flex items-center justify-center shrink-0" 
+                 class="relative w-fit max-w-full max-h-[55vh] sm:max-h-[60vh] select-none overflow-hidden rounded-xl flex items-center justify-center shrink-0"
                  style="touch-action: pan-y;">
-              
-              <!-- Slides (apenas o ativo ocupa largura real no layout) -->
+
+              <!-- Active Slide Track -->
               <div id="imageSwipeTrack" class="flex items-center justify-center w-fit max-w-full h-full will-change-transform">
                 ${imgList
                   .map(
                     (imgSrc, idx) => `
-                  <div class="modal-slide ${idx === currentModalImageIndex ? "flex" : "hidden"} items-center justify-center max-h-[50vh] sm:max-h-[56vh] max-w-full">
-                    <img src="${imgSrc}" alt="${item.title[currentLang]}" 
+                  <div class="modal-slide ${idx === currentModalImageIndex ? "flex" : "hidden"} items-center justify-center max-h-[55vh] sm:max-h-[60vh] max-w-full">
+                    <img src="${imgSrc}" alt="${item.title[currentLang]}"
                          draggable="false"
                          onclick="openImageZoom('${imgSrc}')"
-                         title="Clique para ampliar"
-                         class="max-h-[50vh] sm:max-h-[56vh] w-auto max-w-[82vw] sm:max-w-xl block rounded-xl object-contain shadow-md cursor-zoom-in hover:brightness-105 select-none" 
+                         title="${currentLang === "pt" ? "Clique para ampliar" : "Click to zoom"}"
+                         class="max-h-[55vh] sm:max-h-[60vh] w-auto max-w-[92vw] sm:max-w-2xl block rounded-xl object-contain shadow-2xl cursor-zoom-in hover:brightness-105 select-none"
                          onerror="this.src='https://placehold.co/800x800/1e4044/f6e8e0?text=Imagem';">
                   </div>
                 `,
@@ -1276,7 +1276,7 @@ function setGoblygonOpen(open) {
               ${
                 hasMultiple
                   ? `
-                <!-- Setas discretas no celular -->
+                <!-- Mobile Swipe Chevrons -->
                 <button type="button" onclick="event.stopPropagation(); navigateModal(-1);" aria-label="Imagem anterior" title="Imagem anterior"
                         class="sm:hidden absolute left-0 top-1/2 -translate-y-1/2 z-20 text-brand-cream/80 active:text-brand-tangerine text-3xl px-3 py-4 select-none [text-shadow:0_1px_5px_rgba(0,0,0,0.9)] focus:outline-none">
                   ‹
@@ -1288,43 +1288,24 @@ function setGoblygonOpen(open) {
               `
                   : ""
               }
-
-              ${
-                hasDesc
-                  ? `
-                <!-- Botão de informações -->
-                <button type="button" onclick="event.stopPropagation(); toggleModalDescription();" title="Informações" aria-label="Informações"
-                        class="absolute top-2.5 right-2.5 z-30 w-7 h-7 rounded-full bg-brand-canvas/85 hover:bg-brand-canvas text-brand-tangerine border border-brand-lime/60 flex items-center justify-center text-xs font-serif font-bold shadow-lg backdrop-blur-sm transition-all duration-200 cursor-pointer">
-                  ℹ
-                </button>
-
-                <!-- Painel de Descrição -->
-                <div id="modalDescriptionPanel" style="display: none;" 
-                     class="absolute inset-x-0 bottom-3 px-3 sm:px-4 z-20 flex justify-center pointer-events-none">
-                  <p id="modalDescriptionText" 
-                     class="inline-block bg-brand-canvas/85 backdrop-blur-md text-brand-cream border border-brand-lime/30 text-xs sm:text-[13px] leading-relaxed text-center font-normal px-3 py-1.5 rounded-lg shadow-lg max-w-[90%] pointer-events-auto">
-                    ${item.description[currentLang]}
-                  </p>
-                </div>
-              `
-                  : ""
-              }
             </div>
 
-            <!-- Miniaturas: dimensões compactas para caber na tela sem gerar scroll vertical -->
+            ${descriptionMarkup}
+
+            <!-- Thumbnail Strip at the Bottom -->
             ${
               hasMultiple
                 ? `
-              <div class="flex items-center gap-2 overflow-x-auto max-w-full py-1 px-2 custom-scrollbar shrink-0">
+              <div class="flex items-center gap-2 overflow-x-auto max-w-[92vw] sm:max-w-xl mt-2.5 py-1 px-2 custom-scrollbar shrink-0">
                 ${imgList
                   .map(
                     (img, idx) => `
-                  <button type="button" onclick="switchModalImage('${img}', this)" 
+                  <button type="button" onclick="switchModalImage('${img}')"
                           class="thumb-btn shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border-2 ${
                             idx === currentModalImageIndex
                               ? "border-brand-tangerine opacity-100"
                               : "border-brand-lime/40 opacity-50"
-                          } hover:opacity-100 transition-all">
+                          } hover:opacity-100 transition-all shadow-md">
                     <img src="${img}" class="w-full h-full object-cover">
                   </button>
                 `,
@@ -1337,18 +1318,16 @@ function setGoblygonOpen(open) {
           </div>
         `;
         } else if (item.type === "video") {
-          const hasDesc = item.description && item.description[currentLang];
-
           let videoMarkup = "";
           if (item.youtubeId) {
             videoMarkup = `
-            <div class="w-[85vw] max-w-xl aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-brand-lime/30">
-              <iframe 
-                class="w-full h-full block" 
-                src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?loop=1&playlist=${item.youtubeId}&rel=0" 
-                title="${item.title[currentLang]}" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            <div class="w-[90vw] max-w-2xl aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-brand-lime/30">
+              <iframe
+                class="w-full h-full block"
+                src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?loop=1&playlist=${item.youtubeId}&rel=0"
+                title="${item.title[currentLang]}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
@@ -1356,17 +1335,17 @@ function setGoblygonOpen(open) {
           } else {
             videoMarkup = `
               <div class="inline-flex justify-center items-center rounded-xl overflow-hidden bg-black/40 shadow-2xl border border-brand-lime/30">
-                <video 
-                  id="modalVideoElement" 
-                  controls 
-                  autoplay 
-                  muted 
-                  loop 
-                  playsinline 
-                  preload="auto" 
-                  poster="${item.poster || ''}" 
-                  src="${item.src}" 
-                  class="block max-h-[55vh] sm:max-h-[60vh] w-auto max-w-full rounded-xl object-contain">
+                <video
+                  id="modalVideoElement"
+                  controls
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  poster="${item.poster || ""}"
+                  src="${item.src}"
+                  class="block max-h-[65vh] sm:max-h-[70vh] w-auto max-w-[92vw] sm:max-w-2xl rounded-xl object-contain">
                   <source src="${item.src}" type="video/mp4">
                   Seu navegador não suporta vídeos.
                 </video>
@@ -1375,32 +1354,22 @@ function setGoblygonOpen(open) {
           }
 
           bodyElem.innerHTML = `
-            <div class="flex flex-col items-center justify-center w-full">
+            <div onclick="event.stopPropagation()" class="flex flex-col items-center justify-center w-fit max-w-full">
               ${videoMarkup}
-              ${
-                hasDesc
-                  ? `
-                <p id="modalDescriptionText" class="mt-2.5 text-xs sm:text-sm text-brand-cream/80 text-center max-w-md px-3 leading-snug">
-                  ${item.description[currentLang]}
-                </p>
-              `
-                  : ""
-              }
+              ${descriptionMarkup}
             </div>
           `;
         } else if (item.type === "audio") {
-          const hasDesc = item.description && item.description[currentLang];
-
           bodyElem.innerHTML = `
-          <div class="flex flex-col items-center justify-center w-full">
-            <div class="relative w-auto max-w-[320px] sm:max-w-[360px] max-h-[50vh] sm:max-h-[56vh] aspect-square rounded-2xl overflow-hidden border border-brand-lime/40 shadow-2xl bg-brand-canvas flex items-center justify-center">
-              
-              <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${item.title[currentLang]}" 
-                   class="w-full h-full object-cover select-none" 
+          <div onclick="event.stopPropagation()" class="flex flex-col items-center justify-center w-fit max-w-full">
+            <div class="relative w-auto max-w-[340px] sm:max-w-[400px] max-h-[58vh] sm:max-h-[64vh] aspect-square rounded-2xl overflow-hidden border border-brand-lime/40 shadow-2xl bg-brand-canvas flex items-center justify-center">
+
+              <img src="${item.coverUrl || "assets/CS50.jpg"}" alt="${item.title[currentLang]}"
+                   class="w-full h-full object-cover select-none"
                    onerror="this.src='https://placehold.co/400x400/1e4044/e98537?text=Audio';">
 
               <div class="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 z-30 flex items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-canvas/85 backdrop-blur-md border border-brand-lime/50 shadow-lg text-brand-cream">
-                
+
                 <button type="button" onclick="toggleAudioPlay(this)" aria-label="Tocar / Pausar"
                         class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand-sage hover:bg-brand-lime text-brand-canvas flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm">
                   <svg id="audioPlayIcon" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5 hidden" viewBox="0 0 24 24">
@@ -1430,8 +1399,8 @@ function setGoblygonOpen(open) {
                       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
                     </svg>
                   </button>
-                  <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1" 
-                         oninput="changeAudioVolume(this.value)" 
+                  <input id="audioVolumeSlider" type="range" min="0" max="1" step="0.05" value="1"
+                         oninput="changeAudioVolume(this.value)"
                          class="w-10 sm:w-12 h-1 bg-brand-canvas accent-brand-tangerine rounded-lg cursor-pointer">
                 </div>
 
@@ -1443,21 +1412,7 @@ function setGoblygonOpen(open) {
 
             </div>
 
-            ${
-              hasDesc
-                ? `
-              <p id="modalDescriptionText" class="mt-2 text-xs sm:text-sm text-brand-cream/80 text-center max-w-sm px-3 leading-snug">
-                ${item.description[currentLang]}
-              </p>
-            `
-                : ""
-            }
-          </div>
-        `;
-        } else if (item.type === "code") {
-          bodyElem.innerHTML = `
-          <div class="w-full">
-            <pre class="bg-brand-canvas p-4 rounded-xl text-xs font-mono text-brand-lime border border-brand-lime/40 overflow-x-auto custom-scrollbar"><code>${item.codeSnippet.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+            ${descriptionMarkup}
           </div>
         `;
         }
@@ -1511,34 +1466,36 @@ function setGoblygonOpen(open) {
         zoomedImg.style.opacity = "1";
 
         if (isOriginalScale) {
-          // Escala original 100%: rolagem bidirecional livre e centralizada
+          // 100% original scale: free bidirectional scroll and centered alignment
           scrollArea.style.touchAction = "pan-x pan-y";
-          // flex com m-auto na imagem permite centralização natural no desktop
-          // e rolagem livre completa sem travar
-          scrollArea.className = "w-full h-full overflow-auto custom-scrollbar p-4 flex";
+          scrollArea.className =
+            "w-full h-full overflow-auto custom-scrollbar p-4 flex";
 
           zoomedImg.className =
             "max-w-none max-h-none m-auto block transition-transform duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-out";
-          
+
           if (badge) {
-            badge.textContent = currentLang === "pt" ? "100% Original" : "100% Raw";
+            badge.textContent =
+              currentLang === "pt" ? "100% Original" : "100% Raw";
           }
         } else {
-          // Ajustado à tela: centralizado e pronto para o swipe entre fotos
+          // Fit to screen: centered and ready for swipe gestures
           scrollArea.style.touchAction = "pan-y";
-          scrollArea.className = "w-full h-full overflow-auto custom-scrollbar p-2 sm:p-6 flex items-center justify-center";
+          scrollArea.className =
+            "w-full h-full overflow-auto custom-scrollbar p-2 sm:p-6 flex items-center justify-center";
 
           zoomedImg.className =
             "max-w-full max-h-[90vh] object-contain m-auto transition-all duration-300 ease-out select-none shadow-2xl rounded-lg cursor-zoom-in";
-          
+
           if (badge) {
-            badge.textContent = currentLang === "pt" ? "Ajustado" : "Fit Screen";
+            badge.textContent =
+              currentLang === "pt" ? "Ajustado" : "Fit Screen";
           }
         }
       }
 
       function handleZoomOverlayClick(event) {
-        // Clicar no fundo escuro fora da imagem fecha o zoom
+        // Clicking the dark backdrop closes the zoom overlay
         if (
           event.target.id === "imageZoomScrollArea" ||
           event.target.id === "imageZoomOverlay"
@@ -1584,7 +1541,12 @@ function setGoblygonOpen(open) {
       }
 
       function handleBackdropClick(event) {
-        if (event.target.id === "mediaModal") closeModal();
+        if (
+          event.target.id === "mediaModal" ||
+          event.target.id === "modalBody"
+        ) {
+          closeModal();
+        }
       }
 
       document.addEventListener("keydown", (e) => {
@@ -1609,7 +1571,7 @@ function setGoblygonOpen(open) {
         }
       });
 
-      // Lógica de Toque e Deslize Unificada (Funciona no Modal e na Tela Cheia Ajustada)
+      // Unified Touch & Swipe Logic (Works in both Lightbox Modal and Fit-to-Screen Zoom)
       let touchStartX = 0;
       let touchStartY = 0;
       let currentDeltaX = 0;
@@ -1618,9 +1580,10 @@ function setGoblygonOpen(open) {
 
       function handleTouchStart(e) {
         const zoomOverlay = document.getElementById("imageZoomOverlay");
-        const isZoomOpen = zoomOverlay && !zoomOverlay.classList.contains("hidden");
-        
-        // Se estiver em 100% de escala, permite o deslocamento livre da imagem
+        const isZoomOpen =
+          zoomOverlay && !zoomOverlay.classList.contains("hidden");
+
+        // Allow native free panning when zoomed to 100% scale
         if (isZoomOpen && isOriginalScale) return;
 
         const imgList =
@@ -1643,16 +1606,17 @@ function setGoblygonOpen(open) {
             track.style.transition = "none";
             track.style.opacity = "1";
           }
-        } 
+        }
       }
 
       function handleTouchMove(e) {
         if (!isDragging) return;
 
         const zoomOverlay = document.getElementById("imageZoomOverlay");
-        const isZoomOpen = zoomOverlay && !zoomOverlay.classList.contains("hidden");
+        const isZoomOpen =
+          zoomOverlay && !zoomOverlay.classList.contains("hidden");
 
-        // Se estiver em 100% no zoom, não intercepta NADA para permitir o pan nativo livre
+        // Do not intercept touch moves at 100% scale so native panning works smoothly
         if (isZoomOpen && isOriginalScale) {
           return;
         }
@@ -1693,9 +1657,10 @@ function setGoblygonOpen(open) {
         isDragging = false;
 
         const zoomOverlay = document.getElementById("imageZoomOverlay");
-        const isZoomOpen = zoomOverlay && !zoomOverlay.classList.contains("hidden");
+        const isZoomOpen =
+          zoomOverlay && !zoomOverlay.classList.contains("hidden");
 
-        // Se estiver em 100% de escala, o pan livre já foi concluído pelo navegador
+        // Native panning already handled by browser at 100% scale
         if (isZoomOpen && isOriginalScale) {
           currentDeltaX = 0;
           isHorizontal = false;
@@ -1706,77 +1671,84 @@ function setGoblygonOpen(open) {
           activeModalItem && activeModalItem.images ? activeModalItem.images : [];
         const threshold = 40;
 
-        if (isHorizontal && Math.abs(currentDeltaX) > threshold && imgList.length > 1) {
-          const movingLeft = currentDeltaX < 0; // true: arrastou para a esquerda (próxima foto)
+        if (
+          isHorizontal &&
+          Math.abs(currentDeltaX) > threshold &&
+          imgList.length > 1
+        ) {
+          const movingLeft = currentDeltaX < 0;
 
           if (isZoomOpen) {
             const zoomedImg = document.getElementById("zoomedFullImg");
             if (zoomedImg) {
               const screenW = window.innerWidth || 360;
-              // 1. Termina de jogar a imagem atual para fora na mesma direção do arrasto
-              zoomedImg.style.transition = "transform 0.18s ease-out, opacity 0.18s ease-out";
+              // 1. Slide current image out in the swipe direction
+              zoomedImg.style.transition =
+                "transform 0.18s ease-out, opacity 0.18s ease-out";
               zoomedImg.style.transform = `translateX(${movingLeft ? -screenW : screenW}px)`;
               zoomedImg.style.opacity = "0";
 
               setTimeout(() => {
-                // 2. Atualiza o índice da imagem
+                // 2. Update image index
                 currentModalImageIndex = movingLeft
                   ? (currentModalImageIndex + 1) % imgList.length
-                  : (currentModalImageIndex - 1 + imgList.length) % imgList.length;
+                  : (currentModalImageIndex - 1 + imgList.length) %
+                    imgList.length;
 
-                // 3. Coloca a próxima imagem no lado OPOSTO sem nenhuma transição
+                // 3. Position incoming image on the opposite side without transition
                 zoomedImg.style.transition = "none";
                 zoomedImg.src = imgList[currentModalImageIndex];
                 zoomedImg.style.transform = `translateX(${movingLeft ? screenW : -screenW}px)`;
 
-                // 4. Força o navegador a registrar a posição inicial antes de animar para o centro
+                // 4. Force reflow before animating to center
                 void zoomedImg.offsetWidth;
 
-                // 5. Entra suavemente deslizando até o centro (0px)
-                zoomedImg.style.transition = "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease-out";
+                // 5. Slide smoothly to center (0px)
+                zoomedImg.style.transition =
+                  "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease-out";
                 zoomedImg.style.transform = "translateX(0px)";
                 zoomedImg.style.opacity = "1";
 
-                // Atualiza o carrossel e as miniaturas em segundo plano
+                // Sync background carousel and thumbnails
                 updateModalCarouselPosition(false);
               }, 180);
             }
           } else {
-            // No modal normal: saída para o lado do arrasto e entrada pelo lado oposto
+            // Standard modal directional slide transition
             const track = document.getElementById("imageSwipeTrack");
             const container = document.getElementById("imageSwipeContainer");
             if (track && container) {
               const slideW = container.offsetWidth || 320;
-              // 1. Termina de deslizar a foto atual para fora na direção do gesto
-              track.style.transition = "transform 0.16s ease-out, opacity 0.16s ease-out";
+              track.style.transition =
+                "transform 0.16s ease-out, opacity 0.16s ease-out";
               track.style.transform = `translateX(${movingLeft ? -slideW : slideW}px)`;
               track.style.opacity = "0";
 
               setTimeout(() => {
-                // 2. Atualiza o índice e troca o slide visível
                 currentModalImageIndex = movingLeft
                   ? (currentModalImageIndex + 1) % imgList.length
-                  : (currentModalImageIndex - 1 + imgList.length) % imgList.length;
+                  : (currentModalImageIndex - 1 + imgList.length) %
+                    imgList.length;
                 updateModalCarouselPosition(false);
 
-                // 3. Posiciona a nova foto no lado oposto sem transição
                 track.style.transition = "none";
                 track.style.transform = `translateX(${movingLeft ? slideW : -slideW}px)`;
 
-                // 4. Força o reflow e anima a entrada até o centro (0px)
                 void track.offsetWidth;
-                track.style.transition = "transform 0.24s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.24s ease-out";
+                track.style.transition =
+                  "transform 0.24s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.24s ease-out";
                 track.style.transform = "translateX(0px)";
                 track.style.opacity = "1";
               }, 160);
             }
           }
         } else {
-          // Gesto cancelado / solto antes do limiar: volta suave ao centro
+          // Gesture cancelled before threshold: snap smoothly back to center
           if (isZoomOpen) {
             const zoomedImg = document.getElementById("zoomedFullImg");
             if (zoomedImg) {
-              zoomedImg.style.transition = "transform 0.2s ease-out, opacity 0.2s ease-out";
+              zoomedImg.style.transition =
+                "transform 0.2s ease-out, opacity 0.2s ease-out";
               zoomedImg.style.transform = "translateX(0px)";
               zoomedImg.style.opacity = "1";
             }
@@ -1789,7 +1761,7 @@ function setGoblygonOpen(open) {
         isHorizontal = false;
       }
 
-      // Inicializa a página e carrega o arquivo de dados
+      // Initialize page language and load gallery data
       setLanguage("pt");
       loadGalleryData();
     </script>
